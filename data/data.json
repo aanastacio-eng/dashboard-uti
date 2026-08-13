@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T18:04:02.163Z",
+  "actualizado": "2026-08-13T18:04:45.577Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 383,
-    "ventas_totales": 6695,
-    "ingresos_totales": 523844.05,
+    "inventario_actual": 380,
+    "ventas_totales": 6698,
+    "ingresos_totales": 524061.17,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3600,
-      "ingresos": 262754.612,
+      "ventas": 3601,
+      "ingresos": 262815.39200000005,
       "productos": 25
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -25,8 +25,8 @@
       "productos": 4
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1753,
-      "ingresos": 146657.12199999997,
+      "ventas": 1755,
+      "ingresos": 146813.46199999997,
       "productos": 15
     },
     "Producto Terminado / Vestidos": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4104,
+      "ventas": 4107,
       "stock_inicial": 1130,
-      "stock_actual": 415,
+      "stock_actual": 412,
       "productos": 53
     },
     "UTI 2": {
@@ -124,11 +124,11 @@
       "stock_actual": -6
     },
     {
-      "nombre": "LM2734-EE-LEMALER PANTALÓN CELESTE COMB.",
-      "coleccion": "UTI 2",
+      "nombre": "LM2627-W-LEMALER PANTALÓN VINO",
+      "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "ventas": 186,
-      "stock_actual": 0
+      "stock_actual": -20
     }
   ],
   "menos_vendidos": [
@@ -205,10 +205,10 @@
   ],
   "ventas_por_talla": {
     "XS": 1455,
-    "S": 1922,
+    "S": 1923,
     "M": 1902,
-    "L": 897,
-    "XL": 439,
+    "L": 898,
+    "XL": 440,
     "XXS": 2,
     "Única": 73,
     "T-40": 0,
@@ -285,8 +285,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 8,
-      "stock_actual": -19,
-      "ventas": 185,
+      "stock_actual": -20,
+      "ventas": 186,
       "precio": 78.17
     },
     {
@@ -305,8 +305,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 1,
-      "stock_actual": -29,
-      "ventas": 154,
+      "stock_actual": -30,
+      "ventas": 155,
       "precio": 60.78
     },
     {
@@ -375,8 +375,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 186,
-      "stock_actual": 171,
-      "ventas": 15,
+      "stock_actual": 170,
+      "ventas": 16,
       "precio": 78.17
     },
     {
