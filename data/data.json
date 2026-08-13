@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-08-13T18:02:08.069Z",
+  "actualizado": "2026-08-13T18:04:02.163Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 385,
+    "inventario_actual": 383,
     "ventas_totales": 6695,
     "ingresos_totales": 523844.05,
     "total_productos": 74
@@ -49,7 +49,7 @@
     "Uti 1": {
       "ventas": 4104,
       "stock_inicial": 1130,
-      "stock_actual": 417,
+      "stock_actual": 415,
       "productos": 53
     },
     "UTI 2": {
@@ -665,7 +665,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 151,
-      "stock_actual": 117,
+      "stock_actual": 116,
       "ventas": 34,
       "precio": 86.87
     },
@@ -675,7 +675,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 164,
-      "stock_actual": 115,
+      "stock_actual": 114,
       "ventas": 49,
       "precio": 78.17
     },
