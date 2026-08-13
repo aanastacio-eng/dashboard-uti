@@ -28,7 +28,7 @@ body{margin:0;background:var(--bg);color:var(--ink);
 .fade-in { animation: fadeIn .25s ease-in-out; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
-/* PORTADA DE LOGIN PRO */
+/* PORTADA DE LOGIN */
 .login-wrap{ min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
 .login-card{ background: var(--card); border: .5px solid var(--line); border-radius: 12px; padding: 32px 28px; width: 100%; max-width: 360px; box-shadow: 0 10px 25px rgba(0,0,0,.1); text-align: center; }
 .login-card h2{ font-size: 18px; margin: 0 0 6px; }
@@ -73,6 +73,15 @@ button[aria-pressed="true"]{background:var(--soft);font-weight:600;border-color:
 .bar span{display:block;height:100%}
 .mini{border-top:.5px solid var(--line);margin-top:14px;padding-top:12px;font-size:13px}
 .mini div{display:flex;justify-content:space-between;padding:3px 0}
+
+/* DIAGNÓSTICOS */
+.diag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:10px}
+.diag-box{background:var(--soft);padding:12px 14px;border-radius:8px;border-left:4px solid var(--line-2)}
+.diag-box.danger{border-left-color:#d03b3b}
+.diag-box.warning{border-left-color:var(--amber)}
+.diag-box.success{border-left-color:var(--green)}
+.diag-box h3{font-size:13px;margin:0 0 4px;font-weight:600}
+.diag-box p{font-size:12px;color:var(--ink-2);margin:0}
 
 table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}
 th{font-weight:400;color:var(--ink-2);text-align:right;padding:7px 0;border-bottom:.5px solid var(--line)}
@@ -164,6 +173,12 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
       <div class="kpi"><p class="lbl">Ventas diarias prom.</p><p class="val" id="kpiDailyAvg">—</p><p class="tiny" id="kpiDaysCount">uds / día</p></div>
     </div>
 
+    <!-- CUADRO DE DIAGNÓSTICO Y SUGERENCIAS DE ACCIÓN EN EL RESUMEN -->
+    <div class="card">
+      <h2>💡 Diagnóstico Comercial y Sugerencias</h2>
+      <div class="diag-grid" id="diagContainer"></div>
+    </div>
+
     <!-- GRÁFICO DE LÍNEA DE VIDA DIARIA -->
     <div class="card">
       <h2>Línea de vida de ventas (Día a Día)</h2>
@@ -234,7 +249,7 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
   </div>
 </div>
 
-<!-- LIBRERÍAS DE CHART.JS Y SHEETJS (EXCEL XLSX) -->
+<!-- LIBRERÍAS DE CHART.JS Y SHEETJS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
@@ -355,7 +370,6 @@ function render(){
   const stockActual = prods.reduce((s,p) => s + p.stock_actual, 0);
   const sellThrough = stockInicial > 0 ? Math.round((udsVendidas / stockInicial) * 100) : 0;
 
-  // Días reales de campaña desde el 12 de agosto
   const diasCampaña = calcularDiasCampana();
   const promedioDiario = (udsVendidas / diasCampaña).toFixed(1);
 
@@ -367,7 +381,29 @@ function render(){
   document.getElementById('kpiDailyAvg').textContent = promedioDiario;
   document.getElementById('kpiDaysCount').textContent = `uds/día (${diasCampaña} día${diasCampaña > 1 ? 's' : ''} activos)`;
   document.getElementById('kpiTotalProds').textContent = prods.length;
-  document.getElementById('kpiAgotar').textContent = prods.filter(p => p.stock_actual < 15).length;
+  
+  const agotados = prods.filter(p => p.stock_actual < 15);
+  document.getElementById('kpiAgotar').textContent = agotados.length;
+
+  // GENERAR DIAGNÓSTICOS DINÁMICOS
+  const diagContainer = document.getElementById('diagContainer');
+  let diagHTML = '';
+
+  if (sellThrough > 50) {
+    diagHTML += `<div class="diag-box success"><h3>🚀 Excelente Tracción (${sellThrough}%)</h3><p>La colección está teniendo una altísima rotación comercial en sus primeros días de lanzamiento.</p></div>`;
+  } else {
+    diagHTML += `<div class="diag-box warning"><h3>📊 Avance Moderado (${sellThrough}%)</h3><p>La colección mantiene un ritmo de venta constante, monitorear prendas clave.</p></div>`;
+  }
+
+  if (agotados.length > 0) {
+    diagHTML += `<div class="diag-box danger"><h3>⚠️ ${agotados.length} Prendas en Riesgo de Quiebre</h3><p>Tienen menos de 15 unidades en stock. Evaluar reabastecimiento urgente de prendas Top.</p></div>`;
+  } else {
+    diagHTML += `<div class="diag-box success"><h3>✅ Stock Saludable</h3><p>Todas las prendas cuentan con stock suficiente para cubrir la demanda actual.</p></div>`;
+  }
+
+  diagHTML += `<div class="diag-box warning"><h3>🔥 Promedio Promedio Actual</h3><p>Proyección de <strong>${promedioDiario} uds/día</strong>. Mantener la pauta publicitaria en redes.</p></div>`;
+
+  diagContainer.innerHTML = diagHTML;
 
   // ACTUALIZAR GRÁFICO LÍNEA DE VIDA DIARIA
   if(timelineChart && rawData.ventas_diarias){
@@ -396,7 +432,7 @@ function render(){
     <div class="bar"><span style="width:${pct}%;background:${colors[i%3]}"></span></div>`;
   }).join('');
 
-  // FILTROS Y BÚSQUEDA DETALLE
+  // TABLA DETALLE (SIN FILTRO DE DIAGNÓSTICO)
   const search = (document.getElementById('searchInput')?.value || '').toLowerCase();
 
   let filteredDetalle = prods.filter(p => {
@@ -418,7 +454,7 @@ function render(){
   document.getElementById('detalleNota').textContent = `${filteredDetalle.length} prendas mostradas · el stock actual se marca en rojo cuando quedan menos de 15 unidades`;
 }
 
-// EXPORTACIÓN A EXCEL NATIVO (.XLSX)
+// EXPORTACIÓN A EXCEL (.XLSX)
 function exportXLSX(){
   const prods = filterProducts();
   const excelData = prods.map(p => ({
