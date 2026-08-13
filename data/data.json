@@ -1,22 +1,22 @@
 {
-  "actualizado": "2026-08-13T18:26:56.987Z",
+  "actualizado": "2026-08-13T18:30:38.320Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 367,
-    "ventas_totales": 6707,
-    "ingresos_totales": 524747.33,
+    "inventario_actual": 361,
+    "ventas_totales": 6713,
+    "ingresos_totales": 525225.07,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3606,
-      "ingresos": 263197.56500000006,
+      "ventas": 3609,
+      "ingresos": 263449.4820000001,
       "productos": 25
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1759,
-      "ingresos": 147117.452,
+      "ventas": 1761,
+      "ingresos": 147273.792,
       "productos": 15
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -40,16 +40,16 @@
       "productos": 23
     },
     "Producto Terminado / Shorts": {
-      "ventas": 656,
-      "ingresos": 45578.880000000005,
+      "ventas": 657,
+      "ingresos": 45648.36,
       "productos": 4
     }
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4116,
+      "ventas": 4122,
       "stock_inicial": 1130,
-      "stock_actual": 399,
+      "stock_actual": 393,
       "productos": 53
     },
     "UTI 2": {
@@ -117,18 +117,18 @@
       "stock_actual": -8
     },
     {
+      "nombre": "Pantalón Caminos",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Pantalones",
+      "ventas": 188,
+      "stock_actual": -22
+    },
+    {
       "nombre": "Blusa Coral",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 187,
       "stock_actual": -6
-    },
-    {
-      "nombre": "Pantalón Caminos",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Pantalones",
-      "ventas": 187,
-      "stock_actual": -21
     }
   ],
   "menos_vendidos": [
@@ -205,8 +205,8 @@
   ],
   "ventas_por_talla": {
     "XS": 1456,
-    "S": 1926,
-    "M": 1904,
+    "S": 1930,
+    "M": 1906,
     "L": 900,
     "XL": 441,
     "XXS": 2,
@@ -235,8 +235,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 6,
-      "stock_actual": -13,
-      "ventas": 160,
+      "stock_actual": -14,
+      "ventas": 161,
       "precio": 60.78
     },
     {
@@ -335,8 +335,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 7,
-      "stock_actual": -8,
-      "ventas": 173,
+      "stock_actual": -9,
+      "ventas": 174,
       "precio": 95.57
     },
     {
@@ -525,8 +525,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 8,
-      "stock_actual": -21,
-      "ventas": 187,
+      "stock_actual": -22,
+      "ventas": 188,
       "precio": 78.17
     },
     {
@@ -615,8 +615,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 6,
-      "stock_actual": -7,
-      "ventas": 170,
+      "stock_actual": -8,
+      "ventas": 171,
       "precio": 78.17
     },
     {
@@ -895,8 +895,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 11,
-      "stock_actual": -5,
-      "ventas": 109,
+      "stock_actual": -6,
+      "ventas": 110,
       "precio": 69.48
     },
     {
@@ -925,8 +925,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 16,
-      "stock_actual": -14,
-      "ventas": 122,
+      "stock_actual": -15,
+      "ventas": 123,
       "precio": 95.567
     },
     {
