@@ -1,11 +1,11 @@
 {
-  "actualizado": "2026-08-13T18:20:23.746Z",
+  "actualizado": "2026-08-13T18:20:29.316Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 371,
-    "ventas_totales": 6703,
-    "ingresos_totales": 524443.33,
+    "inventario_actual": 370,
+    "ventas_totales": 6704,
+    "ingresos_totales": 524512.81,
     "total_productos": 74
   },
   "por_categoria": {
@@ -15,8 +15,8 @@
       "productos": 25
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1758,
-      "ingresos": 147047.972,
+      "ventas": 1759,
+      "ingresos": 147117.452,
       "productos": 15
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4112,
+      "ventas": 4113,
       "stock_inicial": 1130,
-      "stock_actual": 403,
+      "stock_actual": 402,
       "productos": 53
     },
     "UTI 2": {
@@ -113,8 +113,8 @@
       "nombre": "Pantalón Rosa",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "ventas": 193,
-      "stock_actual": -7
+      "ventas": 194,
+      "stock_actual": -8
     },
     {
       "nombre": "Blusa Coral",
@@ -207,7 +207,7 @@
     "XS": 1455,
     "S": 1926,
     "M": 1903,
-    "L": 898,
+    "L": 899,
     "XL": 441,
     "XXS": 2,
     "Única": 73,
@@ -665,8 +665,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 4,
-      "stock_actual": -7,
-      "ventas": 193,
+      "stock_actual": -8,
+      "ventas": 194,
       "precio": 69.48
     },
     {
