@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T19:01:23.374Z",
+  "actualizado": "2026-08-13T19:06:38.439Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 7071,
-    "inventario_actual": 306,
-    "ventas_totales": 6765,
-    "ingresos_totales": 529037.95,
+    "inventario_actual": 304,
+    "ventas_totales": 6767,
+    "ingresos_totales": 529185.59,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3639,
-      "ingresos": 265559.925,
+      "ventas": 3640,
+      "ingresos": 265629.403,
       "productos": 25
     },
     "Producto Terminado / Vestidos": {
@@ -20,8 +20,8 @@
       "productos": 3
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1770,
-      "ingresos": 148003.432,
+      "ventas": 1771,
+      "ingresos": 148081.602,
       "productos": 15
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4174,
+      "ventas": 4176,
       "stock_inicial": 4514,
-      "stock_actual": 340,
+      "stock_actual": 338,
       "productos": 53
     },
     "UTI 2": {
@@ -71,8 +71,8 @@
       "nombre": "Blusa Certeza",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 223,
-      "stock_actual": -18
+      "ventas": 224,
+      "stock_actual": -19
     },
     {
       "nombre": "Short Paloma",
@@ -205,8 +205,8 @@
   ],
   "ventas_por_talla": {
     "XS": 1467,
-    "S": 1944,
-    "M": 1921,
+    "S": 1945,
+    "M": 1922,
     "L": 907,
     "XL": 443,
     "XXS": 2,
@@ -295,8 +295,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 205,
-      "stock_actual": -18,
-      "ventas": 223,
+      "stock_actual": -19,
+      "ventas": 224,
       "precio": 69.478
     },
     {
@@ -475,8 +475,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 186,
-      "stock_actual": 169,
-      "ventas": 17,
+      "stock_actual": 168,
+      "ventas": 18,
       "precio": 78.17
     },
     {
