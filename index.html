@@ -29,6 +29,53 @@
 body{margin:0;background:var(--bg);color:var(--ink);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
   font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* --- ESTILOS DE LA PORTADA / LOGIN --- */
+.login-wrap{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.login-card{
+  background: var(--card);
+  border: .5px solid var(--line);
+  border-radius: 12px;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.1);
+  text-align: center;
+}
+.login-card h2{ font-size: 18px; margin: 0 0 6px; }
+.login-card p{ font-size: 13px; color: var(--ink-2); margin-bottom: 20px; }
+.login-field{ margin-bottom: 14px; text-align: left; }
+.login-field label{ display: block; font-size: 12px; color: var(--ink-2); margin-bottom: 4px; }
+.login-field input{
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--soft);
+  border: .5px solid var(--line-2);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+.login-field input:focus{ outline: none; border-color: var(--blue); }
+.btn-primary{
+  width: 100%;
+  padding: 10px;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.btn-primary:hover{ opacity: .9; background: var(--ink); }
+.login-error{ color: #d03b3b; font-size: 12px; margin-top: 10px; display: none; }
+
+/* --- DASHBOARD WRAPPER --- */
 .wrap{max-width:1040px;margin:0 auto;padding:28px 20px 60px}
 h1{font-size:20px;font-weight:600;margin:0;letter-spacing:-.01em}
 p{margin:0}
@@ -80,7 +127,7 @@ tfoot td{font-weight:600;border-bottom:none}
 select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);
   border:.5px solid var(--line-2);border-radius:var(--radius);padding:6px 10px}
 
-/* --- ESTILOS DEL POP-UP (MODAL) --- */
+/* POP-UP MODAL */
 .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.65);
   display:flex;align-items:center;justify-content:center;z-index:999;padding:20px;
   opacity:0;pointer-events:none;transition:opacity .2s ease}
@@ -107,17 +154,41 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);
 </style>
 </head>
 <body>
-<div class="wrap">
+
+<!-- PORTADA DE LOGIN -->
+<div class="login-wrap" id="loginPage">
+  <div class="login-card">
+    <h2>Lemaler x Uti Torres</h2>
+    <p>Ingresa tus credenciales para acceder</p>
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="login-field">
+        <label for="userInput">Usuario</label>
+        <input type="text" id="userInput" required placeholder="Ingresa usuario">
+      </div>
+      <div class="login-field">
+        <label for="passInput">Contraseña</label>
+        <input type="password" id="passInput" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn-primary">Ingresar al Dashboard</button>
+      <div class="login-error" id="loginError">Usuario o contraseña incorrectos</div>
+    </form>
+  </div>
+</div>
+
+<!-- DASHBOARD (OCULTO POR DEFECTO) -->
+<div class="wrap" id="dashboardPage" style="display:none">
 
   <div class="topbar">
     <div>
       <h1>Lemaler x Uti Torres</h1>
       <p class="tiny" id="syncStatus">Conectando con Odoo...</p>
     </div>
-    <!-- SOLO BOTONES UTI 1 Y UTI 2 -->
-    <div class="seg" id="dropFilter">
-      <button data-drop="uti 1" id="btnUti1" aria-pressed="true">Uti 1</button>
-      <button data-drop="uti 2" id="btnUti2">Uti 2</button>
+    <div style="display:flex; gap:12px; align-items:center;">
+      <div class="seg" id="dropFilter">
+        <button data-drop="uti 1" id="btnUti1" aria-pressed="true">Uti 1</button>
+        <button data-drop="uti 2" id="btnUti2">Uti 2</button>
+      </div>
+      <button onclick="logout()" style="padding:6px 10px; font-size:12px; color:var(--ink-3);" title="Cerrar sesión">Salir 🚪</button>
     </div>
   </div>
 
@@ -206,11 +277,50 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
+// --- CONFIGURACIÓN DE CREDENCIALES ---
+const USER_CORRECT = "admin";
+const PASS_CORRECT = "lemaler2026";
+
+function handleLogin(e){
+  e.preventDefault();
+  const u = document.getElementById('userInput').value.trim();
+  const p = document.getElementById('passInput').value.trim();
+  const err = document.getElementById('loginError');
+
+  if(u === USER_CORRECT && p === PASS_CORRECT){
+    sessionStorage.setItem('authenticated', 'true');
+    initDashboard();
+  } else {
+    err.style.display = 'block';
+  }
+}
+
+function logout(){
+  sessionStorage.removeItem('authenticated');
+  location.reload();
+}
+
+function checkAuth(){
+  if(sessionStorage.getItem('authenticated') === 'true'){
+    initDashboard();
+  }
+}
+
+function initDashboard(){
+  document.getElementById('loginPage').style.display = 'none';
+  document.getElementById('dashboardPage').style.display = 'block';
+  if(!chart){
+    initChart();
+  }
+  loadData();
+}
+
+// --- DASHBOARD SCRIPT ---
 const DATA_URL = 'data/data.json';
 const REFRESH_MS = 60000;
 
 let rawData = null;
-let drop = 'uti 1'; // Inicia directamente en Uti 1
+let drop = 'uti 1';
 let sortBy = 'act';
 let chart = null;
 
@@ -359,20 +469,24 @@ document.querySelectorAll('#tabs button').forEach(b => {
 
 document.getElementById('sortSel').onchange = e => { sortBy = e.target.value; render(); };
 
-const dark = matchMedia('(prefers-color-scheme: dark)').matches;
-chart = new Chart(document.getElementById('ventasChart'), {
-  type:'bar',
-  data:{ labels:[], datasets:[{ data:[], backgroundColor:'#2a78d6', borderRadius:4 }]},
-  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
-    scales:{
-      y:{ ticks:{color:'#8d8b84'}, grid:{color: dark?'rgba(255,255,255,.1)':'rgba(28,27,25,.1)'} },
-      x:{ ticks:{color:'#8d8b84', font:{size:10}}, grid:{display:false} }
+function initChart(){
+  const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+  chart = new Chart(document.getElementById('ventasChart'), {
+    type:'bar',
+    data:{ labels:[], datasets:[{ data:[], backgroundColor:'#2a78d6', borderRadius:4 }]},
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+      scales:{
+        y:{ ticks:{color:'#8d8b84'}, grid:{color: dark?'rgba(255,255,255,.1)':'rgba(28,27,25,.1)'} },
+        x:{ ticks:{color:'#8d8b84', font:{size:10}}, grid:{display:false} }
+      }
     }
-  }
-});
+  });
+}
 
-loadData();
-setInterval(loadData, REFRESH_MS);
+checkAuth();
+setInterval(() => {
+  if(sessionStorage.getItem('authenticated') === 'true') loadData();
+}, REFRESH_MS);
 </script>
 </body>
 </html>
