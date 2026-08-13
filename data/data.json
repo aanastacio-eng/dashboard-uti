@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-08-13T19:37:08.984Z",
+  "actualizado": "2026-08-13T19:37:47.890Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 7008,
-    "inventario_actual": 6225,
+    "inventario_actual": 6223,
     "ventas_totales": 770,
     "ingresos_totales": 58080.63,
     "total_productos": 48
@@ -39,7 +39,7 @@
     "Uti 1": {
       "ventas": 770,
       "stock_inicial": 4451,
-      "stock_actual": 3668,
+      "stock_actual": 3666,
       "productos": 29
     },
     "UTI 2": {
@@ -69,7 +69,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "ventas": 52,
-      "stock_actual": 111
+      "stock_actual": 110
     },
     {
       "nombre": "Short Paloma",
@@ -83,7 +83,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 38,
-      "stock_actual": 112
+      "stock_actual": 111
     },
     {
       "nombre": "Blusa Promesa",
@@ -418,7 +418,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 150,
-      "stock_actual": 112,
+      "stock_actual": 111,
       "ventas": 38,
       "precio": 86.87
     },
@@ -438,7 +438,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 163,
-      "stock_actual": 111,
+      "stock_actual": 110,
       "ventas": 52,
       "precio": 78.17
     },
