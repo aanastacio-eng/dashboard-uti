@@ -202,13 +202,11 @@ function render(){
   if(!rawData) return;
   const prods = filterProducts();
   
-  const ventasTotales = prods.reduce((s,p) => s + (p.ventas * (p.precio || 0)), 0);
   const udsVendidas = prods.reduce((s,p) => s + p.ventas, 0);
   const stockInicial = prods.reduce((s,p) => s + p.stock_inicial, 0);
   const stockActual = prods.reduce((s,p) => s + p.stock_actual, 0);
   const sellThrough = stockInicial > 0 ? Math.round((udsVendidas / stockInicial) * 100) : 0;
 
-  document.getElementById('kpiVentas').textContent = money(ventasTotales);
   document.getElementById('kpiUnidades').textContent = num(udsVendidas);
   document.getElementById('kpiProducidas').textContent = `de ${num(stockInicial)} iniciales`;
   document.getElementById('kpiStock').textContent = num(stockActual);
