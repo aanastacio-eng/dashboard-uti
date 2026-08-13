@@ -1,33 +1,33 @@
 {
-  "actualizado": "2026-08-13T18:30:38.320Z",
+  "actualizado": "2026-08-13T18:32:06.165Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 361,
-    "ventas_totales": 6713,
-    "ingresos_totales": 525225.07,
+    "inventario_actual": 358,
+    "ventas_totales": 6716,
+    "ingresos_totales": 525459.58,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3609,
-      "ingresos": 263449.4820000001,
+      "ventas": 3611,
+      "ingresos": 263605.8220000001,
       "productos": 25
     },
+    "Producto Terminado / Vestidos": {
+      "ventas": 297,
+      "ingresos": 32417.260000000002,
+      "productos": 3
+    },
     "Producto Terminado / Pantalones": {
-      "ventas": 1761,
-      "ingresos": 147273.792,
+      "ventas": 1762,
+      "ingresos": 147351.962,
       "productos": 15
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
       "ventas": 316,
       "ingresos": 34372.96,
       "productos": 2
-    },
-    "Producto Terminado / Vestidos": {
-      "ventas": 297,
-      "ingresos": 32417.260000000002,
-      "productos": 3
     },
     "Producto Terminado / Accesorios / Pañuelos": {
       "ventas": 68,
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4122,
+      "ventas": 4125,
       "stock_inicial": 1130,
-      "stock_actual": 393,
+      "stock_actual": 390,
       "productos": 53
     },
     "UTI 2": {
@@ -172,14 +172,14 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": -1
+      "stock_actual": 0
     },
     {
       "nombre": "Sandalia Kioto",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": 0
+      "stock_actual": -1
     },
     {
       "nombre": "Sandalia Lagos",
@@ -206,9 +206,9 @@
   "ventas_por_talla": {
     "XS": 1456,
     "S": 1930,
-    "M": 1906,
-    "L": 900,
-    "XL": 441,
+    "M": 1907,
+    "L": 901,
+    "XL": 442,
     "XXS": 2,
     "Única": 73,
     "T-40": 0,
@@ -260,16 +260,6 @@
       "precio": 69.48
     },
     {
-      "odoo_id": 96620,
-      "nombre": "Blusa Arena",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 26,
-      "precio": 78.173
-    },
-    {
       "odoo_id": 113168,
       "nombre": "Blusa Arena",
       "coleccion": "UTI 2",
@@ -277,6 +267,16 @@
       "stock_inicial": 1,
       "stock_actual": 1,
       "ventas": 115,
+      "precio": 78.173
+    },
+    {
+      "odoo_id": 96620,
+      "nombre": "Blusa Arena",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 26,
       "precio": 78.173
     },
     {
@@ -315,8 +315,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 154,
-      "stock_actual": 125,
-      "ventas": 28,
+      "stock_actual": 123,
+      "ventas": 30,
       "precio": 78.17
     },
     {
@@ -440,6 +440,26 @@
       "precio": 86.87
     },
     {
+      "odoo_id": 111571,
+      "nombre": "Cinturón Estelar",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Vestidos",
+      "stock_inicial": 5,
+      "stock_actual": 0,
+      "ventas": 5,
+      "precio": 26
+    },
+    {
+      "odoo_id": 96539,
+      "nombre": "Jean Alba",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Pantalones",
+      "stock_inicial": 153,
+      "stock_actual": 123,
+      "ventas": 30,
+      "precio": 78.17
+    },
+    {
       "odoo_id": 112018,
       "nombre": "Jean Despertar",
       "coleccion": "Uti 1",
@@ -447,6 +467,16 @@
       "stock_inicial": 164,
       "stock_actual": 113,
       "ventas": 50,
+      "precio": 78.17
+    },
+    {
+      "odoo_id": 96538,
+      "nombre": "Jean Tiempos",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Pantalones",
+      "stock_inicial": 186,
+      "stock_actual": 170,
+      "ventas": 16,
       "precio": 78.17
     },
     {
@@ -468,56 +498,6 @@
       "stock_actual": -1,
       "ventas": 164,
       "precio": 112.96
-    },
-    {
-      "odoo_id": 96538,
-      "nombre": "LM2706-AM LEMALER JEAN AZUL MEDIO",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 186,
-      "stock_actual": 170,
-      "ventas": 16,
-      "precio": 78.17
-    },
-    {
-      "odoo_id": 96539,
-      "nombre": "LM2707-C LEMALER JEAN CRUDO",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 153,
-      "stock_actual": 124,
-      "ventas": 29,
-      "precio": 78.17
-    },
-    {
-      "odoo_id": 111571,
-      "nombre": "LM2784-D LEMALER VESTIDOS DORADO",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Vestidos",
-      "stock_inicial": 5,
-      "stock_actual": 0,
-      "ventas": 5,
-      "precio": 26
-    },
-    {
-      "odoo_id": 112833,
-      "nombre": "LM2793-VE LEMALER PAÑUELOS VERDE COMB.",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Accesorios / Pañuelos",
-      "stock_inicial": 4,
-      "stock_actual": -4,
-      "ventas": 48,
-      "precio": 26
-    },
-    {
-      "odoo_id": 112169,
-      "nombre": "LM2793-WE LEMALER PAÑUELOS VINO COMB.",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Accesorios / Pañuelos",
-      "stock_inicial": -1,
-      "stock_actual": -1,
-      "ventas": 20,
-      "precio": 26
     },
     {
       "odoo_id": 96032,
@@ -640,6 +620,26 @@
       "precio": 95.565
     },
     {
+      "odoo_id": 112833,
+      "nombre": "Pañuelo Adriana",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Pañuelos",
+      "stock_inicial": 4,
+      "stock_actual": -4,
+      "ventas": 48,
+      "precio": 26
+    },
+    {
+      "odoo_id": 112169,
+      "nombre": "Pañuelo Adriana",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Pañuelos",
+      "stock_inicial": -1,
+      "stock_actual": -1,
+      "ventas": 20,
+      "precio": 26
+    },
+    {
       "odoo_id": 113555,
       "nombre": "Sandalia Ancona",
       "coleccion": "Uti 1",
@@ -690,22 +690,22 @@
       "precio": 78.17391304347827
     },
     {
-      "odoo_id": 113574,
-      "nombre": "Sandalia Kioto",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Accesorios / Calzado",
-      "stock_inicial": -1,
-      "stock_actual": -1,
-      "ventas": 0,
-      "precio": 78.17391304347827
-    },
-    {
       "odoo_id": 113575,
       "nombre": "Sandalia Kioto",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
       "stock_actual": 0,
+      "ventas": 0,
+      "precio": 78.17391304347827
+    },
+    {
+      "odoo_id": 113574,
+      "nombre": "Sandalia Kioto",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": -1,
+      "stock_actual": -1,
       "ventas": 0,
       "precio": 78.17391304347827
     },
@@ -800,16 +800,6 @@
       "precio": 78.17391304347827
     },
     {
-      "odoo_id": 113564,
-      "nombre": "Sandalia Sucre",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Accesorios / Calzado",
-      "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 0,
-      "precio": 69.47826086956523
-    },
-    {
       "odoo_id": 113562,
       "nombre": "Sandalia Sucre",
       "coleccion": "Uti 1",
@@ -820,9 +810,19 @@
       "precio": 69.47826086956523
     },
     {
-      "odoo_id": 113587,
+      "odoo_id": 113564,
+      "nombre": "Sandalia Sucre",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 69.47826086956523
+    },
+    {
+      "odoo_id": 113586,
       "nombre": "Sandalia Troya",
-      "coleccion": "UTI 2",
+      "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
       "stock_actual": 0,
@@ -840,19 +840,9 @@
       "precio": 52.08695652173913
     },
     {
-      "odoo_id": 113586,
+      "odoo_id": 113587,
       "nombre": "Sandalia Troya",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Accesorios / Calzado",
-      "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 0,
-      "precio": 52.08695652173913
-    },
-    {
-      "odoo_id": 113582,
-      "nombre": "Sandalia Zamora",
-      "coleccion": "Uti 1",
+      "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
       "stock_actual": 0,
@@ -867,6 +857,16 @@
       "stock_inicial": 0,
       "stock_actual": -3,
       "ventas": 3,
+      "precio": 52.08695652173913
+    },
+    {
+      "odoo_id": 113582,
+      "nombre": "Sandalia Zamora",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
       "precio": 52.08695652173913
     },
     {
