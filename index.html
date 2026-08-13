@@ -9,9 +9,6 @@
   --bg:#faf9f7; --card:#ffffff; --soft:#f3f1ed;
   --ink:#1c1b19; --ink-2:#5f5d57; --ink-3:#8d8b84;
   --line:rgba(28,27,25,.12); --line-2:rgba(28,27,25,.22);
-  --ok-bg:#eaf3de; --ok-tx:#27500a;
-  --wait-bg:#faeeda; --wait-tx:#633806;
-  --stop-bg:#fcebeb; --stop-tx:#791f1f;
   --blue:#2a78d6; --green:#1baf7a; --amber:#eda100;
   --radius:8px;
 }
@@ -20,9 +17,6 @@
     --bg:#141413; --card:#1d1d1b; --soft:#252523;
     --ink:#f0efec; --ink-2:#b9b7ae; --ink-3:#8d8b84;
     --line:rgba(255,255,255,.12); --line-2:rgba(255,255,255,.22);
-    --ok-bg:#27500a; --ok-tx:#eaf3de;
-    --wait-bg:#633806; --wait-tx:#faeeda;
-    --stop-bg:#791f1f; --stop-tx:#fcebeb;
   }
 }
 *{box-sizing:border-box}
@@ -90,7 +84,6 @@ tfoot td{font-weight:600;border-bottom:none}
 .thumb{flex:0 0 auto;border-radius:6px;background:var(--soft);border:.5px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-3)}
 .thumb-img{object-fit:cover;border-radius:6px;border:.5px solid var(--line);flex:0 0 auto;cursor:pointer;transition:transform .15s ease}
 .thumb-img:hover{transform:scale(1.08)}
-.pill{display:inline-block;font-size:12px;padding:3px 10px;border-radius:var(--radius);white-space:nowrap}
 .low{color:#d03b3b;font-weight:600}
 
 /* HERRAMIENTAS Y BÚSQUEDA */
@@ -195,17 +188,6 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
         </div>
       </div>
     </div>
-
-    <div class="card">
-      <h2>Sugerencia de acciones comerciales</h2>
-      <table>
-        <thead><tr>
-          <th style="width:42%">Producto</th><th style="width:15%">Vendidas</th>
-          <th style="width:15%">Stock</th><th style="width:28%">Diagnóstico</th>
-        </tr></thead>
-        <tbody id="tbodyPush"></tbody>
-      </table>
-    </div>
   </section>
 
   <section id="panel-detalle" class="fade-in" role="tabpanel" hidden>
@@ -214,13 +196,6 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
         <h2 style="margin:0">Inventario de la cápsula</h2>
         <div class="controls-group">
           <input type="text" id="searchInput" placeholder="🔍 Buscar prenda..." oninput="render()">
-          <select id="filterState" onchange="render()">
-            <option value="all">Todos los diagnósticos</option>
-            <option value="Reabastecer">Reabastecer</option>
-            <option value="Sostenible">Sostenible</option>
-            <option value="Liquidación / Promo">Liquidación / Promo</option>
-            <option value="Agotado / Crítico">Agotado / Crítico</option>
-          </select>
           <select id="sortSel">
             <option value="act">Más stock actual</option>
             <option value="v">Más vendidos</option>
@@ -355,20 +330,19 @@ function openModal(id){
 function closeModal(){ document.getElementById('imgModal').classList.remove('open'); }
 document.getElementById('imgModal').onclick = e => { if(e.target.id === 'imgModal') closeModal(); };
 
-/* LÓGICA DE DIAGNÓSTICO COMERCIAL LÓGICO */
-function estado(p){
-  const act = p.stock_actual, ini = p.stock_inicial;
-  const pct = ini > 0 ? p.ventas / ini : 0;
-
-  if(act < 15) return {t:'Agotado / Crítico', bg:'var(--stop-bg)', c:'var(--stop-tx)'};
-  if(pct >= 0.6) return {t:'Reabastecer', bg:'var(--ok-bg)', c:'var(--ok-tx)'};
-  if(pct >= 0.25) return {t:'Sostenible', bg:'var(--wait-bg)', c:'var(--wait-tx)'};
-  return {t:'Liquidación / Promo', bg:'var(--stop-bg)', c:'var(--stop-tx)'};
-}
-
 function filterProducts(){
   if(!rawData || !rawData.productos) return [];
   return rawData.productos.filter(p => p.coleccion.toLowerCase().includes(drop));
+}
+
+// CÁLCULO DINÁMICO DE DÍAS DESDE EL LANZAMIENTO (12 DE AGOSTO 2026)
+function calcularDiasCampana(){
+  const fechaLanzamientoStr = (rawData && rawData.fecha_lanzamiento) ? rawData.fecha_lanzamiento : '2026-08-12';
+  const fechaInicio = new Date(fechaLanzamientoStr + 'T00:00:00');
+  const hoy = new Date();
+  const diffTime = Math.abs(hoy - fechaInicio);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays > 0 ? diffDays : 1;
 }
 
 function render(){
@@ -381,8 +355,8 @@ function render(){
   const stockActual = prods.reduce((s,p) => s + p.stock_actual, 0);
   const sellThrough = stockInicial > 0 ? Math.round((udsVendidas / stockInicial) * 100) : 0;
 
-  // CÁLCULO PROMEDIO DIARIO REAL POR UNIDADES
-  const diasCampaña = rawData.dias_transcurridos || 14;
+  // Días reales de campaña desde el 12 de agosto
+  const diasCampaña = calcularDiasCampana();
   const promedioDiario = (udsVendidas / diasCampaña).toFixed(1);
 
   document.getElementById('kpiUnidades').textContent = num(udsVendidas);
@@ -391,7 +365,7 @@ function render(){
   document.getElementById('kpiSell').textContent = sellThrough + '%';
   document.getElementById('kpiEstilos').textContent = `${prods.length} estilos`;
   document.getElementById('kpiDailyAvg').textContent = promedioDiario;
-  document.getElementById('kpiDaysCount').textContent = `uds/día (${diasCampaña} días)`;
+  document.getElementById('kpiDaysCount').textContent = `uds/día (${diasCampaña} día${diasCampaña > 1 ? 's' : ''} activos)`;
   document.getElementById('kpiTotalProds').textContent = prods.length;
   document.getElementById('kpiAgotar').textContent = prods.filter(p => p.stock_actual < 15).length;
 
@@ -422,23 +396,11 @@ function render(){
     <div class="bar"><span style="width:${pct}%;background:${colors[i%3]}"></span></div>`;
   }).join('');
 
-  document.getElementById('tbodyPush').innerHTML = [...prods]
-    .sort((a,b) => (a.ventas / (a.stock_inicial||1)) - (b.ventas / (b.stock_inicial||1)))
-    .slice(0,5).map(p => {
-      const e = estado(p);
-      return `<tr><td><span class="prod">${thumb(p, 34)}<span>${p.nombre}<br><span class="tiny">${p.categoria}</span></span></span></td>
-      <td>${p.ventas}</td><td>${p.stock_actual}</td>
-      <td><span class="pill" style="background:${e.bg};color:${e.c}">${e.t}</span></td></tr>`;
-    }).join('');
-
   // FILTROS Y BÚSQUEDA DETALLE
   const search = (document.getElementById('searchInput')?.value || '').toLowerCase();
-  const stateFilter = document.getElementById('filterState')?.value || 'all';
 
   let filteredDetalle = prods.filter(p => {
-    const matchesSearch = p.nombre.toLowerCase().includes(search) || p.categoria.toLowerCase().includes(search);
-    const matchesState = stateFilter === 'all' || estado(p).t === stateFilter;
-    return matchesSearch && matchesState;
+    return p.nombre.toLowerCase().includes(search) || p.categoria.toLowerCase().includes(search);
   });
 
   if(sortBy==='act') filteredDetalle.sort((a,b) => b.stock_actual - a.stock_actual);
@@ -466,8 +428,7 @@ function exportXLSX(){
     'Stock Inicial': p.stock_inicial,
     'Unidades Vendidas': p.ventas,
     'Stock Actual': p.stock_actual,
-    '% Vendido': p.stock_inicial > 0 ? `${Math.round((p.ventas / p.stock_inicial) * 100)}%` : '0%',
-    'Diagnóstico Comercial': estado(p).t
+    '% Vendido': p.stock_inicial > 0 ? `${Math.round((p.ventas / p.stock_inicial) * 100)}%` : '0%'
   }));
 
   const worksheet = XLSX.utils.json_to_sheet(excelData);
