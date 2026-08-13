@@ -1,52 +1,62 @@
 {
-  "actualizado": "2026-08-13T18:44:12.832Z",
+  "actualizado": "2026-08-13T18:44:52.951Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
-    "inventario_inicial": 1091,
-    "inventario_actual": 6276,
-    "ventas_totales": 693,
-    "ingresos_totales": 52269.94,
-    "total_productos": 48
+    "inventario_inicial": 1098,
+    "inventario_actual": 338,
+    "ventas_totales": 6740,
+    "ingresos_totales": 527144.46,
+    "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 423,
-      "ingresos": 31154.613,
+      "ventas": 3625,
+      "ingresos": 264569.82800000004,
       "productos": 25
     },
+    "Producto Terminado / Vestidos": {
+      "ventas": 297,
+      "ingresos": 32417.260000000002,
+      "productos": 3
+    },
     "Producto Terminado / Pantalones": {
-      "ventas": 184,
-      "ingresos": 14722.69,
+      "ventas": 1765,
+      "ingresos": 147603.872,
       "productos": 15
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
-      "ventas": 0,
-      "ingresos": 0,
+      "ventas": 316,
+      "ingresos": 34372.96,
       "productos": 2
+    },
+    "Producto Terminado / Accesorios / Pañuelos": {
+      "ventas": 68,
+      "ingresos": 1768,
+      "productos": 2
+    },
+    "Producto Terminado / Accesorios / Calzado": {
+      "ventas": 6,
+      "ingresos": 347.304347826087,
+      "productos": 23
     },
     "Producto Terminado / Shorts": {
-      "ventas": 78,
-      "ingresos": 5419.4400000000005,
+      "ventas": 663,
+      "ingresos": 46065.240000000005,
       "productos": 4
-    },
-    "Producto Terminado / Vestidos": {
-      "ventas": 8,
-      "ingresos": 973.2,
-      "productos": 2
     }
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 693,
-      "stock_inicial": 1123,
-      "stock_actual": 3717,
-      "productos": 29
+      "ventas": 4149,
+      "stock_inicial": 1130,
+      "stock_actual": 370,
+      "productos": 53
     },
     "UTI 2": {
-      "ventas": 0,
+      "ventas": 2591,
       "stock_inicial": -32,
-      "stock_actual": 2559,
-      "productos": 19
+      "stock_actual": -32,
+      "productos": 21
     }
   },
   "top_vendidos": [
@@ -54,152 +64,159 @@
       "nombre": "Blusa Alas",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 60,
-      "stock_actual": 139
+      "ventas": 229,
+      "stock_actual": -27
     },
     {
       "nombre": "Blusa Certeza",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 60,
-      "stock_actual": 143
-    },
-    {
-      "nombre": "Jean Despertar",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Pantalones",
-      "ventas": 49,
-      "stock_actual": 112
-    },
-    {
-      "nombre": "Short Paloma",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Shorts",
-      "ventas": 42,
-      "stock_actual": 147
-    },
-    {
-      "nombre": "Chaleco Sentido",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 34,
-      "stock_actual": 114
-    },
-    {
-      "nombre": "Blusa Promesa",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 30,
-      "stock_actual": 94
-    },
-    {
-      "nombre": "Vest Moka",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 29,
-      "stock_actual": 77
-    },
-    {
-      "nombre": "Blusa Contraste",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 28,
-      "stock_actual": 123
-    },
-    {
-      "nombre": "Jean Alba",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Pantalones",
-      "ventas": 28,
-      "stock_actual": 123
-    },
-    {
-      "nombre": "Pantalón Caminos",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Pantalones",
-      "ventas": 27,
-      "stock_actual": 136
-    }
-  ],
-  "menos_vendidos": [
-    {
-      "nombre": "Blusa Arena",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 0,
-      "stock_actual": 116
-    },
-    {
-      "nombre": "Blusa Arena",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 0,
-      "stock_actual": 26
+      "ventas": 223,
+      "stock_actual": -17
     },
     {
       "nombre": "Blusa Aura",
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 0,
-      "stock_actual": 211
+      "ventas": 212,
+      "stock_actual": -1
     },
     {
-      "nombre": "Blusa Luz",
-      "coleccion": "UTI 2",
+      "nombre": "Short Paloma",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Shorts",
+      "ventas": 212,
+      "stock_actual": -19
+    },
+    {
+      "nombre": "Vest Duna",
+      "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 0,
-      "stock_actual": 168
+      "ventas": 209,
+      "stock_actual": -17
     },
     {
-      "nombre": "Blusa Ser",
-      "coleccion": "UTI 2",
+      "nombre": "Blazer Presencia",
+      "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 0,
-      "stock_actual": 118
+      "ventas": 207,
+      "stock_actual": -15
     },
     {
-      "nombre": "Blusa Vive",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 0,
-      "stock_actual": 147
-    },
-    {
-      "nombre": "Blusa Única",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 0,
-      "stock_actual": 160
-    },
-    {
-      "nombre": "Jumpsuit Historia",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Monos de pantalón corto y largo",
-      "ventas": 0,
-      "stock_actual": 151
-    },
-    {
-      "nombre": "Jumpsuit Nube",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Monos de pantalón corto y largo",
-      "ventas": 0,
-      "stock_actual": 163
-    },
-    {
-      "nombre": "Pantalón Cielo",
-      "coleccion": "UTI 2",
+      "nombre": "Pantalón Momentos",
+      "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
+      "ventas": 195,
+      "stock_actual": -13
+    },
+    {
+      "nombre": "Pantalón Rosa",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Pantalones",
+      "ventas": 194,
+      "stock_actual": -8
+    },
+    {
+      "nombre": "Pantalón Caminos",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Pantalones",
+      "ventas": 189,
+      "stock_actual": -22
+    },
+    {
+      "nombre": "Blusa Coral",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "ventas": 187,
+      "stock_actual": -6
+    }
+  ],
+  "menos_vendidos": [
+    {
+      "nombre": "Sandalia Ancona",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": 186
+      "stock_actual": 0
+    },
+    {
+      "nombre": "Sandalia Bari",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "ventas": 0,
+      "stock_actual": 0
+    },
+    {
+      "nombre": "Sandalia Cusco",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "ventas": 0,
+      "stock_actual": 0
+    },
+    {
+      "nombre": "Sandalia Cusco",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "ventas": 0,
+      "stock_actual": 0
+    },
+    {
+      "nombre": "Sandalia Denia",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "ventas": 0,
+      "stock_actual": 0
+    },
+    {
+      "nombre": "Sandalia Kioto",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "ventas": 0,
+      "stock_actual": 0
+    },
+    {
+      "nombre": "Sandalia Kioto",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "ventas": 0,
+      "stock_actual": -1
+    },
+    {
+      "nombre": "Sandalia Lagos",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "ventas": 0,
+      "stock_actual": 0
+    },
+    {
+      "nombre": "Sandalia Novara",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "ventas": 0,
+      "stock_actual": 0
+    },
+    {
+      "nombre": "Sandalia Porto",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "ventas": 0,
+      "stock_actual": 0
     }
   ],
   "ventas_por_talla": {
-    "XS": 155,
-    "S": 202,
-    "M": 204,
-    "L": 89,
-    "XL": 41,
-    "XXS": 2
+    "XS": 1458,
+    "S": 1938,
+    "M": 1918,
+    "L": 903,
+    "XL": 442,
+    "XXS": 2,
+    "Única": 73,
+    "T-40": 0,
+    "T-35": 0,
+    "T-36": 1,
+    "T-37": 0,
+    "T-38": 2,
+    "T-39": 3
   },
   "productos": [
     {
@@ -208,8 +225,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 12,
-      "stock_actual": 166,
-      "ventas": 26,
+      "stock_actual": -15,
+      "ventas": 207,
       "precio": 104.26
     },
     {
@@ -218,8 +235,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 6,
-      "stock_actual": 125,
-      "ventas": 18,
+      "stock_actual": -16,
+      "ventas": 164,
       "precio": 60.78
     },
     {
@@ -228,8 +245,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 3,
-      "stock_actual": 159,
-      "ventas": 11,
+      "stock_actual": -9,
+      "ventas": 181,
       "precio": 52.09
     },
     {
@@ -238,19 +255,9 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 37,
-      "stock_actual": 139,
-      "ventas": 60,
+      "stock_actual": -27,
+      "ventas": 229,
       "precio": 69.48
-    },
-    {
-      "odoo_id": 113168,
-      "nombre": "Blusa Arena",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 1,
-      "stock_actual": 116,
-      "ventas": 0,
-      "precio": 78.173
     },
     {
       "odoo_id": 96620,
@@ -258,8 +265,18 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 0,
-      "stock_actual": 26,
-      "ventas": 0,
+      "stock_actual": 0,
+      "ventas": 26,
+      "precio": 78.173
+    },
+    {
+      "odoo_id": 113168,
+      "nombre": "Blusa Arena",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 1,
+      "stock_actual": 1,
+      "ventas": 115,
       "precio": 78.173
     },
     {
@@ -268,8 +285,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": -1,
-      "stock_actual": 211,
-      "ventas": 0,
+      "stock_actual": -1,
+      "ventas": 212,
       "precio": 78.17
     },
     {
@@ -278,8 +295,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 47,
-      "stock_actual": 143,
-      "ventas": 60,
+      "stock_actual": -17,
+      "ventas": 223,
       "precio": 69.478
     },
     {
@@ -288,8 +305,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": -19,
-      "stock_actual": 118,
-      "ventas": 11,
+      "stock_actual": -30,
+      "ventas": 159,
       "precio": 69.48
     },
     {
@@ -299,7 +316,7 @@
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 154,
       "stock_actual": 123,
-      "ventas": 28,
+      "ventas": 30,
       "precio": 78.17
     },
     {
@@ -308,8 +325,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 6,
-      "stock_actual": 169,
-      "ventas": 12,
+      "stock_actual": -6,
+      "ventas": 187,
       "precio": 78.17
     },
     {
@@ -318,8 +335,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 7,
-      "stock_actual": 149,
-      "ventas": 15,
+      "stock_actual": -9,
+      "ventas": 174,
       "precio": 95.57
     },
     {
@@ -328,8 +345,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 0,
-      "stock_actual": 168,
-      "ventas": 0,
+      "stock_actual": 0,
+      "ventas": 168,
       "precio": 60.78
     },
     {
@@ -338,8 +355,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 3,
-      "stock_actual": 104,
-      "ventas": 4,
+      "stock_actual": -1,
+      "ventas": 109,
       "precio": 69.48
     },
     {
@@ -348,8 +365,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": -2,
-      "stock_actual": 88,
-      "ventas": 17,
+      "stock_actual": -19,
+      "ventas": 124,
       "precio": 78.17
     },
     {
@@ -358,8 +375,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 1,
-      "stock_actual": 94,
-      "ventas": 30,
+      "stock_actual": -30,
+      "ventas": 155,
       "precio": 60.78
     },
     {
@@ -368,8 +385,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 0,
-      "stock_actual": 118,
-      "ventas": 0,
+      "stock_actual": 0,
+      "ventas": 118,
       "precio": 69.48
     },
     {
@@ -378,8 +395,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": -1,
-      "stock_actual": 147,
-      "ventas": 0,
+      "stock_actual": -1,
+      "ventas": 148,
       "precio": 60.78
     },
     {
@@ -398,8 +415,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 8,
-      "stock_actual": 126,
-      "ventas": 21,
+      "stock_actual": -14,
+      "ventas": 162,
       "precio": 52.09
     },
     {
@@ -408,8 +425,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 2,
-      "stock_actual": 160,
-      "ventas": 0,
+      "stock_actual": 2,
+      "ventas": 158,
       "precio": 78.17
     },
     {
@@ -418,9 +435,19 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 151,
-      "stock_actual": 114,
-      "ventas": 34,
+      "stock_actual": 113,
+      "ventas": 37,
       "precio": 86.87
+    },
+    {
+      "odoo_id": 111571,
+      "nombre": "Cinturón Estelar",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Vestidos",
+      "stock_inicial": 5,
+      "stock_actual": 0,
+      "ventas": 5,
+      "precio": 26
     },
     {
       "odoo_id": 96539,
@@ -429,7 +456,7 @@
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 153,
       "stock_actual": 123,
-      "ventas": 28,
+      "ventas": 30,
       "precio": 78.17
     },
     {
@@ -439,7 +466,7 @@
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 164,
       "stock_actual": 112,
-      "ventas": 49,
+      "ventas": 51,
       "precio": 78.17
     },
     {
@@ -449,7 +476,7 @@
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 186,
       "stock_actual": 170,
-      "ventas": 15,
+      "ventas": 16,
       "precio": 78.17
     },
     {
@@ -458,8 +485,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Monos de pantalón corto y largo",
       "stock_inicial": -1,
-      "stock_actual": 151,
-      "ventas": 0,
+      "stock_actual": -1,
+      "ventas": 152,
       "precio": 104.26
     },
     {
@@ -468,8 +495,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Monos de pantalón corto y largo",
       "stock_inicial": -1,
-      "stock_actual": 163,
-      "ventas": 0,
+      "stock_actual": -1,
+      "ventas": 164,
       "precio": 112.96
     },
     {
@@ -478,8 +505,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 8,
-      "stock_actual": 136,
-      "ventas": 27,
+      "stock_actual": -22,
+      "ventas": 189,
       "precio": 78.17
     },
     {
@@ -488,8 +515,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 0,
-      "stock_actual": 186,
-      "ventas": 0,
+      "stock_actual": 0,
+      "ventas": 186,
       "precio": 95.57
     },
     {
@@ -498,8 +525,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": -1,
-      "stock_actual": 120,
-      "ventas": 0,
+      "stock_actual": -1,
+      "ventas": 121,
       "precio": 69.48
     },
     {
@@ -508,8 +535,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": -1,
-      "stock_actual": 105,
-      "ventas": 0,
+      "stock_actual": -1,
+      "ventas": 106,
       "precio": 69.48
     },
     {
@@ -518,8 +545,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 13,
-      "stock_actual": 157,
-      "ventas": 25,
+      "stock_actual": -13,
+      "ventas": 195,
       "precio": 95.57
     },
     {
@@ -528,8 +555,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 0,
-      "stock_actual": 115,
-      "ventas": 0,
+      "stock_actual": 0,
+      "ventas": 115,
       "precio": 95.57
     },
     {
@@ -538,8 +565,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": -26,
-      "stock_actual": 0,
-      "ventas": 0,
+      "stock_actual": -26,
+      "ventas": 26,
       "precio": 95.567
     },
     {
@@ -548,8 +575,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": -1,
-      "stock_actual": 115,
-      "ventas": 0,
+      "stock_actual": -1,
+      "ventas": 116,
       "precio": 95.565
     },
     {
@@ -558,8 +585,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 11,
-      "stock_actual": 101,
-      "ventas": 16,
+      "stock_actual": -6,
+      "ventas": 123,
       "precio": 78.17
     },
     {
@@ -568,8 +595,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 6,
-      "stock_actual": 149,
-      "ventas": 13,
+      "stock_actual": -8,
+      "ventas": 171,
       "precio": 78.17
     },
     {
@@ -578,8 +605,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 4,
-      "stock_actual": 174,
-      "ventas": 11,
+      "stock_actual": -8,
+      "ventas": 194,
       "precio": 69.48
     },
     {
@@ -588,9 +615,259 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": -1,
-      "stock_actual": 125,
-      "ventas": 0,
+      "stock_actual": -1,
+      "ventas": 126,
       "precio": 95.565
+    },
+    {
+      "odoo_id": 112833,
+      "nombre": "Pañuelo Adriana",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Pañuelos",
+      "stock_inicial": 4,
+      "stock_actual": -4,
+      "ventas": 48,
+      "precio": 26
+    },
+    {
+      "odoo_id": 112169,
+      "nombre": "Pañuelo Adriana",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Pañuelos",
+      "stock_inicial": -1,
+      "stock_actual": -1,
+      "ventas": 20,
+      "precio": 26
+    },
+    {
+      "odoo_id": 113555,
+      "nombre": "Sandalia Ancona",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 60.782608695652186
+    },
+    {
+      "odoo_id": 113550,
+      "nombre": "Sandalia Bari",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 52.08695652173913
+    },
+    {
+      "odoo_id": 113566,
+      "nombre": "Sandalia Cusco",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 69.47826086956523
+    },
+    {
+      "odoo_id": 113565,
+      "nombre": "Sandalia Cusco",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 69.47826086956523
+    },
+    {
+      "odoo_id": 113538,
+      "nombre": "Sandalia Denia",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 78.17391304347827
+    },
+    {
+      "odoo_id": 113575,
+      "nombre": "Sandalia Kioto",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 78.17391304347827
+    },
+    {
+      "odoo_id": 113574,
+      "nombre": "Sandalia Kioto",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": -1,
+      "stock_actual": -1,
+      "ventas": 0,
+      "precio": 78.17391304347827
+    },
+    {
+      "odoo_id": 113569,
+      "nombre": "Sandalia Lagos",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": -2,
+      "ventas": 2,
+      "precio": 69.47826086956523
+    },
+    {
+      "odoo_id": 113570,
+      "nombre": "Sandalia Lagos",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 69.47826086956523
+    },
+    {
+      "odoo_id": 113553,
+      "nombre": "Sandalia Novara",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 43.391304347826086
+    },
+    {
+      "odoo_id": 113573,
+      "nombre": "Sandalia Porto",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 95.56521739130436
+    },
+    {
+      "odoo_id": 113542,
+      "nombre": "Sandalia Ravenna",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 78.17391304347827
+    },
+    {
+      "odoo_id": 113541,
+      "nombre": "Sandalia Ravenna",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 78.17391304347827
+    },
+    {
+      "odoo_id": 113544,
+      "nombre": "Sandalia Savona",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 60.782608695652186
+    },
+    {
+      "odoo_id": 113576,
+      "nombre": "Sandalia Segovia",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 95.56521739130436
+    },
+    {
+      "odoo_id": 113534,
+      "nombre": "Sandalia Siena",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 78.17391304347827
+    },
+    {
+      "odoo_id": 113562,
+      "nombre": "Sandalia Sucre",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 69.47826086956523
+    },
+    {
+      "odoo_id": 113564,
+      "nombre": "Sandalia Sucre",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 69.47826086956523
+    },
+    {
+      "odoo_id": 113586,
+      "nombre": "Sandalia Troya",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": -1,
+      "ventas": 1,
+      "precio": 52.08695652173913
+    },
+    {
+      "odoo_id": 113588,
+      "nombre": "Sandalia Troya",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 52.08695652173913
+    },
+    {
+      "odoo_id": 113587,
+      "nombre": "Sandalia Troya",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 52.08695652173913
+    },
+    {
+      "odoo_id": 113581,
+      "nombre": "Sandalia Zamora",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": -3,
+      "ventas": 3,
+      "precio": 52.08695652173913
+    },
+    {
+      "odoo_id": 113582,
+      "nombre": "Sandalia Zamora",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 52.08695652173913
     },
     {
       "odoo_id": 96637,
@@ -598,8 +875,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": -1,
-      "stock_actual": 163,
-      "ventas": 0,
+      "stock_actual": -1,
+      "ventas": 164,
       "precio": 69.48
     },
     {
@@ -608,8 +885,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 27,
-      "stock_actual": 147,
-      "ventas": 42,
+      "stock_actual": -19,
+      "ventas": 212,
       "precio": 69.48
     },
     {
@@ -618,8 +895,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 11,
-      "stock_actual": 86,
-      "ventas": 16,
+      "stock_actual": -7,
+      "ventas": 111,
       "precio": 69.48
     },
     {
@@ -628,8 +905,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 9,
-      "stock_actual": 141,
-      "ventas": 20,
+      "stock_actual": -13,
+      "ventas": 176,
       "precio": 69.48
     },
     {
@@ -638,8 +915,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 8,
-      "stock_actual": 167,
-      "ventas": 24,
+      "stock_actual": -17,
+      "ventas": 209,
       "precio": 69.48
     },
     {
@@ -648,8 +925,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 16,
-      "stock_actual": 77,
-      "ventas": 29,
+      "stock_actual": -15,
+      "ventas": 123,
       "precio": 95.567
     },
     {
@@ -658,8 +935,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 0,
-      "stock_actual": 184,
-      "ventas": 0,
+      "stock_actual": 0,
+      "ventas": 184,
       "precio": 78.17
     },
     {
@@ -668,8 +945,8 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Vestidos",
       "stock_inicial": 0,
-      "stock_actual": 186,
-      "ventas": 0,
+      "stock_actual": 0,
+      "ventas": 186,
       "precio": 104.26
     },
     {
@@ -678,8 +955,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Vestidos",
       "stock_inicial": 1,
-      "stock_actual": 91,
-      "ventas": 8,
+      "stock_actual": -7,
+      "ventas": 106,
       "precio": 121.65
     }
   ]
