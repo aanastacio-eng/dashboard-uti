@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T17:28:39.373Z",
+  "actualizado": "2026-08-13T17:34:32.735Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1075,
-    "inventario_actual": -450,
-    "ventas_totales": 6671,
-    "ingresos_totales": 522141.79,
+    "inventario_actual": 404,
+    "ventas_totales": 6673,
+    "ingresos_totales": 522298.14,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3587,
-      "ingresos": 261790.52099999998,
+      "ventas": 3589,
+      "ingresos": 261946.87099999996,
       "productos": 25
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4080,
+      "ventas": 4082,
       "stock_inicial": 1107,
-      "stock_actual": -418,
+      "stock_actual": 436,
       "productos": 53
     },
     "UTI 2": {
@@ -99,8 +99,8 @@
       "nombre": "LM2727-CE-LEMALER CHAQUETA CRUDO COMB.",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 205,
-      "stock_actual": -13
+      "ventas": 206,
+      "stock_actual": -14
     },
     {
       "nombre": "LM2728-CE-LEMALER PANTALÓN CRUDO COMB.",
@@ -205,9 +205,9 @@
   ],
   "ventas_por_talla": {
     "XS": 1451,
-    "S": 1920,
+    "S": 1921,
     "M": 1892,
-    "L": 892,
+    "L": 893,
     "XL": 439,
     "XXS": 2,
     "Única": 73,
@@ -225,8 +225,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 91,
-      "stock_actual": -13,
-      "ventas": 21,
+      "stock_actual": 69,
+      "ventas": 22,
       "precio": 52.09
     },
     {
@@ -375,7 +375,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 186,
-      "stock_actual": -10,
+      "stock_actual": 172,
       "ventas": 14,
       "precio": 78.17
     },
@@ -385,7 +385,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 153,
-      "stock_actual": -20,
+      "stock_actual": 125,
       "ventas": 28,
       "precio": 78.17
     },
@@ -455,8 +455,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 12,
-      "stock_actual": -13,
-      "ventas": 205,
+      "stock_actual": -14,
+      "ventas": 206,
       "precio": 104.26
     },
     {
@@ -505,7 +505,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 154,
-      "stock_actual": -18,
+      "stock_actual": 126,
       "ventas": 28,
       "precio": 78.17
     },
@@ -665,7 +665,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 152,
-      "stock_actual": -18,
+      "stock_actual": 118,
       "ventas": 34,
       "precio": 86.87
     },
@@ -675,7 +675,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 149,
-      "stock_actual": -49,
+      "stock_actual": 117,
       "ventas": 48,
       "precio": 78.17
     },
