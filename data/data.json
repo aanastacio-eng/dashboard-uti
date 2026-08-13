@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T18:54:33.647Z",
+  "actualizado": "2026-08-13T18:55:18.610Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 320,
-    "ventas_totales": 6751,
-    "ingresos_totales": 527960.91,
+    "inventario_actual": 319,
+    "ventas_totales": 6752,
+    "ingresos_totales": 528030.39,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3630,
-      "ingresos": 264899.83800000005,
+      "ventas": 3631,
+      "ingresos": 264969.318,
       "productos": 25
     },
     "Producto Terminado / Vestidos": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4160,
+      "ventas": 4161,
       "stock_inicial": 1130,
-      "stock_actual": 354,
+      "stock_actual": 353,
       "productos": 53
     },
     "UTI 2": {
@@ -205,7 +205,7 @@
   ],
   "ventas_por_talla": {
     "XS": 1460,
-    "S": 1938,
+    "S": 1939,
     "M": 1921,
     "L": 906,
     "XL": 443,
@@ -355,8 +355,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 3,
-      "stock_actual": -1,
-      "ventas": 109,
+      "stock_actual": -2,
+      "ventas": 110,
       "precio": 69.48
     },
     {
