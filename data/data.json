@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T17:58:17.198Z",
+  "actualizado": "2026-08-13T18:02:08.069Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
-    "inventario_inicial": 1075,
-    "inventario_actual": 387,
-    "ventas_totales": 6690,
-    "ingresos_totales": 523505.35,
+    "inventario_inicial": 1098,
+    "inventario_actual": 385,
+    "ventas_totales": 6695,
+    "ingresos_totales": 523844.05,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3597,
-      "ingresos": 262554.87200000003,
+      "ventas": 3600,
+      "ingresos": 262754.612,
       "productos": 25
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -20,13 +20,13 @@
       "productos": 2
     },
     "Producto Terminado / Shorts": {
-      "ventas": 655,
-      "ingresos": 45509.4,
+      "ventas": 656,
+      "ingresos": 45578.880000000005,
       "productos": 4
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1752,
-      "ingresos": 146587.64199999996,
+      "ventas": 1753,
+      "ingresos": 146657.12199999997,
       "productos": 15
     },
     "Producto Terminado / Vestidos": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4099,
-      "stock_inicial": 1107,
-      "stock_actual": 419,
+      "ventas": 4104,
+      "stock_inicial": 1130,
+      "stock_actual": 417,
       "productos": 53
     },
     "UTI 2": {
@@ -64,8 +64,8 @@
       "nombre": "LM2724-P-LEMALER BLUSA PALO ROSA",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 226,
-      "stock_actual": -23
+      "ventas": 227,
+      "stock_actual": -24
     },
     {
       "nombre": "LM2735-W-LEMALER BLUSA VINO",
@@ -82,18 +82,18 @@
       "stock_actual": -1
     },
     {
+      "nombre": "LM2725-P-LEMALER SHORT PALO ROSA",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Shorts",
+      "ventas": 209,
+      "stock_actual": -16
+    },
+    {
       "nombre": "LM2621-I-LEMALER BLUSA BEIGE",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 208,
       "stock_actual": -16
-    },
-    {
-      "nombre": "LM2725-P-LEMALER SHORT PALO ROSA",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Shorts",
-      "ventas": 208,
-      "stock_actual": -15
     },
     {
       "nombre": "LM2727-CE-LEMALER CHAQUETA CRUDO COMB.",
@@ -113,8 +113,15 @@
       "nombre": "LM2631-P-LEMALER PANTALÓN PALO ROSA",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "ventas": 192,
+      "ventas": 193,
       "stock_actual": -7
+    },
+    {
+      "nombre": "LM2736-M-LEMALER BLUSA MELON",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "ventas": 187,
+      "stock_actual": -6
     },
     {
       "nombre": "LM2734-EE-LEMALER PANTALÓN CELESTE COMB.",
@@ -122,13 +129,6 @@
       "categoria": "Producto Terminado / Pantalones",
       "ventas": 186,
       "stock_actual": 0
-    },
-    {
-      "nombre": "LM2736-M-LEMALER BLUSA MELON",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 186,
-      "stock_actual": -6
     }
   ],
   "menos_vendidos": [
@@ -206,8 +206,8 @@
   "ventas_por_talla": {
     "XS": 1455,
     "S": 1922,
-    "M": 1898,
-    "L": 896,
+    "M": 1902,
+    "L": 897,
     "XL": 439,
     "XXS": 2,
     "Única": 73,
@@ -224,9 +224,9 @@
       "nombre": "Blusa Voz",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 91,
+      "stock_inicial": 92,
       "stock_actual": 69,
-      "ventas": 22,
+      "ventas": 23,
       "precio": 52.09
     },
     {
@@ -304,7 +304,7 @@
       "nombre": "LM2630-B-LEMALER BLUSA BLANCO",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": -4,
+      "stock_inicial": 1,
       "stock_actual": -29,
       "ventas": 154,
       "precio": 60.78
@@ -316,7 +316,7 @@
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 4,
       "stock_actual": -7,
-      "ventas": 192,
+      "ventas": 193,
       "precio": 69.48
     },
     {
@@ -424,9 +424,9 @@
       "nombre": "LM2724-P-LEMALER BLUSA PALO ROSA",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 36,
-      "stock_actual": -23,
-      "ventas": 226,
+      "stock_inicial": 37,
+      "stock_actual": -24,
+      "ventas": 227,
       "precio": 69.48
     },
     {
@@ -434,9 +434,9 @@
       "nombre": "LM2725-P-LEMALER SHORT PALO ROSA",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
-      "stock_inicial": 26,
-      "stock_actual": -15,
-      "ventas": 208,
+      "stock_inicial": 27,
+      "stock_actual": -16,
+      "ventas": 209,
       "precio": 69.48
     },
     {
@@ -464,7 +464,7 @@
       "nombre": "LM2728-CE-LEMALER PANTALÓN CRUDO COMB.",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 14,
+      "stock_inicial": 13,
       "stock_actual": -12,
       "ventas": 194,
       "precio": 95.57
@@ -494,7 +494,7 @@
       "nombre": "LM2731-K-LEMALER SHORT KAKI",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
-      "stock_inicial": 10,
+      "stock_inicial": 11,
       "stock_actual": -5,
       "ventas": 109,
       "precio": 69.48
@@ -544,9 +544,9 @@
       "nombre": "LM2736-M-LEMALER BLUSA MELON",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 5,
+      "stock_inicial": 6,
       "stock_actual": -6,
-      "ventas": 186,
+      "ventas": 187,
       "precio": 78.17
     },
     {
@@ -664,7 +664,7 @@
       "nombre": "LM2757-W-LEMALER CHALECO VINO",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 152,
+      "stock_inicial": 151,
       "stock_actual": 117,
       "ventas": 34,
       "precio": 86.87
@@ -674,7 +674,7 @@
       "nombre": "LM2758-W-LEMALER JEAN VINO",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 149,
+      "stock_inicial": 164,
       "stock_actual": 115,
       "ventas": 49,
       "precio": 78.17
@@ -750,7 +750,7 @@
       "precio": 52.08695652173913
     },
     {
-      "odoo_id": 113565,
+      "odoo_id": 113566,
       "nombre": "Sandalia Cusco",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
@@ -760,7 +760,7 @@
       "precio": 69.47826086956523
     },
     {
-      "odoo_id": 113566,
+      "odoo_id": 113565,
       "nombre": "Sandalia Cusco",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
@@ -840,7 +840,7 @@
       "precio": 95.56521739130436
     },
     {
-      "odoo_id": 113541,
+      "odoo_id": 113542,
       "nombre": "Sandalia Ravenna",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
@@ -850,7 +850,7 @@
       "precio": 78.17391304347827
     },
     {
-      "odoo_id": 113542,
+      "odoo_id": 113541,
       "nombre": "Sandalia Ravenna",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
@@ -890,6 +890,16 @@
       "precio": 78.17391304347827
     },
     {
+      "odoo_id": 113562,
+      "nombre": "Sandalia Sucre",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 69.47826086956523
+    },
+    {
       "odoo_id": 113564,
       "nombre": "Sandalia Sucre",
       "coleccion": "Uti 1",
@@ -900,14 +910,14 @@
       "precio": 69.47826086956523
     },
     {
-      "odoo_id": 113562,
-      "nombre": "Sandalia Sucre",
+      "odoo_id": 113586,
+      "nombre": "Sandalia Troya",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
       "stock_actual": 0,
       "ventas": 0,
-      "precio": 69.47826086956523
+      "precio": 52.08695652173913
     },
     {
       "odoo_id": 113587,
@@ -921,16 +931,6 @@
     },
     {
       "odoo_id": 113588,
-      "nombre": "Sandalia Troya",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Accesorios / Calzado",
-      "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 0,
-      "precio": 52.08695652173913
-    },
-    {
-      "odoo_id": 113586,
       "nombre": "Sandalia Troya",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
