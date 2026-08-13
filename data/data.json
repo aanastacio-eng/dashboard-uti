@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-08-13T19:33:31.490Z",
+  "actualizado": "2026-08-13T19:34:25.230Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 7008,
-    "inventario_actual": 6238,
+    "inventario_actual": 6233,
     "ventas_totales": 770,
     "ingresos_totales": 58080.63,
     "total_productos": 48
@@ -39,7 +39,7 @@
     "Uti 1": {
       "ventas": 770,
       "stock_inicial": 4451,
-      "stock_actual": 3681,
+      "stock_actual": 3676,
       "productos": 29
     },
     "UTI 2": {
@@ -62,7 +62,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 65,
-      "stock_actual": 140
+      "stock_actual": 139
     },
     {
       "nombre": "Jean Despertar",
@@ -90,14 +90,14 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 34,
-      "stock_actual": 95
+      "stock_actual": 94
     },
     {
       "nombre": "Vest Moka",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 34,
-      "stock_actual": 75
+      "stock_actual": 74
     },
     {
       "nombre": "Pantalón Caminos",
@@ -278,7 +278,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 205,
-      "stock_actual": 140,
+      "stock_actual": 139,
       "ventas": 65,
       "precio": 69.478
     },
@@ -318,7 +318,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 165,
-      "stock_actual": 148,
+      "stock_actual": 147,
       "ventas": 17,
       "precio": 95.57
     },
@@ -358,7 +358,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 129,
-      "stock_actual": 95,
+      "stock_actual": 94,
       "ventas": 34,
       "precio": 60.78
     },
@@ -618,7 +618,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 104,
-      "stock_actual": 85,
+      "stock_actual": 84,
       "ventas": 19,
       "precio": 69.48
     },
@@ -648,7 +648,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 109,
-      "stock_actual": 75,
+      "stock_actual": 74,
       "ventas": 34,
       "precio": 95.567
     },
