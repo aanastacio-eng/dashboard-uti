@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T18:20:29.316Z",
+  "actualizado": "2026-08-13T18:22:09.790Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 370,
-    "ventas_totales": 6704,
-    "ingresos_totales": 524512.81,
+    "inventario_actual": 368,
+    "ventas_totales": 6706,
+    "ingresos_totales": 524677.86,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3603,
-      "ingresos": 262963.042,
+      "ventas": 3605,
+      "ingresos": 263128.087,
       "productos": 25
     },
     "Producto Terminado / Pantalones": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4113,
+      "ventas": 4115,
       "stock_inicial": 1130,
-      "stock_actual": 402,
+      "stock_actual": 400,
       "productos": 53
     },
     "UTI 2": {
@@ -71,8 +71,8 @@
       "nombre": "Blusa Certeza",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 219,
-      "stock_actual": -14
+      "ventas": 220,
+      "stock_actual": -15
     },
     {
       "nombre": "LM2642-I-LEMALER BLUSA BEIGE",
@@ -206,8 +206,8 @@
   "ventas_por_talla": {
     "XS": 1455,
     "S": 1926,
-    "M": 1903,
-    "L": 899,
+    "M": 1904,
+    "L": 900,
     "XL": 441,
     "XXS": 2,
     "Única": 73,
@@ -265,8 +265,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 47,
-      "stock_actual": -14,
-      "ventas": 219,
+      "stock_actual": -15,
+      "ventas": 220,
       "precio": 69.478
     },
     {
@@ -945,8 +945,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 16,
-      "stock_actual": -13,
-      "ventas": 121,
+      "stock_actual": -14,
+      "ventas": 122,
       "precio": 95.567
     },
     {
