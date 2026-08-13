@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-08-13T19:24:41.357Z",
+  "actualizado": "2026-08-13T19:25:19.099Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 6646,
-    "inventario_actual": 6236,
+    "inventario_actual": 6235,
     "ventas_totales": 406,
     "ingresos_totales": 30442.87,
     "total_productos": 48
@@ -39,7 +39,7 @@
     "Uti 1": {
       "ventas": 406,
       "stock_inicial": 4089,
-      "stock_actual": 3679,
+      "stock_actual": 3678,
       "productos": 29
     },
     "UTI 2": {
@@ -678,7 +678,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Vestidos",
       "stock_inicial": 90,
-      "stock_actual": 89,
+      "stock_actual": 88,
       "ventas": 1,
       "precio": 121.65
     }
