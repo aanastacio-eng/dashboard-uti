@@ -1,22 +1,22 @@
 {
-  "actualizado": "2026-08-13T19:25:19.099Z",
+  "actualizado": "2026-08-13T19:33:31.490Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
-    "inventario_inicial": 6646,
-    "inventario_actual": 6235,
-    "ventas_totales": 406,
-    "ingresos_totales": 30442.87,
+    "inventario_inicial": 7008,
+    "inventario_actual": 6238,
+    "ventas_totales": 770,
+    "ingresos_totales": 58080.63,
     "total_productos": 48
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 256,
-      "ingresos": 18925.604,
+      "ventas": 469,
+      "ingresos": 34481.068,
       "productos": 25
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 97,
-      "ingresos": 7782.659999999999,
+      "ventas": 202,
+      "ingresos": 16147.169999999998,
       "productos": 15
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -25,21 +25,21 @@
       "productos": 2
     },
     "Producto Terminado / Shorts": {
-      "ventas": 52,
-      "ingresos": 3612.9600000000005,
+      "ventas": 88,
+      "ingresos": 6114.240000000001,
       "productos": 4
     },
     "Producto Terminado / Vestidos": {
-      "ventas": 1,
-      "ingresos": 121.65,
+      "ventas": 11,
+      "ingresos": 1338.15,
       "productos": 2
     }
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 406,
-      "stock_inicial": 4089,
-      "stock_actual": 3678,
+      "ventas": 770,
+      "stock_inicial": 4451,
+      "stock_actual": 3681,
       "productos": 29
     },
     "UTI 2": {
@@ -51,73 +51,73 @@
   },
   "top_vendidos": [
     {
-      "nombre": "Blusa Certeza",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 51,
-      "stock_actual": 140
-    },
-    {
       "nombre": "Blusa Alas",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 43,
+      "ventas": 65,
       "stock_actual": 137
     },
     {
-      "nombre": "Short Paloma",
+      "nombre": "Blusa Certeza",
       "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Shorts",
-      "ventas": 31,
-      "stock_actual": 146
+      "categoria": "Producto Terminado / Camisas y tops",
+      "ventas": 65,
+      "stock_actual": 140
     },
     {
       "nombre": "Jean Despertar",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "ventas": 29,
+      "ventas": 52,
       "stock_actual": 111
+    },
+    {
+      "nombre": "Short Paloma",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Shorts",
+      "ventas": 47,
+      "stock_actual": 146
     },
     {
       "nombre": "Chaleco Sentido",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 21,
+      "ventas": 38,
       "stock_actual": 112
-    },
-    {
-      "nombre": "Vest Moka",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 18,
-      "stock_actual": 75
     },
     {
       "nombre": "Blusa Promesa",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 16,
-      "stock_actual": 91
+      "ventas": 34,
+      "stock_actual": 95
     },
     {
-      "nombre": "Pantalón Momentos",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Pantalones",
-      "ventas": 15,
-      "stock_actual": 155
-    },
-    {
-      "nombre": "Blazer Presencia",
+      "nombre": "Vest Moka",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 14,
-      "stock_actual": 164
+      "ventas": 34,
+      "stock_actual": 75
+    },
+    {
+      "nombre": "Pantalón Caminos",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Pantalones",
+      "ventas": 31,
+      "stock_actual": 136
     },
     {
       "nombre": "Blusa Contraste",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 14,
+      "ventas": 30,
+      "stock_actual": 123
+    },
+    {
+      "nombre": "Jean Alba",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Pantalones",
+      "ventas": 30,
       "stock_actual": 123
     }
   ],
@@ -194,12 +194,12 @@
     }
   ],
   "ventas_por_talla": {
-    "XS": 90,
-    "S": 118,
-    "M": 120,
-    "L": 53,
-    "XL": 24,
-    "XXS": 1
+    "XS": 174,
+    "S": 224,
+    "M": 226,
+    "L": 99,
+    "XL": 45,
+    "XXS": 2
   },
   "productos": [
     {
@@ -207,9 +207,9 @@
       "nombre": "Blazer Presencia",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 178,
+      "stock_inicial": 192,
       "stock_actual": 164,
-      "ventas": 14,
+      "ventas": 28,
       "precio": 104.26
     },
     {
@@ -217,9 +217,9 @@
       "nombre": "Blusa Ahora",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 132,
+      "stock_inicial": 148,
       "stock_actual": 124,
-      "ventas": 8,
+      "ventas": 24,
       "precio": 60.78
     },
     {
@@ -227,9 +227,9 @@
       "nombre": "Blusa Aire",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 165,
+      "stock_inicial": 172,
       "stock_actual": 158,
-      "ventas": 7,
+      "ventas": 14,
       "precio": 52.09
     },
     {
@@ -237,9 +237,9 @@
       "nombre": "Blusa Alas",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 181,
+      "stock_inicial": 202,
       "stock_actual": 137,
-      "ventas": 43,
+      "ventas": 65,
       "precio": 69.48
     },
     {
@@ -277,9 +277,9 @@
       "nombre": "Blusa Certeza",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 191,
+      "stock_inicial": 205,
       "stock_actual": 140,
-      "ventas": 51,
+      "ventas": 65,
       "precio": 69.478
     },
     {
@@ -287,9 +287,9 @@
       "nombre": "Blusa Clara",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 120,
-      "stock_actual": 116,
-      "ventas": 4,
+      "stock_inicial": 127,
+      "stock_actual": 115,
+      "ventas": 12,
       "precio": 69.48
     },
     {
@@ -297,9 +297,9 @@
       "nombre": "Blusa Contraste",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 137,
+      "stock_inicial": 153,
       "stock_actual": 123,
-      "ventas": 14,
+      "ventas": 30,
       "precio": 78.17
     },
     {
@@ -307,9 +307,9 @@
       "nombre": "Blusa Coral",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 175,
+      "stock_inicial": 180,
       "stock_actual": 168,
-      "ventas": 7,
+      "ventas": 12,
       "precio": 78.17
     },
     {
@@ -317,9 +317,9 @@
       "nombre": "Blusa Isla",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 155,
+      "stock_inicial": 165,
       "stock_actual": 148,
-      "ventas": 7,
+      "ventas": 17,
       "precio": 95.57
     },
     {
@@ -337,9 +337,9 @@
       "nombre": "Blusa Marea",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 107,
+      "stock_inicial": 108,
       "stock_actual": 103,
-      "ventas": 4,
+      "ventas": 5,
       "precio": 69.48
     },
     {
@@ -347,9 +347,9 @@
       "nombre": "Blusa Oliva",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 101,
+      "stock_inicial": 105,
       "stock_actual": 88,
-      "ventas": 13,
+      "ventas": 17,
       "precio": 78.17
     },
     {
@@ -357,9 +357,9 @@
       "nombre": "Blusa Promesa",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 107,
-      "stock_actual": 91,
-      "ventas": 16,
+      "stock_inicial": 129,
+      "stock_actual": 95,
+      "ventas": 34,
       "precio": 60.78
     },
     {
@@ -387,9 +387,9 @@
       "nombre": "Blusa Voz",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 76,
+      "stock_inicial": 92,
       "stock_actual": 66,
-      "ventas": 9,
+      "ventas": 26,
       "precio": 52.09
     },
     {
@@ -397,9 +397,9 @@
       "nombre": "Blusa Ámbar",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 135,
+      "stock_inicial": 147,
       "stock_actual": 125,
-      "ventas": 10,
+      "ventas": 22,
       "precio": 52.09
     },
     {
@@ -417,9 +417,9 @@
       "nombre": "Chaleco Sentido",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 133,
+      "stock_inicial": 150,
       "stock_actual": 112,
-      "ventas": 21,
+      "ventas": 38,
       "precio": 86.87
     },
     {
@@ -427,9 +427,9 @@
       "nombre": "Jean Alba",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 135,
+      "stock_inicial": 153,
       "stock_actual": 123,
-      "ventas": 12,
+      "ventas": 30,
       "precio": 78.17
     },
     {
@@ -437,9 +437,9 @@
       "nombre": "Jean Despertar",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 140,
+      "stock_inicial": 163,
       "stock_actual": 111,
-      "ventas": 29,
+      "ventas": 52,
       "precio": 78.17
     },
     {
@@ -447,9 +447,9 @@
       "nombre": "Jean Tiempos",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 173,
+      "stock_inicial": 186,
       "stock_actual": 168,
-      "ventas": 5,
+      "ventas": 18,
       "precio": 78.17
     },
     {
@@ -477,9 +477,9 @@
       "nombre": "Pantalón Caminos",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 147,
+      "stock_inicial": 167,
       "stock_actual": 136,
-      "ventas": 11,
+      "ventas": 31,
       "precio": 78.17
     },
     {
@@ -517,9 +517,9 @@
       "nombre": "Pantalón Momentos",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 170,
+      "stock_inicial": 182,
       "stock_actual": 155,
-      "ventas": 15,
+      "ventas": 27,
       "precio": 95.57
     },
     {
@@ -557,9 +557,9 @@
       "nombre": "Pantalón Rincones",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 113,
+      "stock_inicial": 117,
       "stock_actual": 101,
-      "ventas": 12,
+      "ventas": 16,
       "precio": 78.17
     },
     {
@@ -567,9 +567,9 @@
       "nombre": "Pantalón Ritmo",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 153,
+      "stock_inicial": 162,
       "stock_actual": 147,
-      "ventas": 6,
+      "ventas": 15,
       "precio": 78.17
     },
     {
@@ -577,9 +577,9 @@
       "nombre": "Pantalón Rosa",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 180,
+      "stock_inicial": 186,
       "stock_actual": 173,
-      "ventas": 7,
+      "ventas": 13,
       "precio": 69.48
     },
     {
@@ -607,9 +607,9 @@
       "nombre": "Short Paloma",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
-      "stock_inicial": 177,
+      "stock_inicial": 193,
       "stock_actual": 146,
-      "ventas": 31,
+      "ventas": 47,
       "precio": 69.48
     },
     {
@@ -617,9 +617,9 @@
       "nombre": "Short Tierra",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
-      "stock_inicial": 96,
+      "stock_inicial": 104,
       "stock_actual": 85,
-      "ventas": 11,
+      "ventas": 19,
       "precio": 69.48
     },
     {
@@ -627,9 +627,9 @@
       "nombre": "Short Trazos",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
-      "stock_inicial": 151,
+      "stock_inicial": 163,
       "stock_actual": 141,
-      "ventas": 10,
+      "ventas": 22,
       "precio": 69.48
     },
     {
@@ -637,9 +637,9 @@
       "nombre": "Vest Duna",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 177,
+      "stock_inicial": 192,
       "stock_actual": 166,
-      "ventas": 10,
+      "ventas": 26,
       "precio": 69.48
     },
     {
@@ -647,9 +647,9 @@
       "nombre": "Vest Moka",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 94,
+      "stock_inicial": 109,
       "stock_actual": 75,
-      "ventas": 18,
+      "ventas": 34,
       "precio": 95.567
     },
     {
@@ -677,9 +677,9 @@
       "nombre": "Vestido Mira",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Vestidos",
-      "stock_inicial": 90,
+      "stock_inicial": 99,
       "stock_actual": 88,
-      "ventas": 1,
+      "ventas": 11,
       "precio": 121.65
     }
   ]
