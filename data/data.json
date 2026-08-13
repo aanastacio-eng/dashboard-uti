@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T18:05:19.070Z",
+  "actualizado": "2026-08-13T18:07:34.551Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 378,
-    "ventas_totales": 6698,
-    "ingresos_totales": 524061.17,
+    "inventario_actual": 376,
+    "ventas_totales": 6700,
+    "ingresos_totales": 524200.12,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3601,
-      "ingresos": 262815.39200000005,
+      "ventas": 3602,
+      "ingresos": 262876.17199999996,
       "productos": 25
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -19,15 +19,15 @@
       "ingresos": 34372.96,
       "productos": 2
     },
+    "Producto Terminado / Pantalones": {
+      "ventas": 1756,
+      "ingresos": 146891.63199999995,
+      "productos": 15
+    },
     "Producto Terminado / Shorts": {
       "ventas": 656,
       "ingresos": 45578.880000000005,
       "productos": 4
-    },
-    "Producto Terminado / Pantalones": {
-      "ventas": 1755,
-      "ingresos": 146813.46199999997,
-      "productos": 15
     },
     "Producto Terminado / Vestidos": {
       "ventas": 297,
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4107,
+      "ventas": 4109,
       "stock_inicial": 1130,
-      "stock_actual": 410,
+      "stock_actual": 408,
       "productos": 53
     },
     "UTI 2": {
@@ -89,7 +89,7 @@
       "stock_actual": -16
     },
     {
-      "nombre": "LM2621-I-LEMALER BLUSA BEIGE",
+      "nombre": "Vest Duna",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 208,
@@ -117,18 +117,18 @@
       "stock_actual": -7
     },
     {
+      "nombre": "LM2627-W-LEMALER PANTALÓN VINO",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Pantalones",
+      "ventas": 187,
+      "stock_actual": -21
+    },
+    {
       "nombre": "LM2736-M-LEMALER BLUSA MELON",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 187,
       "stock_actual": -6
-    },
-    {
-      "nombre": "LM2627-W-LEMALER PANTALÓN VINO",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Pantalones",
-      "ventas": 186,
-      "stock_actual": -20
     }
   ],
   "menos_vendidos": [
@@ -205,7 +205,7 @@
   ],
   "ventas_por_talla": {
     "XS": 1455,
-    "S": 1923,
+    "S": 1925,
     "M": 1902,
     "L": 898,
     "XL": 440,
@@ -250,33 +250,13 @@
       "precio": 112.96
     },
     {
-      "odoo_id": 92878,
-      "nombre": "LM2621-I-LEMALER BLUSA BEIGE",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 8,
-      "stock_actual": -16,
-      "ventas": 208,
-      "precio": 69.48
-    },
-    {
-      "odoo_id": 92879,
-      "nombre": "LM2622-I-LEMALER SHORT BEIGE",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Shorts",
-      "stock_inicial": 9,
-      "stock_actual": -11,
-      "ventas": 174,
-      "precio": 69.48
-    },
-    {
       "odoo_id": 96033,
       "nombre": "LM2626-W-LEMALER BLUSA VINO",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 6,
-      "stock_actual": -12,
-      "ventas": 159,
+      "stock_actual": -13,
+      "ventas": 160,
       "precio": 60.78
     },
     {
@@ -285,8 +265,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 8,
-      "stock_actual": -20,
-      "ventas": 186,
+      "stock_actual": -21,
+      "ventas": 187,
       "precio": 78.17
     },
     {
@@ -890,6 +870,16 @@
       "precio": 78.17391304347827
     },
     {
+      "odoo_id": 113564,
+      "nombre": "Sandalia Sucre",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 69.47826086956523
+    },
+    {
       "odoo_id": 113562,
       "nombre": "Sandalia Sucre",
       "coleccion": "Uti 1",
@@ -900,14 +890,14 @@
       "precio": 69.47826086956523
     },
     {
-      "odoo_id": 113564,
-      "nombre": "Sandalia Sucre",
+      "odoo_id": 113588,
+      "nombre": "Sandalia Troya",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
       "stock_actual": 0,
       "ventas": 0,
-      "precio": 69.47826086956523
+      "precio": 52.08695652173913
     },
     {
       "odoo_id": 113586,
@@ -930,13 +920,13 @@
       "precio": 52.08695652173913
     },
     {
-      "odoo_id": 113588,
-      "nombre": "Sandalia Troya",
+      "odoo_id": 113581,
+      "nombre": "Sandalia Zamora",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 0,
+      "stock_actual": -3,
+      "ventas": 3,
       "precio": 52.08695652173913
     },
     {
@@ -950,14 +940,24 @@
       "precio": 52.08695652173913
     },
     {
-      "odoo_id": 113581,
-      "nombre": "Sandalia Zamora",
+      "odoo_id": 92879,
+      "nombre": "Short Trazos",
       "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Accesorios / Calzado",
-      "stock_inicial": 0,
-      "stock_actual": -3,
-      "ventas": 3,
-      "precio": 52.08695652173913
+      "categoria": "Producto Terminado / Shorts",
+      "stock_inicial": 9,
+      "stock_actual": -11,
+      "ventas": 174,
+      "precio": 69.48
+    },
+    {
+      "odoo_id": 92878,
+      "nombre": "Vest Duna",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 8,
+      "stock_actual": -16,
+      "ventas": 208,
+      "precio": 69.48
     }
   ]
 }
