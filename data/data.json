@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T17:27:44.686Z",
+  "actualizado": "2026-08-13T17:28:36.430Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1075,
-    "inventario_actual": -540,
-    "ventas_totales": 6664,
-    "ingresos_totales": 521611.96,
+    "inventario_actual": -448,
+    "ventas_totales": 6669,
+    "ingresos_totales": 522011.53,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3583,
-      "ingresos": 261486.514,
+      "ventas": 3586,
+      "ingresos": 261738.43099999995,
       "productos": 25
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -20,13 +20,13 @@
       "productos": 2
     },
     "Producto Terminado / Shorts": {
-      "ventas": 651,
-      "ingresos": 45231.48,
+      "ventas": 652,
+      "ingresos": 45300.96000000001,
       "productos": 4
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1747,
-      "ingresos": 146196.792,
+      "ventas": 1748,
+      "ingresos": 146274.96199999997,
       "productos": 15
     },
     "Producto Terminado / Vestidos": {
@@ -47,15 +47,15 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4073,
+      "ventas": 4078,
       "stock_inicial": 1107,
-      "stock_actual": -502,
+      "stock_actual": -416,
       "productos": 53
     },
     "UTI 2": {
       "ventas": 2591,
       "stock_inicial": -32,
-      "stock_actual": -38,
+      "stock_actual": -32,
       "productos": 21
     }
   },
@@ -64,8 +64,8 @@
       "nombre": "LM2724-P-LEMALER BLUSA PALO ROSA",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 225,
-      "stock_actual": -22
+      "ventas": 226,
+      "stock_actual": -23
     },
     {
       "nombre": "LM2735-W-LEMALER BLUSA VINO",
@@ -137,35 +137,35 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": -6
+      "stock_actual": 0
     },
     {
       "nombre": "Sandalia Bari",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": -5
+      "stock_actual": 0
     },
     {
       "nombre": "Sandalia Cusco",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": -6
+      "stock_actual": 0
     },
     {
       "nombre": "Sandalia Cusco",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": -5
+      "stock_actual": 0
     },
     {
       "nombre": "Sandalia Denia",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": -6
+      "stock_actual": 0
     },
     {
       "nombre": "Sandalia Kioto",
@@ -179,35 +179,35 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": -5
+      "stock_actual": 0
     },
     {
       "nombre": "Sandalia Lagos",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": -5
+      "stock_actual": 0
     },
     {
       "nombre": "Sandalia Novara",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": -5
+      "stock_actual": 0
     },
     {
       "nombre": "Sandalia Porto",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "ventas": 0,
-      "stock_actual": -5
+      "stock_actual": 0
     }
   ],
   "ventas_por_talla": {
     "XS": 1451,
     "S": 1920,
-    "M": 1889,
-    "L": 888,
+    "M": 1891,
+    "L": 891,
     "XL": 439,
     "XXS": 2,
     "Única": 73,
@@ -425,8 +425,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 36,
-      "stock_actual": -22,
-      "ventas": 225,
+      "stock_actual": -23,
+      "ventas": 226,
       "precio": 69.48
     },
     {
@@ -485,8 +485,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 16,
-      "stock_actual": -9,
-      "ventas": 117,
+      "stock_actual": -10,
+      "ventas": 118,
       "precio": 95.567
     },
     {
@@ -495,8 +495,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 10,
-      "stock_actual": -3,
-      "ventas": 106,
+      "stock_actual": -4,
+      "ventas": 107,
       "precio": 69.48
     },
     {
@@ -665,8 +665,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 152,
-      "stock_actual": -17,
-      "ventas": 33,
+      "stock_actual": -18,
+      "ventas": 34,
       "precio": 86.87
     },
     {
@@ -675,8 +675,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 149,
-      "stock_actual": -47,
-      "ventas": 46,
+      "stock_actual": -48,
+      "ventas": 47,
       "precio": 78.17
     },
     {
@@ -735,7 +735,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -6,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 60.782608695652186
     },
@@ -745,7 +745,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -5,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 52.08695652173913
     },
@@ -755,7 +755,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -6,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 69.47826086956523
     },
@@ -765,7 +765,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -5,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 69.47826086956523
     },
@@ -775,7 +775,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -6,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 78.17391304347827
     },
@@ -795,7 +795,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -5,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 78.17391304347827
     },
@@ -805,7 +805,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -7,
+      "stock_actual": -2,
       "ventas": 2,
       "precio": 69.47826086956523
     },
@@ -815,7 +815,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -5,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 69.47826086956523
     },
@@ -825,7 +825,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -5,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 43.391304347826086
     },
@@ -835,7 +835,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -5,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 95.56521739130436
     },
@@ -845,7 +845,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -5,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 78.17391304347827
     },
@@ -855,7 +855,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -5,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 78.17391304347827
     },
@@ -875,7 +875,7 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -6,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 95.56521739130436
     },
@@ -885,7 +885,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -6,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 78.17391304347827
     },
@@ -895,7 +895,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -5,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 69.47826086956523
     },
@@ -905,7 +905,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -5,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 69.47826086956523
     },
@@ -925,7 +925,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -1,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 52.08695652173913
     },
@@ -945,7 +945,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -6,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 52.08695652173913
     },
@@ -955,7 +955,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": -5,
+      "stock_actual": 0,
       "ventas": 0,
       "precio": 52.08695652173913
     }
