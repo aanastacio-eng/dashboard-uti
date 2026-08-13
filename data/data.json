@@ -1,11 +1,11 @@
 {
-  "actualizado": "2026-08-13T18:53:18.493Z",
+  "actualizado": "2026-08-13T18:53:33.773Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 332,
-    "ventas_totales": 6746,
-    "ingresos_totales": 527509.16,
+    "inventario_actual": 331,
+    "ventas_totales": 6747,
+    "ingresos_totales": 527604.73,
     "total_productos": 74
   },
   "por_categoria": {
@@ -20,8 +20,8 @@
       "productos": 3
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1766,
-      "ingresos": 147682.042,
+      "ventas": 1767,
+      "ingresos": 147777.612,
       "productos": 15
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4155,
+      "ventas": 4156,
       "stock_inicial": 1130,
-      "stock_actual": 364,
+      "stock_actual": 363,
       "productos": 53
     },
     "UTI 2": {
@@ -106,8 +106,8 @@
       "nombre": "Pantalón Momentos",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "ventas": 195,
-      "stock_actual": -13
+      "ventas": 196,
+      "stock_actual": -14
     },
     {
       "nombre": "Pantalón Rosa",
@@ -204,7 +204,7 @@
     }
   ],
   "ventas_por_talla": {
-    "XS": 1459,
+    "XS": 1460,
     "S": 1938,
     "M": 1921,
     "L": 903,
@@ -545,8 +545,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 13,
-      "stock_actual": -13,
-      "ventas": 195,
+      "stock_actual": -14,
+      "ventas": 196,
       "precio": 95.57
     },
     {
