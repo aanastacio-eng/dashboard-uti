@@ -1,11 +1,11 @@
 {
-  "actualizado": "2026-08-13T17:57:31.154Z",
+  "actualizado": "2026-08-13T17:58:17.198Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1075,
-    "inventario_actual": 390,
-    "ventas_totales": 6687,
-    "ingresos_totales": 523349.09,
+    "inventario_actual": 387,
+    "ventas_totales": 6690,
+    "ingresos_totales": 523505.35,
     "total_productos": 74
   },
   "por_categoria": {
@@ -40,16 +40,16 @@
       "productos": 2
     },
     "Producto Terminado / Accesorios / Calzado": {
-      "ventas": 2,
-      "ingresos": 138.95652173913047,
+      "ventas": 5,
+      "ingresos": 295.21739130434787,
       "productos": 23
     }
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4096,
+      "ventas": 4099,
       "stock_inicial": 1107,
-      "stock_actual": 422,
+      "stock_actual": 419,
       "productos": 53
     },
     "UTI 2": {
@@ -215,8 +215,8 @@
     "T-35": 0,
     "T-36": 1,
     "T-37": 0,
-    "T-38": 0,
-    "T-39": 1
+    "T-38": 1,
+    "T-39": 3
   },
   "productos": [
     {
@@ -955,8 +955,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 0,
+      "stock_actual": -3,
+      "ventas": 3,
       "precio": 52.08695652173913
     }
   ]
