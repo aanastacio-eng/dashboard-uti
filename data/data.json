@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T18:07:34.551Z",
+  "actualizado": "2026-08-13T18:07:47.406Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 376,
-    "ventas_totales": 6700,
-    "ingresos_totales": 524200.12,
+    "inventario_actual": 375,
+    "ventas_totales": 6701,
+    "ingresos_totales": 524286.99,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3602,
-      "ingresos": 262876.17199999996,
+      "ventas": 3603,
+      "ingresos": 262963.042,
       "productos": 25
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -21,7 +21,7 @@
     },
     "Producto Terminado / Pantalones": {
       "ventas": 1756,
-      "ingresos": 146891.63199999995,
+      "ingresos": 146891.632,
       "productos": 15
     },
     "Producto Terminado / Shorts": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4109,
+      "ventas": 4110,
       "stock_inicial": 1130,
-      "stock_actual": 408,
+      "stock_actual": 407,
       "productos": 53
     },
     "UTI 2": {
@@ -110,18 +110,11 @@
       "stock_actual": -12
     },
     {
-      "nombre": "LM2631-P-LEMALER PANTALÓN PALO ROSA",
+      "nombre": "Pantalón Rosa",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "ventas": 193,
       "stock_actual": -7
-    },
-    {
-      "nombre": "LM2627-W-LEMALER PANTALÓN VINO",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Pantalones",
-      "ventas": 187,
-      "stock_actual": -21
     },
     {
       "nombre": "LM2736-M-LEMALER BLUSA MELON",
@@ -129,6 +122,13 @@
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 187,
       "stock_actual": -6
+    },
+    {
+      "nombre": "Pantalón Caminos",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Pantalones",
+      "ventas": 187,
+      "stock_actual": -21
     }
   ],
   "menos_vendidos": [
@@ -208,7 +208,7 @@
     "S": 1925,
     "M": 1902,
     "L": 898,
-    "XL": 440,
+    "XL": 441,
     "XXS": 2,
     "Única": 73,
     "T-40": 0,
@@ -219,6 +219,26 @@
     "T-39": 3
   },
   "productos": [
+    {
+      "odoo_id": 96033,
+      "nombre": "Blusa Ahora",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 6,
+      "stock_actual": -13,
+      "ventas": 160,
+      "precio": 60.78
+    },
+    {
+      "odoo_id": 112017,
+      "nombre": "Blusa Promesa",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 1,
+      "stock_actual": -30,
+      "ventas": 155,
+      "precio": 60.78
+    },
     {
       "odoo_id": 96020,
       "nombre": "Blusa Voz",
@@ -250,26 +270,6 @@
       "precio": 112.96
     },
     {
-      "odoo_id": 96033,
-      "nombre": "LM2626-W-LEMALER BLUSA VINO",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 6,
-      "stock_actual": -13,
-      "ventas": 160,
-      "precio": 60.78
-    },
-    {
-      "odoo_id": 96032,
-      "nombre": "LM2627-W-LEMALER PANTALÓN VINO",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 8,
-      "stock_actual": -21,
-      "ventas": 187,
-      "precio": 78.17
-    },
-    {
       "odoo_id": 92886,
       "nombre": "LM2629-C-LEMALER CHAQUETA CRUDO",
       "coleccion": "UTI 2",
@@ -278,26 +278,6 @@
       "stock_actual": 2,
       "ventas": 158,
       "precio": 78.17
-    },
-    {
-      "odoo_id": 112017,
-      "nombre": "LM2630-B-LEMALER BLUSA BLANCO",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 1,
-      "stock_actual": -30,
-      "ventas": 155,
-      "precio": 60.78
-    },
-    {
-      "odoo_id": 92888,
-      "nombre": "LM2631-P-LEMALER PANTALÓN PALO ROSA",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 4,
-      "stock_actual": -7,
-      "ventas": 193,
-      "precio": 69.48
     },
     {
       "odoo_id": 96018,
@@ -645,8 +625,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 151,
-      "stock_actual": 116,
-      "ventas": 34,
+      "stock_actual": 115,
+      "ventas": 35,
       "precio": 86.87
     },
     {
@@ -700,6 +680,16 @@
       "precio": 26
     },
     {
+      "odoo_id": 96032,
+      "nombre": "Pantalón Caminos",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Pantalones",
+      "stock_inicial": 8,
+      "stock_actual": -21,
+      "ventas": 187,
+      "precio": 78.17
+    },
+    {
       "odoo_id": 113499,
       "nombre": "Pantalón Origen",
       "coleccion": "UTI 2",
@@ -708,6 +698,16 @@
       "stock_actual": 0,
       "ventas": 115,
       "precio": 95.57
+    },
+    {
+      "odoo_id": 92888,
+      "nombre": "Pantalón Rosa",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Pantalones",
+      "stock_inicial": 4,
+      "stock_actual": -7,
+      "ventas": 193,
+      "precio": 69.48
     },
     {
       "odoo_id": 113555,
