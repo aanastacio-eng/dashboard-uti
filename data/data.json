@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T18:55:18.610Z",
+  "actualizado": "2026-08-13T18:58:03.099Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 319,
-    "ventas_totales": 6752,
-    "ingresos_totales": 528030.39,
+    "inventario_actual": 317,
+    "ventas_totales": 6754,
+    "ingresos_totales": 528160.65,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3631,
-      "ingresos": 264969.318,
+      "ventas": 3632,
+      "ingresos": 265030.098,
       "productos": 25
     },
     "Producto Terminado / Vestidos": {
@@ -20,8 +20,8 @@
       "productos": 3
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1767,
-      "ingresos": 147777.612,
+      "ventas": 1768,
+      "ingresos": 147847.092,
       "productos": 15
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4161,
+      "ventas": 4163,
       "stock_inicial": 1130,
-      "stock_actual": 353,
+      "stock_actual": 351,
       "productos": 53
     },
     "UTI 2": {
@@ -113,8 +113,8 @@
       "nombre": "Pantalón Rosa",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "ventas": 194,
-      "stock_actual": -8
+      "ventas": 195,
+      "stock_actual": -9
     },
     {
       "nombre": "Pantalón Caminos",
@@ -205,7 +205,7 @@
   ],
   "ventas_por_talla": {
     "XS": 1460,
-    "S": 1939,
+    "S": 1941,
     "M": 1921,
     "L": 906,
     "XL": 443,
@@ -375,8 +375,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 1,
-      "stock_actual": -31,
-      "ventas": 156,
+      "stock_actual": -32,
+      "ventas": 157,
       "precio": 60.78
     },
     {
@@ -605,8 +605,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 4,
-      "stock_actual": -8,
-      "ventas": 194,
+      "stock_actual": -9,
+      "ventas": 195,
       "precio": 69.48
     },
     {
