@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T17:48:27.927Z",
+  "actualizado": "2026-08-13T17:50:30.485Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1075,
-    "inventario_actual": 394,
-    "ventas_totales": 6685,
-    "ingresos_totales": 523175.35,
+    "inventario_actual": 392,
+    "ventas_totales": 6687,
+    "ingresos_totales": 523349.09,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3596,
-      "ingresos": 262459.30500000005,
+      "ventas": 3597,
+      "ingresos": 262554.87200000003,
       "productos": 25
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -25,8 +25,8 @@
       "productos": 4
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1751,
-      "ingresos": 146509.47199999998,
+      "ventas": 1752,
+      "ingresos": 146587.64199999996,
       "productos": 15
     },
     "Producto Terminado / Vestidos": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4094,
+      "ventas": 4096,
       "stock_inicial": 1107,
-      "stock_actual": 426,
+      "stock_actual": 424,
       "productos": 53
     },
     "UTI 2": {
@@ -204,7 +204,7 @@
     }
   ],
   "ventas_por_talla": {
-    "XS": 1453,
+    "XS": 1455,
     "S": 1922,
     "M": 1898,
     "L": 896,
@@ -485,8 +485,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 16,
-      "stock_actual": -12,
-      "ventas": 120,
+      "stock_actual": -13,
+      "ventas": 121,
       "precio": 95.567
     },
     {
@@ -585,8 +585,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 6,
-      "stock_actual": -6,
-      "ventas": 169,
+      "stock_actual": -7,
+      "ventas": 170,
       "precio": 78.17
     },
     {
