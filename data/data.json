@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T18:39:08.182Z",
+  "actualizado": "2026-08-13T18:42:22.324Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 344,
-    "ventas_totales": 6730,
-    "ingresos_totales": 526362.73,
+    "inventario_actual": 342,
+    "ventas_totales": 6736,
+    "ingresos_totales": 526788.29,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3618,
-      "ingresos": 264040.00200000004,
+      "ventas": 3622,
+      "ingresos": 264309.22000000003,
       "productos": 25
     },
     "Producto Terminado / Vestidos": {
@@ -20,8 +20,8 @@
       "productos": 3
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1762,
-      "ingresos": 147351.962,
+      "ventas": 1764,
+      "ingresos": 147508.302,
       "productos": 15
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4139,
+      "ventas": 4145,
       "stock_inicial": 1130,
-      "stock_actual": 376,
+      "stock_actual": 374,
       "productos": 53
     },
     "UTI 2": {
@@ -71,7 +71,7 @@
       "nombre": "Blusa Certeza",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 221,
+      "ventas": 222,
       "stock_actual": -16
     },
     {
@@ -120,7 +120,7 @@
       "nombre": "Pantalón Caminos",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
-      "ventas": 188,
+      "ventas": 189,
       "stock_actual": -22
     },
     {
@@ -205,8 +205,8 @@
   ],
   "ventas_por_talla": {
     "XS": 1458,
-    "S": 1933,
-    "M": 1913,
+    "S": 1934,
+    "M": 1918,
     "L": 903,
     "XL": 442,
     "XXS": 2,
@@ -236,7 +236,7 @@
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 6,
       "stock_actual": -16,
-      "ventas": 163,
+      "ventas": 164,
       "precio": 60.78
     },
     {
@@ -246,7 +246,7 @@
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 3,
       "stock_actual": -9,
-      "ventas": 180,
+      "ventas": 181,
       "precio": 52.09
     },
     {
@@ -260,16 +260,6 @@
       "precio": 69.48
     },
     {
-      "odoo_id": 113168,
-      "nombre": "Blusa Arena",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 1,
-      "stock_actual": 1,
-      "ventas": 115,
-      "precio": 78.173
-    },
-    {
       "odoo_id": 96620,
       "nombre": "Blusa Arena",
       "coleccion": "UTI 2",
@@ -277,6 +267,16 @@
       "stock_inicial": 0,
       "stock_actual": 0,
       "ventas": 26,
+      "precio": 78.173
+    },
+    {
+      "odoo_id": 113168,
+      "nombre": "Blusa Arena",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 1,
+      "stock_actual": 1,
+      "ventas": 115,
       "precio": 78.173
     },
     {
@@ -296,7 +296,7 @@
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 47,
       "stock_actual": -16,
-      "ventas": 221,
+      "ventas": 222,
       "precio": 69.478
     },
     {
@@ -435,8 +435,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 151,
-      "stock_actual": 115,
-      "ventas": 35,
+      "stock_actual": 114,
+      "ventas": 36,
       "precio": 86.87
     },
     {
@@ -465,8 +465,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 164,
-      "stock_actual": 113,
-      "ventas": 50,
+      "stock_actual": 112,
+      "ventas": 51,
       "precio": 78.17
     },
     {
@@ -506,7 +506,7 @@
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 8,
       "stock_actual": -22,
-      "ventas": 188,
+      "ventas": 189,
       "precio": 78.17
     },
     {
