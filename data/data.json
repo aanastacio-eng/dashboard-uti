@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-08-13T19:34:25.230Z",
+  "actualizado": "2026-08-13T19:34:55.684Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 7008,
-    "inventario_actual": 6233,
+    "inventario_actual": 6231,
     "ventas_totales": 770,
     "ingresos_totales": 58080.63,
     "total_productos": 48
@@ -39,7 +39,7 @@
     "Uti 1": {
       "ventas": 770,
       "stock_inicial": 4451,
-      "stock_actual": 3676,
+      "stock_actual": 3674,
       "productos": 29
     },
     "UTI 2": {
@@ -62,7 +62,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 65,
-      "stock_actual": 139
+      "stock_actual": 138
     },
     {
       "nombre": "Jean Despertar",
@@ -90,7 +90,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 34,
-      "stock_actual": 94
+      "stock_actual": 93
     },
     {
       "nombre": "Vest Moka",
@@ -278,7 +278,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 205,
-      "stock_actual": 139,
+      "stock_actual": 138,
       "ventas": 65,
       "precio": 69.478
     },
@@ -358,7 +358,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 129,
-      "stock_actual": 94,
+      "stock_actual": 93,
       "ventas": 34,
       "precio": 60.78
     },
