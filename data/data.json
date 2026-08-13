@@ -1,11 +1,11 @@
 {
-  "actualizado": "2026-08-13T18:51:04.655Z",
+  "actualizado": "2026-08-13T18:53:18.493Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 334,
-    "ventas_totales": 6744,
-    "ingresos_totales": 527387.59,
+    "inventario_actual": 332,
+    "ventas_totales": 6746,
+    "ingresos_totales": 527509.16,
     "total_productos": 74
   },
   "por_categoria": {
@@ -35,8 +35,8 @@
       "productos": 2
     },
     "Producto Terminado / Accesorios / Calzado": {
-      "ventas": 6,
-      "ingresos": 347.304347826087,
+      "ventas": 8,
+      "ingresos": 468.86956521739137,
       "productos": 23
     },
     "Producto Terminado / Shorts": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4153,
+      "ventas": 4155,
       "stock_inicial": 1130,
-      "stock_actual": 366,
+      "stock_actual": 364,
       "productos": 53
     },
     "UTI 2": {
@@ -214,7 +214,7 @@
     "T-40": 0,
     "T-35": 0,
     "T-36": 1,
-    "T-37": 0,
+    "T-37": 2,
     "T-38": 2,
     "T-39": 3
   },
@@ -805,8 +805,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 0,
+      "stock_actual": -1,
+      "ventas": 1,
       "precio": 69.47826086956523
     },
     {
@@ -835,8 +835,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 0,
+      "stock_actual": -1,
+      "ventas": 1,
       "precio": 52.08695652173913
     },
     {
