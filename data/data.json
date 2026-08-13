@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-08-13T18:04:45.577Z",
+  "actualizado": "2026-08-13T18:05:19.070Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 380,
+    "inventario_actual": 378,
     "ventas_totales": 6698,
     "ingresos_totales": 524061.17,
     "total_productos": 74
@@ -49,7 +49,7 @@
     "Uti 1": {
       "ventas": 4107,
       "stock_inicial": 1130,
-      "stock_actual": 412,
+      "stock_actual": 410,
       "productos": 53
     },
     "UTI 2": {
@@ -65,7 +65,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 227,
-      "stock_actual": -24
+      "stock_actual": -25
     },
     {
       "nombre": "LM2735-W-LEMALER BLUSA VINO",
@@ -425,7 +425,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 37,
-      "stock_actual": -24,
+      "stock_actual": -25,
       "ventas": 227,
       "precio": 69.48
     },
@@ -505,7 +505,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 154,
-      "stock_actual": 126,
+      "stock_actual": 125,
       "ventas": 28,
       "precio": 78.17
     },
