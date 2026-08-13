@@ -71,6 +71,7 @@ tfoot td{font-weight:600;border-bottom:none}
 .prod{display:flex;align-items:center;gap:10px}
 .thumb{flex:0 0 auto;border-radius:6px;background:var(--soft);border:.5px solid var(--line);
   display:flex;align-items:center;justify-content:center;color:var(--ink-3)}
+.thumb-img{object-fit:cover;border-radius:6px;border:.5px solid var(--line);flex:0 0 auto;}
 .pill{display:inline-block;font-size:12px;padding:3px 10px;border-radius:var(--radius);white-space:nowrap}
 .low{color:#d03b3b;font-weight:600}
 .sortbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
@@ -178,7 +179,10 @@ let chart = null;
 const money = n => '$' + Math.round(n).toLocaleString('en-US');
 const num = n => Math.round(n).toLocaleString('en-US');
 
-function thumb(size){
+function thumb(src, size){
+  if (src && typeof src === 'string' && src.startsWith('data:image')) {
+    return `<img src="${src}" class="thumb-img" style="width:${size}px;height:${size}px" alt="Prenda" />`;
+  }
   const g = Math.round(size * 0.46);
   return `<span class="thumb" style="width:${size}px;height:${size}px" aria-hidden="true">
     <svg width="${g}" height="${g}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span>`;
@@ -243,7 +247,7 @@ function render(){
     .sort((a,b) => (a.ventas / (a.stock_inicial||1)) - (b.ventas / (b.stock_inicial||1)))
     .slice(0,5).map(p => {
       const e = estado(p);
-      return `<tr><td><span class="prod">${thumb(34)}<span>${p.nombre}<br><span class="tiny">${p.categoria}</span></span></span></td>
+      return `<tr><td><span class="prod">${thumb(p.imagen_thumb, 34)}<span>${p.nombre}<br><span class="tiny">${p.categoria}</span></span></span></td>
       <td>${p.ventas}</td><td>${p.stock_actual}</td>
       <td><span class="pill" style="background:${e.bg};color:${e.c}">${e.t}</span></td></tr>`;
     }).join('');
@@ -256,7 +260,7 @@ function render(){
 
   document.getElementById('tbodyDetalle').innerHTML = sortedProds.map(p => {
     const pct = p.stock_inicial > 0 ? Math.round((p.ventas / p.stock_inicial) * 100) : 0;
-    return `<tr><td><span class="prod">${thumb(44)}<span>${p.nombre}<br><span class="tiny">${p.coleccion} · ${p.categoria}</span></span></span></td>
+    return `<tr><td><span class="prod">${thumb(p.imagen_thumb, 44)}<span>${p.nombre}<br><span class="tiny">${p.coleccion} · ${p.categoria}</span></span></span></td>
     <td>${p.stock_inicial}</td><td>${p.ventas}</td>
     <td ${p.stock_actual < 15 ? 'class="low"' : ''}>${p.stock_actual}</td><td>${pct}%</td></tr>`;
   }).join('');
