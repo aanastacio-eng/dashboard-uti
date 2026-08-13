@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-08-13T19:34:55.684Z",
+  "actualizado": "2026-08-13T19:37:08.984Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 7008,
-    "inventario_actual": 6231,
+    "inventario_actual": 6225,
     "ventas_totales": 770,
     "ingresos_totales": 58080.63,
     "total_productos": 48
@@ -39,7 +39,7 @@
     "Uti 1": {
       "ventas": 770,
       "stock_inicial": 4451,
-      "stock_actual": 3674,
+      "stock_actual": 3668,
       "productos": 29
     },
     "UTI 2": {
@@ -55,7 +55,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 65,
-      "stock_actual": 137
+      "stock_actual": 136
     },
     {
       "nombre": "Blusa Certeza",
@@ -76,7 +76,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "ventas": 47,
-      "stock_actual": 146
+      "stock_actual": 145
     },
     {
       "nombre": "Chaleco Sentido",
@@ -104,7 +104,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "ventas": 31,
-      "stock_actual": 136
+      "stock_actual": 135
     },
     {
       "nombre": "Blusa Contraste",
@@ -218,7 +218,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 148,
-      "stock_actual": 124,
+      "stock_actual": 123,
       "ventas": 24,
       "precio": 60.78
     },
@@ -238,7 +238,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 202,
-      "stock_actual": 137,
+      "stock_actual": 136,
       "ventas": 65,
       "precio": 69.48
     },
@@ -478,7 +478,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 167,
-      "stock_actual": 136,
+      "stock_actual": 135,
       "ventas": 31,
       "precio": 78.17
     },
@@ -608,7 +608,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 193,
-      "stock_actual": 146,
+      "stock_actual": 145,
       "ventas": 47,
       "precio": 69.48
     },
@@ -628,7 +628,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 163,
-      "stock_actual": 141,
+      "stock_actual": 140,
       "ventas": 22,
       "precio": 69.48
     },
@@ -638,7 +638,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 192,
-      "stock_actual": 166,
+      "stock_actual": 165,
       "ventas": 26,
       "precio": 69.48
     },
