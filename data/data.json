@@ -1,11 +1,11 @@
 {
-  "actualizado": "2026-08-13T18:36:38.244Z",
+  "actualizado": "2026-08-13T18:39:01.243Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 347,
-    "ventas_totales": 6727,
-    "ingresos_totales": 526171.68,
+    "inventario_actual": 345,
+    "ventas_totales": 6729,
+    "ingresos_totales": 526310.64,
     "total_productos": 74
   },
   "por_categoria": {
@@ -40,16 +40,16 @@
       "productos": 23
     },
     "Producto Terminado / Shorts": {
-      "ventas": 661,
-      "ingresos": 45926.280000000006,
+      "ventas": 663,
+      "ingresos": 46065.240000000005,
       "productos": 4
     }
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4136,
+      "ventas": 4138,
       "stock_inicial": 1130,
-      "stock_actual": 379,
+      "stock_actual": 377,
       "productos": 53
     },
     "UTI 2": {
@@ -204,7 +204,7 @@
     }
   ],
   "ventas_por_talla": {
-    "XS": 1456,
+    "XS": 1458,
     "S": 1933,
     "M": 1913,
     "L": 903,
@@ -895,8 +895,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 11,
-      "stock_actual": -6,
-      "ventas": 110,
+      "stock_actual": -7,
+      "ventas": 111,
       "precio": 69.48
     },
     {
@@ -905,8 +905,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 9,
-      "stock_actual": -12,
-      "ventas": 175,
+      "stock_actual": -13,
+      "ventas": 176,
       "precio": 69.48
     },
     {
