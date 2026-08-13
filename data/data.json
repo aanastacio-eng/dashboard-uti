@@ -1,27 +1,27 @@
 {
-  "actualizado": "2026-08-13T19:00:12.120Z",
+  "actualizado": "2026-08-13T19:01:23.374Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 7071,
-    "inventario_actual": 316,
-    "ventas_totales": 6755,
-    "ingresos_totales": 528238.82,
+    "inventario_actual": 306,
+    "ventas_totales": 6765,
+    "ingresos_totales": 529037.95,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3632,
-      "ingresos": 265030.098,
+      "ventas": 3639,
+      "ingresos": 265559.925,
       "productos": 25
     },
     "Producto Terminado / Vestidos": {
-      "ventas": 298,
-      "ingresos": 32538.910000000003,
+      "ventas": 299,
+      "ingresos": 32660.56,
       "productos": 3
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1769,
-      "ingresos": 147925.262,
+      "ventas": 1770,
+      "ingresos": 148003.432,
       "productos": 15
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -40,16 +40,16 @@
       "productos": 23
     },
     "Producto Terminado / Shorts": {
-      "ventas": 664,
-      "ingresos": 46134.72000000001,
+      "ventas": 665,
+      "ingresos": 46204.200000000004,
       "productos": 4
     }
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4164,
+      "ventas": 4174,
       "stock_inicial": 4514,
-      "stock_actual": 350,
+      "stock_actual": 340,
       "productos": 53
     },
     "UTI 2": {
@@ -99,8 +99,8 @@
       "nombre": "Blazer Presencia",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 207,
-      "stock_actual": -15
+      "ventas": 208,
+      "stock_actual": -16
     },
     {
       "nombre": "Pantalón Momentos",
@@ -204,8 +204,8 @@
     }
   ],
   "ventas_por_talla": {
-    "XS": 1460,
-    "S": 1941,
+    "XS": 1467,
+    "S": 1944,
     "M": 1921,
     "L": 907,
     "XL": 443,
@@ -225,8 +225,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 192,
-      "stock_actual": -15,
-      "ventas": 207,
+      "stock_actual": -16,
+      "ventas": 208,
       "precio": 104.26
     },
     {
@@ -235,8 +235,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 148,
-      "stock_actual": -16,
-      "ventas": 164,
+      "stock_actual": -17,
+      "ventas": 165,
       "precio": 60.78
     },
     {
@@ -245,8 +245,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 172,
-      "stock_actual": -9,
-      "ventas": 181,
+      "stock_actual": -10,
+      "ventas": 182,
       "precio": 52.09
     },
     {
@@ -305,8 +305,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 128,
-      "stock_actual": -31,
-      "ventas": 159,
+      "stock_actual": -32,
+      "ventas": 160,
       "precio": 69.48
     },
     {
@@ -375,8 +375,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 125,
-      "stock_actual": -32,
-      "ventas": 157,
+      "stock_actual": -33,
+      "ventas": 158,
       "precio": 60.78
     },
     {
@@ -435,8 +435,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 150,
-      "stock_actual": 113,
-      "ventas": 37,
+      "stock_actual": 112,
+      "ventas": 38,
       "precio": 86.87
     },
     {
@@ -465,8 +465,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 163,
-      "stock_actual": 112,
-      "ventas": 51,
+      "stock_actual": 111,
+      "ventas": 52,
       "precio": 78.17
     },
     {
@@ -895,8 +895,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 104,
-      "stock_actual": -7,
-      "ventas": 111,
+      "stock_actual": -8,
+      "ventas": 112,
       "precio": 69.48
     },
     {
@@ -925,8 +925,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 108,
-      "stock_actual": -15,
-      "ventas": 123,
+      "stock_actual": -16,
+      "ventas": 124,
       "precio": 95.567
     },
     {
@@ -955,8 +955,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Vestidos",
       "stock_inicial": 99,
-      "stock_actual": -8,
-      "ventas": 107,
+      "stock_actual": -9,
+      "ventas": 108,
       "precio": 121.65
     }
   ]
