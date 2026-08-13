@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-08-13T18:15:08.835Z",
+  "actualizado": "2026-08-13T18:20:23.746Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 373,
+    "inventario_actual": 371,
     "ventas_totales": 6703,
     "ingresos_totales": 524443.33,
     "total_productos": 74
@@ -49,7 +49,7 @@
     "Uti 1": {
       "ventas": 4112,
       "stock_inicial": 1130,
-      "stock_actual": 405,
+      "stock_actual": 403,
       "productos": 53
     },
     "UTI 2": {
@@ -72,7 +72,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 219,
-      "stock_actual": -13
+      "stock_actual": -14
     },
     {
       "nombre": "LM2642-I-LEMALER BLUSA BEIGE",
@@ -265,7 +265,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 47,
-      "stock_actual": -13,
+      "stock_actual": -14,
       "ventas": 219,
       "precio": 69.478
     },
@@ -645,7 +645,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 11,
-      "stock_actual": -5,
+      "stock_actual": -6,
       "ventas": 123,
       "precio": 78.17
     },
