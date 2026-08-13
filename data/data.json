@@ -1,22 +1,22 @@
 {
-  "actualizado": "2026-08-13T18:53:33.773Z",
+  "actualizado": "2026-08-13T18:54:09.798Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 331,
-    "ventas_totales": 6747,
-    "ingresos_totales": 527604.73,
+    "inventario_actual": 322,
+    "ventas_totales": 6749,
+    "ingresos_totales": 527821.95,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3628,
-      "ingresos": 264734.788,
+      "ventas": 3629,
+      "ingresos": 264830.358,
       "productos": 25
     },
     "Producto Terminado / Vestidos": {
-      "ventas": 297,
-      "ingresos": 32417.260000000002,
+      "ventas": 298,
+      "ingresos": 32538.910000000003,
       "productos": 3
     },
     "Producto Terminado / Pantalones": {
@@ -47,15 +47,15 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4156,
+      "ventas": 4158,
       "stock_inicial": 1130,
-      "stock_actual": 363,
+      "stock_actual": 356,
       "productos": 53
     },
     "UTI 2": {
       "ventas": 2591,
       "stock_inicial": -32,
-      "stock_actual": -32,
+      "stock_actual": -34,
       "productos": 21
     }
   },
@@ -72,7 +72,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 223,
-      "stock_actual": -17
+      "stock_actual": -18
     },
     {
       "nombre": "Blusa Aura",
@@ -128,7 +128,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 187,
-      "stock_actual": -6
+      "stock_actual": -7
     }
   ],
   "menos_vendidos": [
@@ -207,7 +207,7 @@
     "XS": 1460,
     "S": 1938,
     "M": 1921,
-    "L": 903,
+    "L": 905,
     "XL": 442,
     "XXS": 2,
     "Única": 73,
@@ -295,7 +295,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 47,
-      "stock_actual": -17,
+      "stock_actual": -18,
       "ventas": 223,
       "precio": 69.478
     },
@@ -305,7 +305,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": -19,
-      "stock_actual": -30,
+      "stock_actual": -31,
       "ventas": 159,
       "precio": 69.48
     },
@@ -325,7 +325,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 6,
-      "stock_actual": -6,
+      "stock_actual": -7,
       "ventas": 187,
       "precio": 78.17
     },
@@ -335,8 +335,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 7,
-      "stock_actual": -9,
-      "ventas": 174,
+      "stock_actual": -10,
+      "ventas": 175,
       "precio": 95.57
     },
     {
@@ -415,7 +415,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 8,
-      "stock_actual": -14,
+      "stock_actual": -15,
       "ventas": 162,
       "precio": 52.09
     },
@@ -595,7 +595,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 6,
-      "stock_actual": -8,
+      "stock_actual": -9,
       "ventas": 171,
       "precio": 78.17
     },
@@ -945,7 +945,7 @@
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Vestidos",
       "stock_inicial": 0,
-      "stock_actual": 0,
+      "stock_actual": -2,
       "ventas": 186,
       "precio": 104.26
     },
@@ -955,8 +955,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Vestidos",
       "stock_inicial": 1,
-      "stock_actual": -7,
-      "ventas": 106,
+      "stock_actual": -8,
+      "ventas": 107,
       "precio": 121.65
     }
   ]
