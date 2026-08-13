@@ -1,338 +1,322 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UTI · Panel de Colecciones</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lemaler x Uti Torres — Dashboard de Campaña</title>
 <style>
 :root{
-  --bg:#14171c;
-  --surface:#1b1f26;
-  --surface-2:#20252d;
-  --line: rgba(237,235,230,0.09);
-  --ink:#edebe6;
-  --ink-dim:#9298a3;
-  --wine:#a23b3b;
-  --wine-soft: rgba(162,59,59,0.16);
-  --gold:#c9a227;
-  --sage:#5f8a68;
-  --radius: 3px;
+  --bg:#faf9f7; --card:#ffffff; --soft:#f3f1ed;
+  --ink:#1c1b19; --ink-2:#5f5d57; --ink-3:#8d8b84;
+  --line:rgba(28,27,25,.12); --line-2:rgba(28,27,25,.22);
+  --ok-bg:#eaf3de; --ok-tx:#27500a;
+  --wait-bg:#faeeda; --wait-tx:#633806;
+  --stop-bg:#fcebeb; --stop-tx:#791f1f;
+  --blue:#2a78d6; --green:#1baf7a; --amber:#eda100;
+  --radius:8px;
 }
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  background:
-    radial-gradient(1200px 500px at 85% -10%, rgba(162,59,59,0.10), transparent 60%),
-    var(--bg);
-  color:var(--ink);
-  font-family:'Inter',sans-serif;
-  -webkit-font-smoothing:antialiased;
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#141413; --card:#1d1d1b; --soft:#252523;
+    --ink:#f0efec; --ink-2:#b9b7ae; --ink-3:#8d8b84;
+    --line:rgba(255,255,255,.12); --line-2:rgba(255,255,255,.22);
+    --ok-bg:#27500a; --ok-tx:#eaf3de;
+    --wait-bg:#633806; --wait-tx:#faeeda;
+    --stop-bg:#791f1f; --stop-tx:#fcebeb;
+  }
 }
-::selection{background:var(--wine-soft);}
-
-/* ---- measuring-tape divider (signature element) ---- */
-.tape{
-  height:22px;
-  margin: 6px 0 28px;
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--line) 0, var(--line) 1px,
-    transparent 1px, transparent 12px
-  );
-  background-position: 0 bottom;
-  background-size: 100% 10px;
-  background-repeat: repeat-x;
-  position:relative;
-  opacity:.8;
-}
-.tape::after{
-  content:"";
-  position:absolute; left:0; right:0; bottom:0; height:1px;
-  background:var(--line);
-}
-
-.wrap{max-width:1280px; margin:0 auto; padding: 40px 28px 80px;}
-
-header.top{
-  display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;
-}
-.eyebrow{
-  font-family:'IBM Plex Mono', monospace;
-  font-size:11px; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--wine); margin:0 0 10px;
-}
-h1{
-  font-family:'Fraunces', serif;
-  font-weight:500;
-  font-size: clamp(28px, 4vw, 42px);
-  margin:0;
-  letter-spacing:-0.01em;
-}
-h1 em{ font-style:italic; color:var(--ink-dim); font-weight:400;}
-
-.status{
-  text-align:right;
-  font-family:'IBM Plex Mono', monospace;
-  font-size:12px;
-  color:var(--ink-dim);
-  display:flex; align-items:center; gap:10px;
-}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--sage); box-shadow:0 0 0 3px rgba(95,138,104,0.18);}
-.dot.stale{background:var(--gold); box-shadow:0 0 0 3px rgba(201,162,39,0.18);}
-
-/* KPI row */
-.kpis{
-  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-  background:var(--line);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  overflow:hidden;
-}
-.kpi{ background:var(--surface); padding:22px 24px;}
-.kpi .label{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:10px;}
-.kpi .value{font-family:'Fraunces',serif; font-size:32px; font-weight:500;}
-.kpi .sub{font-size:12px; color:var(--ink-dim); margin-top:6px;}
-.kpi .value.neg{color:var(--wine);}
-.kpi .value.pos{color:var(--sage);}
-
-/* section headers */
-.section-head{display:flex; align-items:baseline; justify-content:space-between; margin:48px 0 16px;}
-.section-head h2{font-family:'Fraunces',serif; font-weight:500; font-size:20px; margin:0;}
-.section-head .n{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-dim);}
-
-.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
-.card{
-  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
-  padding:22px 22px 12px;
-}
-.card h3{font-family:'Fraunces',serif; font-weight:500; font-size:16px; margin:0 0 4px;}
-.card .hint{font-size:12px; color:var(--ink-dim); margin-bottom:14px;}
-.card canvas{max-height:280px;}
-
-table{width:100%; border-collapse:collapse; font-size:13px;}
-thead th{
-  text-align:left; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em;
-  text-transform:uppercase; color:var(--ink-dim); font-weight:500;
-  padding:10px 14px; border-bottom:1px solid var(--line);
-}
-tbody td{padding:11px 14px; border-bottom:1px solid var(--line);}
-tbody tr:hover{background:var(--surface-2);}
-tbody tr:last-child td{border-bottom:none;}
-.tag{
-  display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px;
-  padding:2px 7px; border-radius:20px; border:1px solid var(--line); color:var(--ink-dim);
-}
-.tag.u1{border-color:rgba(162,59,59,0.4); color:#d18d8d;}
-.tag.u2{border-color:rgba(201,162,39,0.4); color:#e0c479;}
-.mono{font-family:'IBM Plex Mono',monospace;}
-.right{text-align:right;}
-
-.table-wrap{
-  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
-  overflow:auto; margin-bottom:8px;
-}
-
-footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:12px; color:var(--ink-dim); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
-footer a{color:var(--ink-dim);}
-
-@media (max-width:900px){
-  .kpis{grid-template-columns:repeat(2,1fr);}
-  .grid-2{grid-template-columns:1fr;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:20px;font-weight:600;margin:0;letter-spacing:-.01em}
+p{margin:0}
+.muted{color:var(--ink-2)}
+.tiny{font-size:12px;color:var(--ink-3)}
+.topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;margin-bottom:18px}
+.seg{display:flex;gap:6px}
+button{font:inherit;font-size:13px;color:var(--ink);background:transparent;
+  border:.5px solid var(--line-2);border-radius:var(--radius);padding:7px 14px;cursor:pointer}
+button:hover{background:var(--soft)}
+button[aria-pressed="true"]{background:var(--soft);font-weight:600;border-color:var(--line-2)}
+.tabs{display:flex;gap:24px;border-bottom:.5px solid var(--line);margin-bottom:22px}
+.tabs button{border:none;border-bottom:2px solid transparent;border-radius:0;padding:9px 0;
+  font-size:14px;color:var(--ink-2)}
+.tabs button:hover{background:transparent;color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
+.kpi{background:var(--soft);border-radius:var(--radius);padding:14px 16px}
+.kpi .lbl{font-size:13px;color:var(--ink-2)}
+.kpi .val{font-size:26px;font-weight:600;letter-spacing:-.02em;margin-top:2px;
+  font-variant-numeric:tabular-nums}
+.cols{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:12px;margin-bottom:20px}
+.card{background:var(--card);border:.5px solid var(--line);border-radius:12px;padding:16px 20px}
+.card h2{font-size:14px;font-weight:600;margin:0 0 12px}
+.chart-box{position:relative;width:100%;height:200px}
+.bar-row{display:flex;justify-content:space-between;font-size:13px;padding:6px 0 5px}
+.bar{height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
+.bar span{display:block;height:100%}
+.mini{border-top:.5px solid var(--line);margin-top:14px;padding-top:12px;font-size:13px}
+.mini div{display:flex;justify-content:space-between;padding:3px 0}
+table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}
+th{font-weight:400;color:var(--ink-2);text-align:right;padding:7px 0;
+  border-bottom:.5px solid var(--line)}
+th:first-child{text-align:left}
+td{padding:9px 0;border-bottom:.5px solid var(--line);text-align:right;
+  font-variant-numeric:tabular-nums}
+td:first-child{text-align:left}
+tfoot td{font-weight:600;border-bottom:none}
+.prod{display:flex;align-items:center;gap:10px}
+.thumb{flex:0 0 auto;border-radius:6px;background:var(--soft);border:.5px solid var(--line);
+  display:flex;align-items:center;justify-content:center;color:var(--ink-3)}
+.pill{display:inline-block;font-size:12px;padding:3px 10px;border-radius:var(--radius);white-space:nowrap}
+.low{color:#d03b3b;font-weight:600}
+.sortbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  flex-wrap:wrap;margin-bottom:14px}
+select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);
+  border:.5px solid var(--line-2);border-radius:var(--radius);padding:6px 10px}
+@media (max-width:760px){
+  .cols{grid-template-columns:1fr}
+  th:nth-child(2),td:nth-child(2){display:none}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="top">
+
+  <div class="topbar">
     <div>
-      <p class="eyebrow">Colecciones Uti&nbsp;1 · Uti&nbsp;2</p>
-      <h1>Panel de <em>inventario &amp; ventas</em></h1>
+      <h1>Lemaler x Uti Torres</h1>
+      <p class="tiny" id="syncStatus">Conectando con Odoo...</p>
     </div>
-    <div class="status">
-      <span class="dot" id="statusDot"></span>
-      <span id="statusText">cargando…</span>
+    <div class="seg" id="dropFilter">
+      <button data-drop="all" aria-pressed="true">Todos</button>
+      <button data-drop="uti 1">Uti 1</button>
+      <button data-drop="uti 2">Uti 2</button>
     </div>
-  </header>
-
-  <div class="tape"></div>
-
-  <section class="kpis" id="kpis"></section>
-
-  <div class="section-head">
-    <h2>Más &amp; menos vendidos</h2>
-    <span class="n" id="totalProdN"></span>
   </div>
-  <div class="grid-2">
+
+  <div class="tabs" id="tabs" role="tablist">
+    <button role="tab" data-tab="resumen" aria-selected="true">Resumen</button>
+    <button role="tab" data-tab="detalle">Detalle de prendas</button>
+  </div>
+
+  <section id="panel-resumen" role="tabpanel">
+    <div class="kpis">
+      <div class="kpi"><p class="lbl">Ingresos totales</p><p class="val" id="kpiVentas">—</p><p class="tiny">a precio de lista</p></div>
+      <div class="kpi"><p class="lbl">Unidades vendidas</p><p class="val" id="kpiUnidades">—</p><p class="tiny" id="kpiProducidas">—</p></div>
+      <div class="kpi"><p class="lbl">Stock disponible</p><p class="val" id="kpiStock">—</p><p class="tiny">en inventario</p></div>
+      <div class="kpi"><p class="lbl">% Colección vendida</p><p class="val" id="kpiSell">—</p><p class="tiny" id="kpiEstilos">—</p></div>
+    </div>
+
+    <div class="cols">
+      <div class="card">
+        <h2>Top 10 más vendidos</h2>
+        <div class="chart-box">
+          <canvas id="ventasChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Ventas por categoría</h2>
+        <div id="catBars"></div>
+        <div class="mini">
+          <div><span class="muted">Total productos activos</span><span id="kpiTotalProds">—</span></div>
+          <div><span class="muted">Estilos por agotarse (&lt; 15 u)</span><span id="kpiAgotar">—</span></div>
+        </div>
+      </div>
+    </div>
+
     <div class="card">
-      <h3>Top 10 más vendidos</h3>
-      <p class="hint">Unidades vendidas por producto</p>
-      <canvas id="chartTop"></canvas>
+      <h2>Qué empujar esta semana (Baja rotación)</h2>
+      <table>
+        <thead><tr>
+          <th style="width:42%">Producto</th><th style="width:15%">Vendidas</th>
+          <th style="width:15%">Stock</th><th style="width:28%">Acción</th>
+        </tr></thead>
+        <tbody id="tbodyPush"></tbody>
+      </table>
     </div>
-    <div class="card">
-      <h3>Top 10 menos vendidos</h3>
-      <p class="hint">Unidades vendidas por producto</p>
-      <canvas id="chartBottom"></canvas>
-    </div>
-  </div>
+  </section>
 
-  <div class="section-head">
-    <h2>Ventas por categoría &amp; talla</h2>
-  </div>
-  <div class="grid-2">
+  <section id="panel-detalle" role="tabpanel" hidden>
     <div class="card">
-      <h3>Por categoría</h3>
-      <p class="hint">Unidades vendidas agrupadas por tipo de prenda</p>
-      <canvas id="chartCategoria"></canvas>
+      <div class="sortbar">
+        <h2 style="margin:0">Inventario de la cápsula</h2>
+        <label style="font-size:13px;color:var(--ink-2)">Ordenar por
+          <select id="sortSel">
+            <option value="act">Más stock actual</option>
+            <option value="v">Más vendidos</option>
+            <option value="n">Nombre</option>
+          </select>
+        </label>
+      </div>
+      <table>
+        <thead><tr>
+          <th style="width:40%">Prenda</th><th style="width:15%">Inicial</th>
+          <th style="width:15%">Vendidas</th><th style="width:15%">Actual</th><th style="width:15%">Vendido</th>
+        </tr></thead>
+        <tbody id="tbodyDetalle"></tbody>
+        <tfoot id="tfootDetalle"></tfoot>
+      </table>
+      <p class="tiny" style="margin-top:12px" id="detalleNota"></p>
     </div>
-    <div class="card">
-      <h3>Por talla</h3>
-      <p class="hint">Distribución de unidades vendidas</p>
-      <canvas id="chartTalla"></canvas>
-    </div>
-  </div>
+  </section>
 
-  <div class="section-head">
-    <h2>Detalle por producto</h2>
-    <span class="n" id="tableN"></span>
-  </div>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Producto</th><th>Colección</th><th>Categoría</th>
-          <th class="right">Stock inicial</th><th class="right">Stock actual</th><th class="right">Vendidos</th>
-        </tr>
-      </thead>
-      <tbody id="tblBody"></tbody>
-    </table>
-  </div>
-
-  <footer>
-    <span>Datos: Odoo → n8n → GitHub. Se refresca cada 60&nbsp;s.</span>
-    <span id="lastSync"></span>
-  </footer>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
-const REFRESH_MS = 60000;
 const DATA_URL = 'data/data.json';
-const wineShades = ['#a23b3b','#b5625c','#c88a7d','#7a2c2c','#8f4e46','#5e2020','#d1a68f','#6d3737','#93544f','#4a1717'];
-const goldShades = ['#c9a227','#d4b455','#e0c479','#a4801a','#b6952f','#8a6d14','#e8d494','#906c1f','#c1a03f','#775212'];
+const REFRESH_MS = 60000;
 
-Chart.defaults.font.family = "'Inter', sans-serif";
-Chart.defaults.color = '#9298a3';
-Chart.defaults.borderColor = 'rgba(237,235,230,0.08)';
+let rawData = null;
+let drop = 'all';
+let sortBy = 'act';
+let chart = null;
 
-let charts = {};
+const money = n => '$' + Math.round(n).toLocaleString('en-US');
+const num = n => Math.round(n).toLocaleString('en-US');
 
-function fmt(n){ return new Intl.NumberFormat('es-EC').format(Math.round(n)); }
-
-function renderKpis(d){
-  const k = d.kpis;
-  const el = document.getElementById('kpis');
-  const items = [
-    {label:'Inventario inicial', value: fmt(k.inventario_inicial), sub: k.total_productos + ' productos', cls:''},
-    {label:'Stock actual', value: fmt(k.inventario_actual), sub: (k.inventario_actual<0?'faltante frente a lo registrado':'disponible'), cls: k.inventario_actual<0?'neg':'pos'},
-    {label:'Ventas totales', value: fmt(k.ventas_totales), sub:'unidades acumuladas', cls:''},
-    {label:'Ingresos por ventas', value: '$'+fmt(k.ingresos_totales), sub:'a precio de lista', cls:'pos'},
-  ];
-  el.innerHTML = items.map(i => `
-    <div class="kpi">
-      <div class="label">${i.label}</div>
-      <div class="value ${i.cls}">${i.value}</div>
-      <div class="sub">${i.sub}</div>
-    </div>`).join('');
-  document.getElementById('totalProdN').textContent = k.total_productos + ' productos en Uti 1 + Uti 2';
-  document.getElementById('tableN').textContent = k.total_productos + ' registros';
+function thumb(size){
+  const g = Math.round(size * 0.46);
+  return `<span class="thumb" style="width:${size}px;height:${size}px" aria-hidden="true">
+    <svg width="${g}" height="${g}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span>`;
 }
 
-function barChart(ctx, labels, values, colors, horizontal){
-  return new Chart(ctx, {
-    type:'bar',
-    data:{ labels, datasets:[{ data: values, backgroundColor: colors, borderRadius:2, barThickness: horizontal? 14: undefined }]},
-    options:{
-      indexAxis: horizontal ? 'y':'x',
-      plugins:{ legend:{display:false}, tooltip:{ backgroundColor:'#20252d', borderColor:'rgba(237,235,230,0.12)', borderWidth:1, padding:10, titleFont:{family:"'IBM Plex Mono', monospace", size:11}, bodyFont:{family:"'Inter'"} } },
-      scales:{
-        x:{ grid:{ color:'rgba(237,235,230,0.06)'}, ticks:{ font:{size:11} } },
-        y:{ grid:{ display: horizontal? false: true, color:'rgba(237,235,230,0.06)'}, ticks:{ font:{size:11} } }
-      }
-    }
+function estado(p){
+  const act = p.stock_actual, ini = p.stock_inicial;
+  const pct = ini > 0 ? p.ventas / ini : 0;
+  if(act < 15) return {t:'No mostrar', bg:'var(--stop-bg)', c:'var(--stop-tx)'};
+  if(pct >= 0.5) return {t:'Mantener', bg:'var(--wait-bg)', c:'var(--wait-tx)'};
+  return {t:'Push fuerte', bg:'var(--ok-bg)', c:'var(--ok-tx)'};
+}
+
+function filterProducts(){
+  if(!rawData || !rawData.productos) return [];
+  if(drop === 'all') return rawData.productos;
+  return rawData.productos.filter(p => p.coleccion.toLowerCase().includes(drop));
+}
+
+function render(){
+  if(!rawData) return;
+  const prods = filterProducts();
+  
+  const ventasTotales = prods.reduce((s,p) => s + (p.ventas * (p.precio || 0)), 0);
+  const udsVendidas = prods.reduce((s,p) => s + p.ventas, 0);
+  const stockInicial = prods.reduce((s,p) => s + p.stock_inicial, 0);
+  const stockActual = prods.reduce((s,p) => s + p.stock_actual, 0);
+  const sellThrough = stockInicial > 0 ? Math.round((udsVendidas / stockInicial) * 100) : 0;
+
+  document.getElementById('kpiVentas').textContent = money(ventasTotales);
+  document.getElementById('kpiUnidades').textContent = num(udsVendidas);
+  document.getElementById('kpiProducidas').textContent = `de ${num(stockInicial)} iniciales`;
+  document.getElementById('kpiStock').textContent = num(stockActual);
+  document.getElementById('kpiSell').textContent = sellThrough + '%';
+  document.getElementById('kpiEstilos').textContent = `${prods.length} estilos`;
+  document.getElementById('kpiTotalProds').textContent = prods.length;
+  document.getElementById('kpiAgotar').textContent = prods.filter(p => p.stock_actual < 15).length;
+
+  // Gráfico Top 10
+  const top10 = [...prods].sort((a,b) => b.ventas - a.ventas).slice(0, 10);
+  if(chart){
+    chart.data.labels = top10.map(p => p.nombre.replace(/^LM\d+-\w+-/,'').slice(0,20));
+    chart.data.datasets[0].data = top10.map(p => p.ventas);
+    chart.update();
+  }
+
+  // Ventas por Categoría
+  const cats = {};
+  prods.forEach(p => {
+    cats[p.categoria] = (cats[p.categoria] || 0) + p.ventas;
   });
+  const sortedCats = Object.entries(cats).sort((a,b) => b[1] - a[1]).slice(0,3);
+  const totalCatVentas = sortedCats.reduce((s,c) => s + c[1], 0) || 1;
+  const colors = ['var(--blue)', 'var(--green)', 'var(--amber)'];
+  
+  document.getElementById('catBars').innerHTML = sortedCats.map((c, i) => {
+    const pct = Math.round((c[1] / totalCatVentas) * 100);
+    return `<div class="bar-row"><span class="muted">${c[0]}</span><span>${num(c[1])} u (${pct}%)</span></div>
+    <div class="bar"><span style="width:${pct}%;background:${colors[i%3]}"></span></div>`;
+  }).join('');
+
+  // Tabla Push
+  document.getElementById('tbodyPush').innerHTML = [...prods]
+    .sort((a,b) => (a.ventas / (a.stock_inicial||1)) - (b.ventas / (b.stock_inicial||1)))
+    .slice(0,5).map(p => {
+      const e = estado(p);
+      return `<tr><td><span class="prod">${thumb(34)}<span>${p.nombre}<br><span class="tiny">${p.categoria}</span></span></span></td>
+      <td>${p.ventas}</td><td>${p.stock_actual}</td>
+      <td><span class="pill" style="background:${e.bg};color:${e.c}">${e.t}</span></td></tr>`;
+    }).join('');
+
+  // Tabla Detalle
+  let sortedProds = [...prods];
+  if(sortBy==='act') sortedProds.sort((a,b) => b.stock_actual - a.stock_actual);
+  else if(sortBy==='v') sortedProds.sort((a,b) => b.ventas - a.ventas);
+  else sortedProds.sort((a,b) => a.nombre.localeCompare(b.nombre, 'es'));
+
+  document.getElementById('tbodyDetalle').innerHTML = sortedProds.map(p => {
+    const pct = p.stock_inicial > 0 ? Math.round((p.ventas / p.stock_inicial) * 100) : 0;
+    return `<tr><td><span class="prod">${thumb(44)}<span>${p.nombre}<br><span class="tiny">${p.coleccion} · ${p.categoria}</span></span></span></td>
+    <td>${p.stock_inicial}</td><td>${p.ventas}</td>
+    <td ${p.stock_actual < 15 ? 'class="low"' : ''}>${p.stock_actual}</td><td>${pct}%</td></tr>`;
+  }).join('');
+
+  document.getElementById('tfootDetalle').innerHTML = `<tr><td>Total</td><td>${stockInicial}</td><td>${udsVendidas}</td><td>${stockActual}</td><td>${sellThrough}%</td></tr>`;
+  document.getElementById('detalleNota').textContent = `${prods.length} prendas · el stock actual se marca en rojo cuando quedan menos de 15 unidades`;
 }
 
-function renderCharts(d){
-  Object.values(charts).forEach(c=>c.destroy());
-
-  charts.top = barChart(
-    document.getElementById('chartTop'),
-    d.top_vendidos.map(p=>p.nombre.replace(/^LM\d+-\w+-/,'').slice(0,26)),
-    d.top_vendidos.map(p=>p.ventas),
-    wineShades, true
-  );
-  charts.bottom = barChart(
-    document.getElementById('chartBottom'),
-    d.menos_vendidos.map(p=>p.nombre.replace(/^LM\d+-\w+-/,'').slice(0,26)),
-    d.menos_vendidos.map(p=>p.ventas),
-    goldShades, true
-  );
-
-  const cats = Object.entries(d.por_categoria).sort((a,b)=>b[1].ventas-a[1].ventas);
-  charts.categoria = barChart(
-    document.getElementById('chartCategoria'),
-    cats.map(c=>c[0]),
-    cats.map(c=>c[1].ventas),
-    wineShades, true
-  );
-
-  const tallas = Object.entries(d.ventas_por_talla);
-  charts.talla = new Chart(document.getElementById('chartTalla'), {
-    type:'doughnut',
-    data:{ labels: tallas.map(t=>t[0]), datasets:[{ data: tallas.map(t=>t[1]), backgroundColor: wineShades, borderColor:'#1b1f26', borderWidth:3 }]},
-    options:{ plugins:{ legend:{ position:'right', labels:{ boxWidth:10, font:{size:12} } } }, cutout:'62%' }
-  });
-}
-
-function renderTable(d){
-  const rows = [...d.productos].sort((a,b)=>b.ventas-a.ventas);
-  document.getElementById('tblBody').innerHTML = rows.map(p => `
-    <tr>
-      <td>${p.nombre}</td>
-      <td><span class="tag ${p.coleccion.toLowerCase().includes('uti 1')?'u1':'u2'}">${p.coleccion}</span></td>
-      <td>${p.categoria}</td>
-      <td class="right mono">${fmt(p.stock_inicial)}</td>
-      <td class="right mono">${fmt(p.stock_actual)}</td>
-      <td class="right mono">${fmt(p.ventas)}</td>
-    </tr>`).join('');
-}
-
-async function load(){
-  try{
+async function loadData(){
+  try {
     const res = await fetch(DATA_URL + '?t=' + Date.now(), {cache:'no-store'});
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const d = await res.json();
-    renderKpis(d);
-    renderCharts(d);
-    renderTable(d);
-    const dot = document.getElementById('statusDot');
-    const ageMs = Date.now() - new Date(d.actualizado).getTime();
-    const stale = ageMs > 15*60*1000; // > 15 min sin datos frescos
-    dot.classList.toggle('stale', stale);
-    document.getElementById('statusText').textContent = stale ? 'datos con retraso' : 'en vivo';
-    document.getElementById('lastSync').textContent = 'Última actualización: ' + new Date(d.actualizado).toLocaleString('es-EC');
-  }catch(err){
-    document.getElementById('statusDot').classList.add('stale');
-    document.getElementById('statusText').textContent = 'sin conexión a data.json';
-    console.error(err);
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    rawData = await res.json();
+    
+    document.getElementById('syncStatus').textContent = 'Actualizado: ' + new Date(rawData.actualizado).toLocaleString('es-EC');
+    render();
+  } catch(e) {
+    document.getElementById('syncStatus').textContent = '⚠️ Sin conexión a data/data.json';
+    console.error(e);
   }
 }
 
-load();
-setInterval(load, REFRESH_MS);
+// Eventos de botones
+document.querySelectorAll('#dropFilter button').forEach(b => {
+  b.onclick = () => {
+    drop = b.dataset.drop;
+    document.querySelectorAll('#dropFilter button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    render();
+  }
+});
+
+document.querySelectorAll('#tabs button').forEach(b => {
+  b.onclick = () => {
+    const tab = b.dataset.tab;
+    document.getElementById('panel-resumen').hidden = tab !== 'resumen';
+    document.getElementById('panel-detalle').hidden = tab !== 'detalle';
+    document.querySelectorAll('#tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
+  }
+});
+
+document.getElementById('sortSel').onchange = e => { sortBy = e.target.value; render(); };
+
+// Inicializar Chart
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+chart = new Chart(document.getElementById('ventasChart'), {
+  type:'bar',
+  data:{ labels:[], datasets:[{ data:[], backgroundColor:'#2a78d6', borderRadius:4 }]},
+  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+    scales:{
+      y:{ ticks:{color:'#8d8b84'}, grid:{color: dark?'rgba(255,255,255,.1)':'rgba(28,27,25,.1)'} },
+      x:{ ticks:{color:'#8d8b84', font:{size:10}}, grid:{display:false} }
+    }
+  }
+});
+
+loadData();
+setInterval(loadData, REFRESH_MS);
 </script>
 </body>
 </html>
