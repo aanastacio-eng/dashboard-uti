@@ -1,11 +1,11 @@
 {
-  "actualizado": "2026-08-13T18:13:34.798Z",
+  "actualizado": "2026-08-13T18:15:08.835Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 374,
-    "ventas_totales": 6702,
-    "ingresos_totales": 524365.16,
+    "inventario_actual": 373,
+    "ventas_totales": 6703,
+    "ingresos_totales": 524443.33,
     "total_productos": 74
   },
   "por_categoria": {
@@ -15,8 +15,8 @@
       "productos": 25
     },
     "Producto Terminado / Pantalones": {
-      "ventas": 1757,
-      "ingresos": 146969.80200000003,
+      "ventas": 1758,
+      "ingresos": 147047.972,
       "productos": 15
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4111,
+      "ventas": 4112,
       "stock_inicial": 1130,
-      "stock_actual": 406,
+      "stock_actual": 405,
       "productos": 53
     },
     "UTI 2": {
@@ -205,7 +205,7 @@
   ],
   "ventas_por_talla": {
     "XS": 1455,
-    "S": 1925,
+    "S": 1926,
     "M": 1903,
     "L": 898,
     "XL": 441,
@@ -375,8 +375,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 164,
-      "stock_actual": 114,
-      "ventas": 49,
+      "stock_actual": 113,
+      "ventas": 50,
       "precio": 78.17
     },
     {
