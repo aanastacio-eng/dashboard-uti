@@ -74,14 +74,16 @@ button[aria-pressed="true"]{background:var(--soft);font-weight:600;border-color:
 .mini{border-top:.5px solid var(--line);margin-top:14px;padding-top:12px;font-size:13px}
 .mini div{display:flex;justify-content:space-between;padding:3px 0}
 
-/* DIAGNÓSTICOS */
-.diag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:10px}
-.diag-box{background:var(--soft);padding:12px 14px;border-radius:8px;border-left:4px solid var(--line-2)}
-.diag-box.danger{border-left-color:#d03b3b}
-.diag-box.warning{border-left-color:var(--amber)}
-.diag-box.success{border-left-color:var(--green)}
-.diag-box h3{font-size:13px;margin:0 0 4px;font-weight:600}
-.diag-box p{font-size:12px;color:var(--ink-2);margin:0}
+/* ETIQUETA PUSH FUERTE */
+.badge-push{
+  background: #1e4620;
+  color: #5edb66;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+}
 
 table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}
 th{font-weight:400;color:var(--ink-2);text-align:right;padding:7px 0;border-bottom:.5px solid var(--line)}
@@ -173,10 +175,20 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
       <div class="kpi"><p class="lbl">Ventas diarias prom.</p><p class="val" id="kpiDailyAvg">—</p><p class="tiny" id="kpiDaysCount">uds / día</p></div>
     </div>
 
-    <!-- CUADRO DE DIAGNÓSTICO Y SUGERENCIAS DE ACCIÓN EN EL RESUMEN -->
+    <!-- SECCIÓN: QUÉ EMPUJAR ESTA SEMANA (BAJA ROTACIÓN) -->
     <div class="card">
-      <h2>💡 Diagnóstico Comercial y Sugerencias</h2>
-      <div class="diag-grid" id="diagContainer"></div>
+      <h2>Qué empujar esta semana (Baja rotación)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:50%">Producto</th>
+            <th style="width:15%">Vendidas</th>
+            <th style="width:15%">Stock</th>
+            <th style="width:20%; text-align:right;">Acción</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyPush"></tbody>
+      </table>
     </div>
 
     <!-- GRÁFICO DE LÍNEA DE VIDA DIARIA -->
@@ -385,25 +397,25 @@ function render(){
   const agotados = prods.filter(p => p.stock_actual < 15);
   document.getElementById('kpiAgotar').textContent = agotados.length;
 
-  // GENERAR DIAGNÓSTICOS DINÁMICOS
-  const diagContainer = document.getElementById('diagContainer');
-  let diagHTML = '';
+  // RENDER DE "QUÉ EMPUJAR ESTA SEMANA (BAJA ROTACIÓN)"
+  const bajaRotacion = [...prods]
+    .filter(p => p.stock_actual > 0)
+    .sort((a,b) => a.ventas - b.ventas)
+    .slice(0, 5);
 
-  if (sellThrough > 50) {
-    diagHTML += `<div class="diag-box success"><h3>🚀 Excelente Tracción (${sellThrough}%)</h3><p>La colección está teniendo una altísima rotación comercial en sus primeros días de lanzamiento.</p></div>`;
-  } else {
-    diagHTML += `<div class="diag-box warning"><h3>📊 Avance Moderado (${sellThrough}%)</h3><p>La colección mantiene un ritmo de venta constante, monitorear prendas clave.</p></div>`;
-  }
-
-  if (agotados.length > 0) {
-    diagHTML += `<div class="diag-box danger"><h3>⚠️ ${agotados.length} Prendas en Riesgo de Quiebre</h3><p>Tienen menos de 15 unidades en stock. Evaluar reabastecimiento urgente de prendas Top.</p></div>`;
-  } else {
-    diagHTML += `<div class="diag-box success"><h3>✅ Stock Saludable</h3><p>Todas las prendas cuentan con stock suficiente para cubrir la demanda actual.</p></div>`;
-  }
-
-  diagHTML += `<div class="diag-box warning"><h3>🔥 Promedio Promedio Actual</h3><p>Proyección de <strong>${promedioDiario} uds/día</strong>. Mantener la pauta publicitaria en redes.</p></div>`;
-
-  diagContainer.innerHTML = diagHTML;
+  document.getElementById('tbodyPush').innerHTML = bajaRotacion.map(p => {
+    return `<tr>
+      <td>
+        <span class="prod">
+          ${thumb(p, 38)}
+          <span>${p.nombre}<br><span class="tiny">${p.categoria}</span></span>
+        </span>
+      </td>
+      <td>${p.ventas}</td>
+      <td>${p.stock_actual}</td>
+      <td style="text-align:right;"><span class="badge-push">Push fuerte</span></td>
+    </tr>`;
+  }).join('');
 
   // ACTUALIZAR GRÁFICO LÍNEA DE VIDA DIARIA
   if(timelineChart && rawData.ventas_diarias){
@@ -432,7 +444,7 @@ function render(){
     <div class="bar"><span style="width:${pct}%;background:${colors[i%3]}"></span></div>`;
   }).join('');
 
-  // TABLA DETALLE (SIN FILTRO DE DIAGNÓSTICO)
+  // TABLA DETALLE
   const search = (document.getElementById('searchInput')?.value || '').toLowerCase();
 
   let filteredDetalle = prods.filter(p => {
