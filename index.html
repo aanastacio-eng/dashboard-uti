@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UTI · Panel de Colecciones</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#14171c;
+  --surface:#1b1f26;
+  --surface-2:#20252d;
+  --line: rgba(237,235,230,0.09);
+  --ink:#edebe6;
+  --ink-dim:#9298a3;
+  --wine:#a23b3b;
+  --wine-soft: rgba(162,59,59,0.16);
+  --gold:#c9a227;
+  --sage:#5f8a68;
+  --radius: 3px;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(162,59,59,0.10), transparent 60%),
+    var(--bg);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--wine-soft);}
+
+/* ---- measuring-tape divider (signature element) ---- */
+.tape{
+  height:22px;
+  margin: 6px 0 28px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--line) 0, var(--line) 1px,
+    transparent 1px, transparent 12px
+  );
+  background-position: 0 bottom;
+  background-size: 100% 10px;
+  background-repeat: repeat-x;
+  position:relative;
+  opacity:.8;
+}
+.tape::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:0; height:1px;
+  background:var(--line);
+}
+
+.wrap{max-width:1280px; margin:0 auto; padding: 40px 28px 80px;}
+
+header.top{
+  display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;
+}
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--wine); margin:0 0 10px;
+}
+h1{
+  font-family:'Fraunces', serif;
+  font-weight:500;
+  font-size: clamp(28px, 4vw, 42px);
+  margin:0;
+  letter-spacing:-0.01em;
+}
+h1 em{ font-style:italic; color:var(--ink-dim); font-weight:400;}
+
+.status{
+  text-align:right;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12px;
+  color:var(--ink-dim);
+  display:flex; align-items:center; gap:10px;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--sage); box-shadow:0 0 0 3px rgba(95,138,104,0.18);}
+.dot.stale{background:var(--gold); box-shadow:0 0 0 3px rgba(201,162,39,0.18);}
+
+/* KPI row */
+.kpis{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.kpi{ background:var(--surface); padding:22px 24px;}
+.kpi .label{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:10px;}
+.kpi .value{font-family:'Fraunces',serif; font-size:32px; font-weight:500;}
+.kpi .sub{font-size:12px; color:var(--ink-dim); margin-top:6px;}
+.kpi .value.neg{color:var(--wine);}
+.kpi .value.pos{color:var(--sage);}
+
+/* section headers */
+.section-head{display:flex; align-items:baseline; justify-content:space-between; margin:48px 0 16px;}
+.section-head h2{font-family:'Fraunces',serif; font-weight:500; font-size:20px; margin:0;}
+.section-head .n{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-dim);}
+
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+.card{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px 22px 12px;
+}
+.card h3{font-family:'Fraunces',serif; font-weight:500; font-size:16px; margin:0 0 4px;}
+.card .hint{font-size:12px; color:var(--ink-dim); margin-bottom:14px;}
+.card canvas{max-height:280px;}
+
+table{width:100%; border-collapse:collapse; font-size:13px;}
+thead th{
+  text-align:left; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ink-dim); font-weight:500;
+  padding:10px 14px; border-bottom:1px solid var(--line);
+}
+tbody td{padding:11px 14px; border-bottom:1px solid var(--line);}
+tbody tr:hover{background:var(--surface-2);}
+tbody tr:last-child td{border-bottom:none;}
+.tag{
+  display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px;
+  padding:2px 7px; border-radius:20px; border:1px solid var(--line); color:var(--ink-dim);
+}
+.tag.u1{border-color:rgba(162,59,59,0.4); color:#d18d8d;}
+.tag.u2{border-color:rgba(201,162,39,0.4); color:#e0c479;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.right{text-align:right;}
+
+.table-wrap{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  overflow:auto; margin-bottom:8px;
+}
+
+footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:12px; color:var(--ink-dim); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+footer a{color:var(--ink-dim);}
+
+@media (max-width:900px){
+  .kpis{grid-template-columns:repeat(2,1fr);}
+  .grid-2{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow">Colecciones Uti&nbsp;1 · Uti&nbsp;2</p>
+      <h1>Panel de <em>inventario &amp; ventas</em></h1>
+    </div>
+    <div class="status">
+      <span class="dot" id="statusDot"></span>
+      <span id="statusText">cargando…</span>
+    </div>
+  </header>
+
+  <div class="tape"></div>
+
+  <section class="kpis" id="kpis"></section>
+
+  <div class="section-head">
+    <h2>Más &amp; menos vendidos</h2>
+    <span class="n" id="totalProdN"></span>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Top 10 más vendidos</h3>
+      <p class="hint">Unidades vendidas por producto</p>
+      <canvas id="chartTop"></canvas>
+    </div>
+    <div class="card">
+      <h3>Top 10 menos vendidos</h3>
+      <p class="hint">Unidades vendidas por producto</p>
+      <canvas id="chartBottom"></canvas>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Ventas por categoría &amp; talla</h2>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Por categoría</h3>
+      <p class="hint">Unidades vendidas agrupadas por tipo de prenda</p>
+      <canvas id="chartCategoria"></canvas>
+    </div>
+    <div class="card">
+      <h3>Por talla</h3>
+      <p class="hint">Distribución de unidades vendidas</p>
+      <canvas id="chartTalla"></canvas>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Detalle por producto</h2>
+    <span class="n" id="tableN"></span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th><th>Colección</th><th>Categoría</th>
+          <th class="right">Stock inicial</th><th class="right">Stock actual</th><th class="right">Vendidos</th>
+        </tr>
+      </thead>
+      <tbody id="tblBody"></tbody>
+    </table>
+  </div>
+
+  <footer>
+    <span>Datos: Odoo → n8n → GitHub. Se refresca cada 60&nbsp;s.</span>
+    <span id="lastSync"></span>
+  </footer>
+</div>
+
+<script>
+const REFRESH_MS = 60000;
+const DATA_URL = 'data/data.json';
+const wineShades = ['#a23b3b','#b5625c','#c88a7d','#7a2c2c','#8f4e46','#5e2020','#d1a68f','#6d3737','#93544f','#4a1717'];
+const goldShades = ['#c9a227','#d4b455','#e0c479','#a4801a','#b6952f','#8a6d14','#e8d494','#906c1f','#c1a03f','#775212'];
+
+Chart.defaults.font.family = "'Inter', sans-serif";
+Chart.defaults.color = '#9298a3';
+Chart.defaults.borderColor = 'rgba(237,235,230,0.08)';
+
+let charts = {};
+
+function fmt(n){ return new Intl.NumberFormat('es-EC').format(Math.round(n)); }
+
+function renderKpis(d){
+  const k = d.kpis;
+  const el = document.getElementById('kpis');
+  const items = [
+    {label:'Inventario inicial', value: fmt(k.inventario_inicial), sub: k.total_productos + ' productos', cls:''},
+    {label:'Stock actual', value: fmt(k.inventario_actual), sub: (k.inventario_actual<0?'faltante frente a lo registrado':'disponible'), cls: k.inventario_actual<0?'neg':'pos'},
+    {label:'Ventas totales', value: fmt(k.ventas_totales), sub:'unidades acumuladas', cls:''},
+    {label:'Ingresos por ventas', value: '$'+fmt(k.ingresos_totales), sub:'a precio de lista', cls:'pos'},
+  ];
+  el.innerHTML = items.map(i => `
+    <div class="kpi">
+      <div class="label">${i.label}</div>
+      <div class="value ${i.cls}">${i.value}</div>
+      <div class="sub">${i.sub}</div>
+    </div>`).join('');
+  document.getElementById('totalProdN').textContent = k.total_productos + ' productos en Uti 1 + Uti 2';
+  document.getElementById('tableN').textContent = k.total_productos + ' registros';
+}
+
+function barChart(ctx, labels, values, colors, horizontal){
+  return new Chart(ctx, {
+    type:'bar',
+    data:{ labels, datasets:[{ data: values, backgroundColor: colors, borderRadius:2, barThickness: horizontal? 14: undefined }]},
+    options:{
+      indexAxis: horizontal ? 'y':'x',
+      plugins:{ legend:{display:false}, tooltip:{ backgroundColor:'#20252d', borderColor:'rgba(237,235,230,0.12)', borderWidth:1, padding:10, titleFont:{family:"'IBM Plex Mono', monospace", size:11}, bodyFont:{family:"'Inter'"} } },
+      scales:{
+        x:{ grid:{ color:'rgba(237,235,230,0.06)'}, ticks:{ font:{size:11} } },
+        y:{ grid:{ display: horizontal? false: true, color:'rgba(237,235,230,0.06)'}, ticks:{ font:{size:11} } }
+      }
+    }
+  });
+}
+
+function renderCharts(d){
+  Object.values(charts).forEach(c=>c.destroy());
+
+  charts.top = barChart(
+    document.getElementById('chartTop'),
+    d.top_vendidos.map(p=>p.nombre.replace(/^LM\d+-\w+-/,'').slice(0,26)),
+    d.top_vendidos.map(p=>p.ventas),
+    wineShades, true
+  );
+  charts.bottom = barChart(
+    document.getElementById('chartBottom'),
+    d.menos_vendidos.map(p=>p.nombre.replace(/^LM\d+-\w+-/,'').slice(0,26)),
+    d.menos_vendidos.map(p=>p.ventas),
+    goldShades, true
+  );
+
+  const cats = Object.entries(d.por_categoria).sort((a,b)=>b[1].ventas-a[1].ventas);
+  charts.categoria = barChart(
+    document.getElementById('chartCategoria'),
+    cats.map(c=>c[0]),
+    cats.map(c=>c[1].ventas),
+    wineShades, true
+  );
+
+  const tallas = Object.entries(d.ventas_por_talla);
+  charts.talla = new Chart(document.getElementById('chartTalla'), {
+    type:'doughnut',
+    data:{ labels: tallas.map(t=>t[0]), datasets:[{ data: tallas.map(t=>t[1]), backgroundColor: wineShades, borderColor:'#1b1f26', borderWidth:3 }]},
+    options:{ plugins:{ legend:{ position:'right', labels:{ boxWidth:10, font:{size:12} } } }, cutout:'62%' }
+  });
+}
+
+function renderTable(d){
+  const rows = [...d.productos].sort((a,b)=>b.ventas-a.ventas);
+  document.getElementById('tblBody').innerHTML = rows.map(p => `
+    <tr>
+      <td>${p.nombre}</td>
+      <td><span class="tag ${p.coleccion.toLowerCase().includes('uti 1')?'u1':'u2'}">${p.coleccion}</span></td>
+      <td>${p.categoria}</td>
+      <td class="right mono">${fmt(p.stock_inicial)}</td>
+      <td class="right mono">${fmt(p.stock_actual)}</td>
+      <td class="right mono">${fmt(p.ventas)}</td>
+    </tr>`).join('');
+}
+
+async function load(){
+  try{
+    const res = await fetch(DATA_URL + '?t=' + Date.now(), {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const d = await res.json();
+    renderKpis(d);
+    renderCharts(d);
+    renderTable(d);
+    const dot = document.getElementById('statusDot');
+    const ageMs = Date.now() - new Date(d.actualizado).getTime();
+    const stale = ageMs > 15*60*1000; // > 15 min sin datos frescos
+    dot.classList.toggle('stale', stale);
+    document.getElementById('statusText').textContent = stale ? 'datos con retraso' : 'en vivo';
+    document.getElementById('lastSync').textContent = 'Última actualización: ' + new Date(d.actualizado).toLocaleString('es-EC');
+  }catch(err){
+    document.getElementById('statusDot').classList.add('stale');
+    document.getElementById('statusText').textContent = 'sin conexión a data.json';
+    console.error(err);
+  }
+}
+
+load();
+setInterval(load, REFRESH_MS);
+</script>
+</body>
+</html>
