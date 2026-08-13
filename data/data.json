@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T18:22:09.790Z",
+  "actualizado": "2026-08-13T18:26:56.987Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 368,
-    "ventas_totales": 6706,
-    "ingresos_totales": 524677.86,
+    "inventario_actual": 367,
+    "ventas_totales": 6707,
+    "ingresos_totales": 524747.33,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3605,
-      "ingresos": 263128.087,
+      "ventas": 3606,
+      "ingresos": 263197.56500000006,
       "productos": 25
     },
     "Producto Terminado / Pantalones": {
@@ -23,11 +23,6 @@
       "ventas": 316,
       "ingresos": 34372.96,
       "productos": 2
-    },
-    "Producto Terminado / Shorts": {
-      "ventas": 656,
-      "ingresos": 45578.880000000005,
-      "productos": 4
     },
     "Producto Terminado / Vestidos": {
       "ventas": 297,
@@ -43,13 +38,18 @@
       "ventas": 5,
       "ingresos": 295.21739130434787,
       "productos": 23
+    },
+    "Producto Terminado / Shorts": {
+      "ventas": 656,
+      "ingresos": 45578.880000000005,
+      "productos": 4
     }
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4115,
+      "ventas": 4116,
       "stock_inicial": 1130,
-      "stock_actual": 400,
+      "stock_actual": 399,
       "productos": 53
     },
     "UTI 2": {
@@ -71,11 +71,11 @@
       "nombre": "Blusa Certeza",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 220,
-      "stock_actual": -15
+      "ventas": 221,
+      "stock_actual": -16
     },
     {
-      "nombre": "LM2642-I-LEMALER BLUSA BEIGE",
+      "nombre": "Blusa Aura",
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 212,
@@ -204,7 +204,7 @@
     }
   ],
   "ventas_por_talla": {
-    "XS": 1455,
+    "XS": 1456,
     "S": 1926,
     "M": 1904,
     "L": 900,
@@ -260,13 +260,43 @@
       "precio": 69.48
     },
     {
+      "odoo_id": 96620,
+      "nombre": "Blusa Arena",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 26,
+      "precio": 78.173
+    },
+    {
+      "odoo_id": 113168,
+      "nombre": "Blusa Arena",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 1,
+      "stock_actual": 1,
+      "ventas": 115,
+      "precio": 78.173
+    },
+    {
+      "odoo_id": 96028,
+      "nombre": "Blusa Aura",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": -1,
+      "stock_actual": -1,
+      "ventas": 212,
+      "precio": 78.17
+    },
+    {
       "odoo_id": 96625,
       "nombre": "Blusa Certeza",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 47,
-      "stock_actual": -15,
-      "ventas": 220,
+      "stock_actual": -16,
+      "ventas": 221,
       "precio": 69.478
     },
     {
@@ -310,6 +340,16 @@
       "precio": 95.57
     },
     {
+      "odoo_id": 96631,
+      "nombre": "Blusa Luz",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 168,
+      "precio": 60.78
+    },
+    {
       "odoo_id": 96021,
       "nombre": "Blusa Marea",
       "coleccion": "Uti 1",
@@ -340,6 +380,26 @@
       "precio": 60.78
     },
     {
+      "odoo_id": 96618,
+      "nombre": "Blusa Ser",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 118,
+      "precio": 69.48
+    },
+    {
+      "odoo_id": 96639,
+      "nombre": "Blusa Vive",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": -1,
+      "stock_actual": -1,
+      "ventas": 148,
+      "precio": 60.78
+    },
+    {
       "odoo_id": 96020,
       "nombre": "Blusa Voz",
       "coleccion": "Uti 1",
@@ -358,6 +418,16 @@
       "stock_actual": -13,
       "ventas": 161,
       "precio": 52.09
+    },
+    {
+      "odoo_id": 92886,
+      "nombre": "Blusa Única",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 2,
+      "stock_actual": 2,
+      "ventas": 158,
+      "precio": 78.17
     },
     {
       "odoo_id": 112019,
@@ -381,7 +451,7 @@
     },
     {
       "odoo_id": 112020,
-      "nombre": "LM2618-AE-LEMALER ENTERO AZUL COMB.",
+      "nombre": "Jumpsuit Historia",
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Monos de pantalón corto y largo",
       "stock_inicial": -1,
@@ -391,33 +461,13 @@
     },
     {
       "odoo_id": 92876,
-      "nombre": "LM2619-W-LEMALER ENTERO VINO",
+      "nombre": "Jumpsuit Nube",
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Monos de pantalón corto y largo",
       "stock_inicial": -1,
       "stock_actual": -1,
       "ventas": 164,
       "precio": 112.96
-    },
-    {
-      "odoo_id": 92886,
-      "nombre": "LM2629-C-LEMALER CHAQUETA CRUDO",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 2,
-      "stock_actual": 2,
-      "ventas": 158,
-      "precio": 78.17
-    },
-    {
-      "odoo_id": 96028,
-      "nombre": "LM2642-I-LEMALER BLUSA BEIGE",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": -1,
-      "stock_actual": -1,
-      "ventas": 212,
-      "precio": 78.17
     },
     {
       "odoo_id": 96538,
@@ -440,136 +490,6 @@
       "precio": 78.17
     },
     {
-      "odoo_id": 96639,
-      "nombre": "LM2721-AE-LEMALER CHALECO AZUL COMB.",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": -1,
-      "stock_actual": -1,
-      "ventas": 148,
-      "precio": 60.78
-    },
-    {
-      "odoo_id": 96638,
-      "nombre": "LM2722-AE-LEMALER PANTALÓN AZUL COMB.",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": -1,
-      "stock_actual": -1,
-      "ventas": 126,
-      "precio": 95.565
-    },
-    {
-      "odoo_id": 96637,
-      "nombre": "LM2723-AE-LEMALER SHORT AZUL COMB.",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Shorts",
-      "stock_inicial": -1,
-      "stock_actual": -1,
-      "ventas": 164,
-      "precio": 69.48
-    },
-    {
-      "odoo_id": 96631,
-      "nombre": "LM2729-C-LEMALER BLUSA CRUDO",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 168,
-      "precio": 60.78
-    },
-    {
-      "odoo_id": 96627,
-      "nombre": "LM2733-EE-LEMALER BLUSA CELESTE COMB.",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 184,
-      "precio": 78.17
-    },
-    {
-      "odoo_id": 96626,
-      "nombre": "LM2734-EE-LEMALER PANTALÓN CELESTE COMB.",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 186,
-      "precio": 95.57
-    },
-    {
-      "odoo_id": 113168,
-      "nombre": "LM2740-C-LEMALER BLUSA CRUDO",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 1,
-      "stock_actual": 1,
-      "ventas": 115,
-      "precio": 78.173
-    },
-    {
-      "odoo_id": 96620,
-      "nombre": "LM2740-V-LEMALER BLUSA VERDE",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 26,
-      "precio": 78.173
-    },
-    {
-      "odoo_id": 96619,
-      "nombre": "LM2741-V-LEMALER PANTALÓN VERDE",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": -26,
-      "stock_actual": -26,
-      "ventas": 26,
-      "precio": 95.567
-    },
-    {
-      "odoo_id": 96618,
-      "nombre": "LM2742-I-LEMALER BLUSA BEIGE",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 118,
-      "precio": 69.48
-    },
-    {
-      "odoo_id": 96617,
-      "nombre": "LM2743-I-LEMALER PANTALÓN BEIGE",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": -1,
-      "stock_actual": -1,
-      "ventas": 116,
-      "precio": 95.565
-    },
-    {
-      "odoo_id": 112027,
-      "nombre": "LM2754-AE-LEMALER PANTALÓN AZUL COMB.",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": -1,
-      "stock_actual": -1,
-      "ventas": 121,
-      "precio": 69.48
-    },
-    {
-      "odoo_id": 112026,
-      "nombre": "LM2754-IE-LEMALER PANTALÓN BEIGE COMB.",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Pantalones",
-      "stock_inicial": -1,
-      "stock_actual": -1,
-      "ventas": 106,
-      "precio": 69.48
-    },
-    {
       "odoo_id": 111571,
       "nombre": "LM2784-D LEMALER VESTIDOS DORADO",
       "coleccion": "Uti 1",
@@ -578,16 +498,6 @@
       "stock_actual": 0,
       "ventas": 5,
       "precio": 26
-    },
-    {
-      "odoo_id": 112095,
-      "nombre": "LM2785-E LEMALER VESTIDOS CELESTE",
-      "coleccion": "UTI 2",
-      "categoria": "Producto Terminado / Vestidos",
-      "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 186,
-      "precio": 104.26
     },
     {
       "odoo_id": 112833,
@@ -620,6 +530,36 @@
       "precio": 78.17
     },
     {
+      "odoo_id": 96626,
+      "nombre": "Pantalón Cielo",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Pantalones",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 186,
+      "precio": 95.57
+    },
+    {
+      "odoo_id": 112027,
+      "nombre": "Pantalón Eco",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Pantalones",
+      "stock_inicial": -1,
+      "stock_actual": -1,
+      "ventas": 121,
+      "precio": 69.48
+    },
+    {
+      "odoo_id": 112026,
+      "nombre": "Pantalón Marino",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Pantalones",
+      "stock_inicial": -1,
+      "stock_actual": -1,
+      "ventas": 106,
+      "precio": 69.48
+    },
+    {
       "odoo_id": 96632,
       "nombre": "Pantalón Momentos",
       "coleccion": "Uti 1",
@@ -638,6 +578,26 @@
       "stock_actual": 0,
       "ventas": 115,
       "precio": 95.57
+    },
+    {
+      "odoo_id": 96619,
+      "nombre": "Pantalón Origen",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Pantalones",
+      "stock_inicial": -26,
+      "stock_actual": -26,
+      "ventas": 26,
+      "precio": 95.567
+    },
+    {
+      "odoo_id": 96617,
+      "nombre": "Pantalón Real",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Pantalones",
+      "stock_inicial": -1,
+      "stock_actual": -1,
+      "ventas": 116,
+      "precio": 95.565
     },
     {
       "odoo_id": 96023,
@@ -670,6 +630,16 @@
       "precio": 69.48
     },
     {
+      "odoo_id": 96638,
+      "nombre": "Pantalón Vista",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Pantalones",
+      "stock_inicial": -1,
+      "stock_actual": -1,
+      "ventas": 126,
+      "precio": 95.565
+    },
+    {
       "odoo_id": 113555,
       "nombre": "Sandalia Ancona",
       "coleccion": "Uti 1",
@@ -690,7 +660,7 @@
       "precio": 52.08695652173913
     },
     {
-      "odoo_id": 113565,
+      "odoo_id": 113566,
       "nombre": "Sandalia Cusco",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
@@ -700,7 +670,7 @@
       "precio": 69.47826086956523
     },
     {
-      "odoo_id": 113566,
+      "odoo_id": 113565,
       "nombre": "Sandalia Cusco",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
@@ -830,16 +800,6 @@
       "precio": 78.17391304347827
     },
     {
-      "odoo_id": 113562,
-      "nombre": "Sandalia Sucre",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Accesorios / Calzado",
-      "stock_inicial": 0,
-      "stock_actual": 0,
-      "ventas": 0,
-      "precio": 69.47826086956523
-    },
-    {
       "odoo_id": 113564,
       "nombre": "Sandalia Sucre",
       "coleccion": "Uti 1",
@@ -850,9 +810,19 @@
       "precio": 69.47826086956523
     },
     {
-      "odoo_id": 113588,
-      "nombre": "Sandalia Troya",
+      "odoo_id": 113562,
+      "nombre": "Sandalia Sucre",
       "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Accesorios / Calzado",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 0,
+      "precio": 69.47826086956523
+    },
+    {
+      "odoo_id": 113587,
+      "nombre": "Sandalia Troya",
+      "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
       "stock_actual": 0,
@@ -860,9 +830,9 @@
       "precio": 52.08695652173913
     },
     {
-      "odoo_id": 113587,
+      "odoo_id": 113588,
       "nombre": "Sandalia Troya",
-      "coleccion": "UTI 2",
+      "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Accesorios / Calzado",
       "stock_inicial": 0,
       "stock_actual": 0,
@@ -898,6 +868,16 @@
       "stock_actual": -3,
       "ventas": 3,
       "precio": 52.08695652173913
+    },
+    {
+      "odoo_id": 96637,
+      "nombre": "Short Costa",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Shorts",
+      "stock_inicial": -1,
+      "stock_actual": -1,
+      "ventas": 164,
+      "precio": 69.48
     },
     {
       "odoo_id": 96635,
@@ -948,6 +928,26 @@
       "stock_actual": -14,
       "ventas": 122,
       "precio": 95.567
+    },
+    {
+      "odoo_id": 96627,
+      "nombre": "Vest Viento",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 184,
+      "precio": 78.17
+    },
+    {
+      "odoo_id": 112095,
+      "nombre": "Vestido Brisa",
+      "coleccion": "UTI 2",
+      "categoria": "Producto Terminado / Vestidos",
+      "stock_inicial": 0,
+      "stock_actual": 0,
+      "ventas": 186,
+      "precio": 104.26
     },
     {
       "odoo_id": 112066,
