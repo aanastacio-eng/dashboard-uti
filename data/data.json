@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T17:34:52.924Z",
+  "actualizado": "2026-08-13T17:38:14.014Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1075,
-    "inventario_actual": 403,
-    "ventas_totales": 6674,
-    "ingresos_totales": 522358.92,
+    "inventario_actual": 399,
+    "ventas_totales": 6680,
+    "ingresos_totales": 522827.97,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3590,
-      "ingresos": 262007.65099999998,
+      "ventas": 3593,
+      "ingresos": 262268.265,
       "productos": 25
     },
     "Producto Terminado / Monos de pantalón corto y largo": {
@@ -20,8 +20,8 @@
       "productos": 2
     },
     "Producto Terminado / Shorts": {
-      "ventas": 652,
-      "ingresos": 45300.96000000001,
+      "ventas": 655,
+      "ingresos": 45509.4,
       "productos": 4
     },
     "Producto Terminado / Pantalones": {
@@ -47,9 +47,9 @@
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4083,
+      "ventas": 4089,
       "stock_inicial": 1107,
-      "stock_actual": 435,
+      "stock_actual": 431,
       "productos": 53
     },
     "UTI 2": {
@@ -82,17 +82,17 @@
       "stock_actual": -1
     },
     {
+      "nombre": "LM2621-I-LEMALER BLUSA BEIGE",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Camisas y tops",
+      "ventas": 208,
+      "stock_actual": -16
+    },
+    {
       "nombre": "LM2725-P-LEMALER SHORT PALO ROSA",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "ventas": 208,
-      "stock_actual": -15
-    },
-    {
-      "nombre": "LM2621-I-LEMALER BLUSA BEIGE",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 207,
       "stock_actual": -15
     },
     {
@@ -206,8 +206,8 @@
   "ventas_por_talla": {
     "XS": 1452,
     "S": 1921,
-    "M": 1892,
-    "L": 893,
+    "M": 1896,
+    "L": 895,
     "XL": 439,
     "XXS": 2,
     "Única": 73,
@@ -255,8 +255,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 8,
-      "stock_actual": -15,
-      "ventas": 207,
+      "stock_actual": -16,
+      "ventas": 208,
       "precio": 69.48
     },
     {
@@ -265,8 +265,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 9,
-      "stock_actual": -10,
-      "ventas": 173,
+      "stock_actual": -11,
+      "ventas": 174,
       "precio": 69.48
     },
     {
@@ -485,8 +485,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 16,
-      "stock_actual": -10,
-      "ventas": 118,
+      "stock_actual": -11,
+      "ventas": 120,
       "precio": 95.567
     },
     {
@@ -495,8 +495,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 10,
-      "stock_actual": -4,
-      "ventas": 107,
+      "stock_actual": -5,
+      "ventas": 109,
       "precio": 69.48
     },
     {
