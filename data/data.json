@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T18:54:09.798Z",
+  "actualizado": "2026-08-13T18:54:33.647Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 322,
-    "ventas_totales": 6749,
-    "ingresos_totales": 527821.95,
+    "inventario_actual": 320,
+    "ventas_totales": 6751,
+    "ingresos_totales": 527960.91,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3629,
-      "ingresos": 264830.358,
+      "ventas": 3630,
+      "ingresos": 264899.83800000005,
       "productos": 25
     },
     "Producto Terminado / Vestidos": {
@@ -40,16 +40,16 @@
       "productos": 23
     },
     "Producto Terminado / Shorts": {
-      "ventas": 663,
-      "ingresos": 46065.240000000005,
+      "ventas": 664,
+      "ingresos": 46134.72000000001,
       "productos": 4
     }
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4158,
+      "ventas": 4160,
       "stock_inicial": 1130,
-      "stock_actual": 356,
+      "stock_actual": 354,
       "productos": 53
     },
     "UTI 2": {
@@ -64,8 +64,8 @@
       "nombre": "Blusa Alas",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
-      "ventas": 229,
-      "stock_actual": -27
+      "ventas": 230,
+      "stock_actual": -28
     },
     {
       "nombre": "Blusa Certeza",
@@ -75,18 +75,18 @@
       "stock_actual": -18
     },
     {
+      "nombre": "Short Paloma",
+      "coleccion": "Uti 1",
+      "categoria": "Producto Terminado / Shorts",
+      "ventas": 213,
+      "stock_actual": -20
+    },
+    {
       "nombre": "Blusa Aura",
       "coleccion": "UTI 2",
       "categoria": "Producto Terminado / Camisas y tops",
       "ventas": 212,
       "stock_actual": -1
-    },
-    {
-      "nombre": "Short Paloma",
-      "coleccion": "Uti 1",
-      "categoria": "Producto Terminado / Shorts",
-      "ventas": 212,
-      "stock_actual": -19
     },
     {
       "nombre": "Vest Duna",
@@ -207,8 +207,8 @@
     "XS": 1460,
     "S": 1938,
     "M": 1921,
-    "L": 905,
-    "XL": 442,
+    "L": 906,
+    "XL": 443,
     "XXS": 2,
     "Única": 73,
     "T-40": 0,
@@ -255,8 +255,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 37,
-      "stock_actual": -27,
-      "ventas": 229,
+      "stock_actual": -28,
+      "ventas": 230,
       "precio": 69.48
     },
     {
@@ -885,8 +885,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 27,
-      "stock_actual": -19,
-      "ventas": 212,
+      "stock_actual": -20,
+      "ventas": 213,
       "precio": 69.48
     },
     {
