@@ -85,14 +85,15 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);
   display:flex;align-items:center;justify-content:center;z-index:999;padding:20px;
   opacity:0;pointer-events:none;transition:opacity .2s ease}
 .modal-overlay.open{opacity:1;pointer-events:auto}
-.modal-card{background:var(--card);border-radius:12px;max-width:420px;width:100%;
+.modal-card{background:var(--card);border-radius:12px;max-width:440px;width:100%;
   overflow:hidden;box-shadow:0 20px 25px -5px rgba(0,0,0,.3);position:relative;
   transform:scale(.95);transition:transform .2s ease}
 .modal-overlay.open .modal-card{transform:scale(1)}
-.modal-close{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:#fff;
-  border:none;border-radius:50%;width:30px;height:30px;font-size:16px;cursor:pointer;
+.modal-close{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.6);color:#fff;
+  border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;z-index:2}
-.modal-img{width:100%;max-height:380px;object-fit:cover;background:var(--soft);display:block}
+.modal-close:hover{background:rgba(0,0,0,.8)}
+.modal-img{width:100%;max-height:60vh;object-fit:contain;background:var(--soft);display:block}
 .modal-body{padding:16px 20px}
 .modal-title{font-size:16px;font-weight:600;margin-bottom:4px}
 .modal-meta{font-size:13px;color:var(--ink-2);margin-bottom:12px}
@@ -114,9 +115,9 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);
       <p class="tiny" id="syncStatus">Conectando con Odoo...</p>
     </div>
     <div class="seg" id="dropFilter">
-      <button data-drop="all" aria-pressed="true">Todos</button>
-      <button data-drop="uti 1">Uti 1</button>
-      <button data-drop="uti 2">Uti 2</button>
+      <button data-drop="all" id="btnTodos" aria-pressed="true">Todos</button>
+      <button data-drop="uti 1" id="btnUti1">Uti 1</button>
+      <button data-drop="uti 2" id="btnUti2">Uti 2</button>
     </div>
   </div>
 
@@ -216,7 +217,6 @@ let chart = null;
 const money = n => '$' + Math.round(n).toLocaleString('en-US');
 const num = n => Math.round(n).toLocaleString('en-US');
 
-// Muestra miniatura y añade click para abrir el pop-up
 function thumb(p, size){
   const src = p.imagen_thumb;
   if (src && typeof src === 'string' && src.startsWith('data:image')) {
@@ -245,7 +245,6 @@ function closeModal(){
   document.getElementById('imgModal').classList.remove('open');
 }
 
-// Cerrar al hacer clic fuera de la tarjeta
 document.getElementById('imgModal').onclick = e => {
   if(e.target.id === 'imgModal') closeModal();
 };
@@ -258,6 +257,37 @@ function estado(p){
   return {t:'Push fuerte', bg:'var(--ok-bg)', c:'var(--ok-tx)'};
 }
 
+// evalúa si hay más de una colección con productos
+function updateFilterVisibility(){
+  if(!rawData || !rawData.productos) return;
+
+  const tieneUti1 = rawData.productos.some(p => p.coleccion.toLowerCase().includes('uti 1'));
+  const tieneUti2 = rawData.productos.some(p => p.coleccion.toLowerCase().includes('uti 2'));
+
+  const btnTodos = document.getElementById('btnTodos');
+  const btnUti1 = document.getElementById('btnUti1');
+  const btnUti2 = document.getElementById('btnUti2');
+
+  btnUti1.style.display = tieneUti1 ? 'inline-block' : 'none';
+  btnUti2.style.display = tieneUti2 ? 'inline-block' : 'none';
+
+  // Si solo existe una colección activa, oculta el botón "Todos" y marca la activa por defecto
+  if (tieneUti1 && !tieneUti2) {
+    btnTodos.style.display = 'none';
+    if (drop === 'all') drop = 'uti 1';
+  } else if (!tieneUti1 && tieneUti2) {
+    btnTodos.style.display = 'none';
+    if (drop === 'all') drop = 'uti 2';
+  } else {
+    btnTodos.style.display = 'inline-block';
+  }
+
+  // Actualiza los estados de presionado de los botones
+  document.querySelectorAll('#dropFilter button').forEach(b => {
+    b.setAttribute('aria-pressed', b.dataset.drop === drop);
+  });
+}
+
 function filterProducts(){
   if(!rawData || !rawData.productos) return [];
   if(drop === 'all') return rawData.productos;
@@ -266,6 +296,9 @@ function filterProducts(){
 
 function render(){
   if(!rawData) return;
+
+  updateFilterVisibility();
+
   const prods = filterProducts();
   
   const udsVendidas = prods.reduce((s,p) => s + p.ventas, 0);
@@ -281,7 +314,6 @@ function render(){
   document.getElementById('kpiTotalProds').textContent = prods.length;
   document.getElementById('kpiAgotar').textContent = prods.filter(p => p.stock_actual < 15).length;
 
-  // Gráfico Top 10
   const top10 = [...prods].sort((a,b) => b.ventas - a.ventas).slice(0, 10);
   if(chart){
     chart.data.labels = top10.map(p => p.nombre.replace(/^LM\d+-\w+-/,'').slice(0,20));
@@ -289,7 +321,6 @@ function render(){
     chart.update();
   }
 
-  // Ventas por Categoría
   const cats = {};
   prods.forEach(p => {
     cats[p.categoria] = (cats[p.categoria] || 0) + p.ventas;
@@ -304,7 +335,6 @@ function render(){
     <div class="bar"><span style="width:${pct}%;background:${colors[i%3]}"></span></div>`;
   }).join('');
 
-  // Tabla Push
   document.getElementById('tbodyPush').innerHTML = [...prods]
     .sort((a,b) => (a.ventas / (a.stock_inicial||1)) - (b.ventas / (b.stock_inicial||1)))
     .slice(0,5).map(p => {
@@ -314,7 +344,6 @@ function render(){
       <td><span class="pill" style="background:${e.bg};color:${e.c}">${e.t}</span></td></tr>`;
     }).join('');
 
-  // Tabla Detalle
   let sortedProds = [...prods];
   if(sortBy==='act') sortedProds.sort((a,b) => b.stock_actual - a.stock_actual);
   else if(sortBy==='v') sortedProds.sort((a,b) => b.ventas - a.ventas);
@@ -345,7 +374,6 @@ async function loadData(){
   }
 }
 
-// Eventos de botones
 document.querySelectorAll('#dropFilter button').forEach(b => {
   b.onclick = () => {
     drop = b.dataset.drop;
@@ -365,7 +393,6 @@ document.querySelectorAll('#tabs button').forEach(b => {
 
 document.getElementById('sortSel').onchange = e => { sortBy = e.target.value; render(); };
 
-// Inicializar Chart
 const dark = matchMedia('(prefers-color-scheme: dark)').matches;
 chart = new Chart(document.getElementById('ventasChart'), {
   type:'bar',
