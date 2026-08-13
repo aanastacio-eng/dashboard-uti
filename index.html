@@ -70,9 +70,10 @@ button[aria-pressed="true"]{background:var(--soft);font-weight:600;border-color:
 .kpi .val{font-size:26px;font-weight:600;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
 
 .cols{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:12px;margin-bottom:20px}
-.card{background:var(--card);border:.5px solid var(--line);border-radius:12px;padding:16px 20px}
+.card{background:var(--card);border:.5px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:20px}
 .card h2{font-size:14px;font-weight:600;margin:0 0 12px}
 .chart-box{position:relative;width:100%;height:200px}
+.line-chart-box{position:relative;width:100%;height:240px}
 .bar-row{display:flex;justify-content:space-between;font-size:13px;padding:6px 0 5px}
 .bar{height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
 .bar span{display:block;height:100%}
@@ -167,7 +168,15 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
       <div class="kpi"><p class="lbl">Unidades vendidas</p><p class="val" id="kpiUnidades">—</p><p class="tiny" id="kpiProducidas">—</p></div>
       <div class="kpi"><p class="lbl">Stock disponible</p><p class="val" id="kpiStock">—</p><p class="tiny">en inventario</p></div>
       <div class="kpi"><p class="lbl">% Colección vendida</p><p class="val" id="kpiSell">—</p><p class="tiny" id="kpiEstilos">—</p></div>
-      <div class="kpi"><p class="lbl">Ritmo estimado</p><p class="val" id="kpiRunRate">—</p><p class="tiny">unidades/día prom.</p></div>
+      <div class="kpi"><p class="lbl">Ventas diarias prom.</p><p class="val" id="kpiDailyAvg">—</p><p class="tiny" id="kpiDaysCount">uds / día</p></div>
+    </div>
+
+    <!-- GRÁFICO DE LÍNEA DE VIDA DIARIA -->
+    <div class="card">
+      <h2>Línea de vida de ventas (Día a Día)</h2>
+      <div class="line-chart-box">
+        <canvas id="timelineChart"></canvas>
+      </div>
     </div>
 
     <div class="cols">
@@ -188,11 +197,11 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
     </div>
 
     <div class="card">
-      <h2>Qué empujar esta semana (Baja rotación)</h2>
+      <h2>Sugerencia de acciones comerciales</h2>
       <table>
         <thead><tr>
           <th style="width:42%">Producto</th><th style="width:15%">Vendidas</th>
-          <th style="width:15%">Stock</th><th style="width:28%">Acción</th>
+          <th style="width:15%">Stock</th><th style="width:28%">Diagnóstico</th>
         </tr></thead>
         <tbody id="tbodyPush"></tbody>
       </table>
@@ -206,17 +215,18 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
         <div class="controls-group">
           <input type="text" id="searchInput" placeholder="🔍 Buscar prenda..." oninput="render()">
           <select id="filterState" onchange="render()">
-            <option value="all">Todos los estados</option>
-            <option value="Push fuerte">Push fuerte</option>
-            <option value="Mantener">Mantener</option>
-            <option value="No mostrar">No mostrar</option>
+            <option value="all">Todos los diagnósticos</option>
+            <option value="Reabastecer">Reabastecer</option>
+            <option value="Sostenible">Sostenible</option>
+            <option value="Liquidación / Promo">Liquidación / Promo</option>
+            <option value="Agotado / Crítico">Agotado / Crítico</option>
           </select>
           <select id="sortSel">
             <option value="act">Más stock actual</option>
             <option value="v">Más vendidos</option>
             <option value="n">Nombre</option>
           </select>
-          <button onclick="exportCSV()" style="padding:6px 12px; font-size:12px;">📊 Exportar CSV</button>
+          <button onclick="exportXLSX()" style="padding:6px 12px; font-size:12px; font-weight:600;">📗 Exportar a Excel (.xlsx)</button>
         </div>
       </div>
       <table>
@@ -249,7 +259,10 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
   </div>
 </div>
 
+<!-- LIBRERÍAS DE CHART.JS Y SHEETJS (EXCEL XLSX) -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
 <script>
 const USER_CORRECT = "admin";
 const PASS_CORRECT = "lemaler2026";
@@ -290,7 +303,7 @@ function resetInactivityTimer(){
   inactivityTimer = setTimeout(() => {
     alert("Sesión cerrada por inactividad.");
     logout();
-  }, 15 * 60 * 1000); // 15 minutos
+  }, 15 * 60 * 1000);
 }
 window.onload = resetInactivityTimer;
 window.onmousemove = resetInactivityTimer;
@@ -300,6 +313,7 @@ function initDashboard(){
   document.getElementById('loginPage').style.display = 'none';
   document.getElementById('dashboardPage').style.display = 'block';
   if(!chart){ initChart(); }
+  if(!timelineChart){ initTimelineChart(); }
   loadData();
 }
 
@@ -310,6 +324,7 @@ let rawData = null;
 let drop = 'uti 1';
 let sortBy = 'act';
 let chart = null;
+let timelineChart = null;
 
 const num = n => Math.round(n).toLocaleString('en-US');
 
@@ -340,12 +355,15 @@ function openModal(id){
 function closeModal(){ document.getElementById('imgModal').classList.remove('open'); }
 document.getElementById('imgModal').onclick = e => { if(e.target.id === 'imgModal') closeModal(); };
 
+/* LÓGICA DE DIAGNÓSTICO COMERCIAL LÓGICO */
 function estado(p){
   const act = p.stock_actual, ini = p.stock_inicial;
   const pct = ini > 0 ? p.ventas / ini : 0;
-  if(act < 15) return {t:'No mostrar', bg:'var(--stop-bg)', c:'var(--stop-tx)'};
-  if(pct >= 0.5) return {t:'Mantener', bg:'var(--wait-bg)', c:'var(--wait-tx)'};
-  return {t:'Push fuerte', bg:'var(--ok-bg)', c:'var(--ok-tx)'};
+
+  if(act < 15) return {t:'Agotado / Crítico', bg:'var(--stop-bg)', c:'var(--stop-tx)'};
+  if(pct >= 0.6) return {t:'Reabastecer', bg:'var(--ok-bg)', c:'var(--ok-tx)'};
+  if(pct >= 0.25) return {t:'Sostenible', bg:'var(--wait-bg)', c:'var(--wait-tx)'};
+  return {t:'Liquidación / Promo', bg:'var(--stop-bg)', c:'var(--stop-tx)'};
 }
 
 function filterProducts(){
@@ -363,14 +381,27 @@ function render(){
   const stockActual = prods.reduce((s,p) => s + p.stock_actual, 0);
   const sellThrough = stockInicial > 0 ? Math.round((udsVendidas / stockInicial) * 100) : 0;
 
+  // CÁLCULO PROMEDIO DIARIO REAL POR UNIDADES
+  const diasCampaña = rawData.dias_transcurridos || 14;
+  const promedioDiario = (udsVendidas / diasCampaña).toFixed(1);
+
   document.getElementById('kpiUnidades').textContent = num(udsVendidas);
   document.getElementById('kpiProducidas').textContent = `de ${num(stockInicial)} iniciales`;
   document.getElementById('kpiStock').textContent = num(stockActual);
   document.getElementById('kpiSell').textContent = sellThrough + '%';
   document.getElementById('kpiEstilos').textContent = `${prods.length} estilos`;
-  document.getElementById('kpiRunRate').textContent = `~${(udsVendidas / 14).toFixed(1)}`;
+  document.getElementById('kpiDailyAvg').textContent = promedioDiario;
+  document.getElementById('kpiDaysCount').textContent = `uds/día (${diasCampaña} días)`;
   document.getElementById('kpiTotalProds').textContent = prods.length;
   document.getElementById('kpiAgotar').textContent = prods.filter(p => p.stock_actual < 15).length;
+
+  // ACTUALIZAR GRÁFICO LÍNEA DE VIDA DIARIA
+  if(timelineChart && rawData.ventas_diarias){
+    const timelineData = rawData.ventas_diarias[drop] || rawData.ventas_diarias['general'] || [];
+    timelineChart.data.labels = timelineData.map(d => d.fecha);
+    timelineChart.data.datasets[0].data = timelineData.map(d => d.unidades);
+    timelineChart.update();
+  }
 
   const top10 = [...prods].sort((a,b) => b.ventas - a.ventas).slice(0, 10);
   if(chart){
@@ -425,19 +456,24 @@ function render(){
   document.getElementById('detalleNota').textContent = `${filteredDetalle.length} prendas mostradas · el stock actual se marca en rojo cuando quedan menos de 15 unidades`;
 }
 
-function exportCSV(){
+// EXPORTACIÓN A EXCEL NATIVO (.XLSX)
+function exportXLSX(){
   const prods = filterProducts();
-  let csv = 'Nombre,Categoria,Coleccion,Stock Inicial,Ventas,Stock Actual\n';
-  prods.forEach(p => {
-    csv += `"${p.nombre}","${p.categoria}","${p.coleccion}",${p.stock_inicial},${p.ventas},${p.stock_actual}\n`;
-  });
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.setAttribute('download', `inventario_${drop.replace(' ','_')}.csv`);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  const excelData = prods.map(p => ({
+    'Nombre de Prenda': p.nombre,
+    'Categoría': p.categoria,
+    'Colección': p.coleccion,
+    'Stock Inicial': p.stock_inicial,
+    'Unidades Vendidas': p.ventas,
+    'Stock Actual': p.stock_actual,
+    '% Vendido': p.stock_inicial > 0 ? `${Math.round((p.ventas / p.stock_inicial) * 100)}%` : '0%',
+    'Diagnóstico Comercial': estado(p).t
+  }));
+
+  const worksheet = XLSX.utils.json_to_sheet(excelData);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Inventario");
+  XLSX.writeFile(workbook, `Inventario_${drop.replace(' ','_')}.xlsx`);
 }
 
 async function loadData(){
@@ -488,6 +524,32 @@ function initChart(){
       scales:{
         y:{ ticks:{color:'#8d8b84'}, grid:{color: dark?'rgba(255,255,255,.1)':'rgba(28,27,25,.1)'} },
         x:{ ticks:{color:'#8d8b84', font:{size:10}}, grid:{display:false} }
+      }
+    }
+  });
+}
+
+function initTimelineChart(){
+  const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+  timelineChart = new Chart(document.getElementById('timelineChart'), {
+    type:'line',
+    data:{
+      labels: [],
+      datasets:[{
+        label: 'Unidades vendidas',
+        data: [],
+        borderColor: '#1baf7a',
+        backgroundColor: 'rgba(27, 175, 122, 0.1)',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 4,
+        pointBackgroundColor: '#1baf7a'
+      }]
+    },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+      scales:{
+        y:{ ticks:{color:'#8d8b84'}, grid:{color: dark?'rgba(255,255,255,.1)':'rgba(28,27,25,.1)'} },
+        x:{ ticks:{color:'#8d8b84', font:{size:11}}, grid:{display:false} }
       }
     }
   });
