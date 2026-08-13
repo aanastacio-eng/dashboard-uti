@@ -1,17 +1,17 @@
 {
-  "actualizado": "2026-08-13T18:36:30.108Z",
+  "actualizado": "2026-08-13T18:36:38.244Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 1098,
-    "inventario_actual": 350,
-    "ventas_totales": 6724,
-    "ingresos_totales": 525998.02,
+    "inventario_actual": 347,
+    "ventas_totales": 6727,
+    "ingresos_totales": 526171.68,
     "total_productos": 74
   },
   "por_categoria": {
     "Producto Terminado / Camisas y tops": {
-      "ventas": 3616,
-      "ingresos": 263935.82200000004,
+      "ventas": 3618,
+      "ingresos": 264040.00200000004,
       "productos": 25
     },
     "Producto Terminado / Vestidos": {
@@ -40,16 +40,16 @@
       "productos": 23
     },
     "Producto Terminado / Shorts": {
-      "ventas": 660,
-      "ingresos": 45856.8,
+      "ventas": 661,
+      "ingresos": 45926.280000000006,
       "productos": 4
     }
   },
   "por_coleccion": {
     "Uti 1": {
-      "ventas": 4133,
+      "ventas": 4136,
       "stock_inicial": 1130,
-      "stock_actual": 382,
+      "stock_actual": 379,
       "productos": 53
     },
     "UTI 2": {
@@ -85,8 +85,8 @@
       "nombre": "Short Paloma",
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
-      "ventas": 211,
-      "stock_actual": -18
+      "ventas": 212,
+      "stock_actual": -19
     },
     {
       "nombre": "Vest Duna",
@@ -206,7 +206,7 @@
   "ventas_por_talla": {
     "XS": 1456,
     "S": 1933,
-    "M": 1910,
+    "M": 1913,
     "L": 903,
     "XL": 442,
     "XXS": 2,
@@ -245,8 +245,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 3,
-      "stock_actual": -8,
-      "ventas": 179,
+      "stock_actual": -9,
+      "ventas": 180,
       "precio": 52.09
     },
     {
@@ -415,8 +415,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Camisas y tops",
       "stock_inicial": 8,
-      "stock_actual": -13,
-      "ventas": 161,
+      "stock_actual": -14,
+      "ventas": 162,
       "precio": 52.09
     },
     {
@@ -885,8 +885,8 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Shorts",
       "stock_inicial": 27,
-      "stock_actual": -18,
-      "ventas": 211,
+      "stock_actual": -19,
+      "ventas": 212,
       "precio": 69.48
     },
     {
