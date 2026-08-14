@@ -598,10 +598,10 @@ function renderTimeline() {
   const hasta = document.getElementById('fechaHasta').value;
 
   // 1. Obtener los días del objeto historial_diario y ordenarlos
-  const fechas de las ventas = Object.keys(rawHistorial.historial_diario).sort();
+  const fechasVentas = Object.keys(rawHistorial.historial_diario).sort();
 
   // 2. Filtrar las fechas según el rango seleccionado
-  const fechasFiltradas = fechas de las ventas.filter(f => f >= desde && f <= hasta);
+  const fechasFiltradas = fechasVentas.filter(f => f >= desde && f <= hasta);
 
   // 3. Generar las etiquetas del eje X (MM-DD) y los datos de ventas correspondientes
   const labels = fechasFiltradas.map(f => f.slice(5)); 
