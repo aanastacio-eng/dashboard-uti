@@ -174,7 +174,7 @@ tfoot td{font-weight:600;border-bottom:none}
 /* HERRAMIENTAS Y BÚSQUEDA */
 .sortbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
 .controls-group{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-input[type="text"]{font:inherit;font-size:13px;color:var(--ink);background:var(--card);border:.5px solid var(--line-2);border-radius:var(--radius);padding:6px 12px}
+input[type="text"], input[type="date"]{font:inherit;font-size:13px;color:var(--ink);background:var(--card);border:.5px solid var(--line-2);border-radius:var(--radius);padding:6px 12px}
 select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);border:.5px solid var(--line-2);border-radius:var(--radius);padding:6px 10px}
 
 /* MODALES POPUP */
@@ -189,6 +189,27 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
 .modal-title{font-size:16px;font-weight:600;margin-bottom:4px}
 .modal-meta{font-size:13px;color:var(--ink-2);margin-bottom:12px}
 .modal-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--soft);padding:10px 14px;border-radius:8px;font-size:13px}
+
+/* NUEVOS ESTILOS PARA LA LÍNEA DE TIEMPO */
+.timeline-card {
+  background: var(--card);
+  border: .5px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+.timeline-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.timeline-chart-box {
+  position: relative;
+  width: 100%;
+  height: 220px;
+}
 
 @media (max-width:760px){
   .cols{grid-template-columns:1fr}
@@ -247,6 +268,22 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
       <div class="kpi"><p class="lbl">Stock disponible</p><p class="val" id="kpiStock">—</p><p class="tiny">en inventario</p></div>
       <div class="kpi"><p class="lbl">% Colección vendida</p><p class="val" id="kpiSell">—</p><p class="tiny" id="kpiEstilos">—</p></div>
       <div class="kpi"><p class="lbl">Ventas diarias prom.</p><p class="val" id="kpiDailyAvg">—</p><p class="tiny" id="kpiDaysCount">uds / día</p></div>
+    </div>
+
+    <!-- SECCIÓN LÍNEA DE TIEMPO (HISTÓRICO DE VENTAS DIARIAS) -->
+    <div class="timeline-card">
+      <div class="timeline-controls">
+        <h2 style="font-size:14px; font-weight:600; margin:0; flex-grow:1;">Evolución Temporal de Ventas</h2>
+        <div class="controls-group">
+          <label class="tiny" style="font-weight:500;">Desde:</label>
+          <input type="date" id="fechaDesde" onchange="renderTimeline()">
+          <label class="tiny" style="font-weight:500;">Hasta:</label>
+          <input type="date" id="fechaHasta" onchange="renderTimeline()">
+        </div>
+      </div>
+      <div class="timeline-chart-box">
+        <canvas id="timelineChart"></canvas>
+      </div>
     </div>
 
     <div class="cols">
@@ -324,7 +361,7 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
 
 </div>
 
-<!-- MODAL 1: FOTO DE PRENDA -->
+<!-- MODALES POPUP -->
 <div class="modal-overlay" id="imgModal">
   <div class="modal-card">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -340,7 +377,6 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
   </div>
 </div>
 
-<!-- MODAL 2: VER MÁS CATEGORÍAS -->
 <div class="modal-overlay" id="catModal">
   <div class="modal-card" style="max-width:520px; max-height:85vh; display:flex; flex-direction:column;">
     <button class="modal-close" onclick="closeCatModal()">✕</button>
@@ -352,7 +388,6 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
   </div>
 </div>
 
-<!-- MODAL 3: VER MÁS TOP VENDIDOS -->
 <div class="modal-overlay" id="topModal">
   <div class="modal-card" style="max-width:580px; max-height:85vh; display:flex; flex-direction:column;">
     <button class="modal-close" onclick="closeTopModal()">✕</button>
@@ -373,7 +408,6 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
   </div>
 </div>
 
-<!-- MODAL 4: VER MÁS BAJA ROTACIÓN (PUSH) -->
 <div class="modal-overlay" id="pushModal">
   <div class="modal-card" style="max-width:580px; max-height:85vh; display:flex; flex-direction:column;">
     <button class="modal-close" onclick="closePushModal()">✕</button>
@@ -452,12 +486,15 @@ function initDashboard(){
 }
 
 const DATA_URL = 'data/data.json';
+const HISTORIAL_URL = 'data/historial.json';
 const REFRESH_MS = 60000;
 
 let rawData = null;
+let rawHistorial = null;
 let drop = 'uti 1';
 let sortBy = 'act';
 let chart = null;
+let timelineChart = null;
 
 const num = n => Math.round(n).toLocaleString('en-US');
 
@@ -512,7 +549,6 @@ function calcularDiasCampana(){
   return diffDays > 0 ? diffDays : 1;
 }
 
-/* FUNCIÓN DE ASIGNACIÓN FILTRADA SIN EMOTICONES */
 function getPushBadge(ventas) {
   if (ventas < 20) {
     return `<span class="badge-push critico">Push Fuerte</span>`;
@@ -522,6 +558,45 @@ function getPushBadge(ventas) {
     return `<span class="badge-push medio">Push Medio</span>`;
   } else {
     return `<span class="badge-push leve">Mejor Vendidas</span>`;
+  }
+}
+
+// INICIALIZACIÓN DE FECHAS EN LOS INPUTS (POR DEFECTO DESDE EL 12 DE AGOSTO)
+function initTimelineDates() {
+  const desdeInput = document.getElementById('fechaDesde');
+  const hastaInput = document.getElementById('fechaHasta');
+  
+  if(desdeInput && !desdeInput.value) desdeInput.value = "2026-08-12";
+  if(hastaInput && !hastaInput.value) {
+    const hoy = new Date();
+    hastaInput.value = hoy.toISOString().split('T')[0];
+  }
+}
+
+// RENDERIZADO EXCLUSIVO DE LA GRÁFICA DE LÍNEA DE TIEMPO
+function renderTimeline() {
+  if (!rawHistorial || !rawHistorial.historial || !rawData) return;
+
+  const desde = document.getElementById('fechaDesde').value;
+  const hasta = document.getElementById('fechaHasta').value;
+  const prodsFiltrados = filterProducts();
+  const idsPermitidos = new Set(prodsFiltrados.map(p => p.odoo_id));
+
+  // Filtrar el historial según el rango de fechas
+  const diasFiltrados = rawHistorial.historial.filter(h => h.fecha >= desde && h.fecha <= hasta);
+  diasFiltrados.sort((a,b) => a.fecha.localeCompare(b.fecha));
+
+  const labels = diasFiltrados.map(d => d.fecha.slice(5)); // Formato "MM-DD" o "MM-DD"
+  const datosVentas = diasFiltrados.map(d => {
+    return d.ventas_dia
+      .filter(v => idsPermitidos.has(v.odoo_id))
+      .reduce((sum, v) => sum + v.unidades, 0);
+  });
+
+  if (timelineChart) {
+    timelineChart.data.labels = labels;
+    timelineChart.data.datasets[0].data = datosVentas;
+    timelineChart.update();
   }
 }
 
@@ -551,7 +626,10 @@ function render(){
   const agotados = prods.filter(p => p.stock_actual < 15);
   document.getElementById('kpiAgotar').textContent = agotados.length;
 
-  // TOP 10 MÁS VENDIDOS Y MODAL COMPLETO
+  // Actualizar también la gráfica temporal cuando cambia la cápsula (uti 1 / uti 2)
+  renderTimeline();
+
+  // TOP 10 MÁS VENDIDOS
   const allSortedByVentas = [...prods].sort((a,b) => b.ventas - a.ventas);
   const top10 = allSortedByVentas.slice(0, 10);
   
@@ -659,11 +737,22 @@ function exportXLSX(){
 
 async function loadData(){
   try {
-    const res = await fetch(DATA_URL + '?t=' + Date.now(), {cache:'no-store'});
-    if(!res.ok) throw new Error('HTTP ' + res.status);
-    rawData = await res.json();
+    // 1. Cargar productos globales
+    const resData = await fetch(DATA_URL + '?t=' + Date.now(), {cache:'no-store'});
+    if(!resData.ok) throw new Error('HTTP ' + resData.status);
+    rawData = await resData.json();
+
+    // 2. Cargar historial temporal de forma asíncrona
+    try {
+      const resHist = await fetch(HISTORIAL_URL + '?t=' + Date.now(), {cache:'no-store'});
+      if(resHist.ok) rawHistorial = await resHist.json();
+    } catch(errHist) {
+      console.warn("No se pudo cargar el historial de línea de tiempo:", errHist);
+    }
     
     document.getElementById('syncStatus').textContent = 'Actualizado: ' + new Date(rawData.actualizado).toLocaleString('es-EC');
+    
+    initTimelineDates();
     render();
   } catch(e) {
     document.getElementById('syncStatus').textContent = '⚠️ Sin conexión a data/data.json';
@@ -698,13 +787,42 @@ document.getElementById('sortSel').onchange = e => { sortBy = e.target.value; re
 
 function initChart(){
   const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+  const gridColor = dark ? 'rgba(255,255,255,.1)' : 'rgba(28,27,25,.1)';
+
+  // Gráfica de Barras (Top 10)
   chart = new Chart(document.getElementById('ventasChart'), {
     type:'bar',
     data:{ labels:[], datasets:[{ data:[], backgroundColor:'#2a78d6', borderRadius:4 }]},
     options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
       scales:{
-        y:{ ticks:{color:'#8d8b84'}, grid:{color: dark?'rgba(255,255,255,.1)':'rgba(28,27,25,.1)'} },
+        y:{ ticks:{color:'#8d8b84'}, grid:{color: gridColor} },
         x:{ ticks:{color:'#8d8b84', font:{size:10}}, grid:{display:false} }
+      }
+    }
+  });
+
+  // NUEVA: Gráfica de Línea de Tiempo (Evolución de ventas diarias)
+  timelineChart = new Chart(document.getElementById('timelineChart'), {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        data: [],
+        borderColor: '#1baf7a',
+        backgroundColor: 'rgba(27, 175, 122, 0.1)',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.2,
+        pointBackgroundColor: '#1baf7a'
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, ticks: { color: '#8d8b84', stepSize: 5 }, grid: { color: gridColor } },
+        x: { ticks: { color: '#8d8b84' }, grid: { display: false } }
       }
     }
   });
@@ -717,4 +835,3 @@ setInterval(() => {
 </script>
 </body>
 </html>
-   
