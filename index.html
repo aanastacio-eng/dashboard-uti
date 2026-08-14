@@ -434,11 +434,13 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
 <script>
 const USER_CORRECT = "admin";
 const PASS_CORRECT = "lemaler2026";
-let inactivityTimer;
+let inactivityTimer = null; // Inicializado correctamente como null
 
 function togglePassword(){
   const p = document.getElementById('passInput');
-  p.type = p.type === 'password' ? 'text' : 'password';
+  if (p) {
+    p.type = p.type === 'password' ? 'text' : 'password';
+  }
 }
 
 function handleLogin(e){
@@ -448,10 +450,11 @@ function handleLogin(e){
   const err = document.getElementById('loginError');
 
   if(u === USER_CORRECT && p === PASS_CORRECT){
+    if(err) err.style.display = 'none';
     sessionStorage.setItem('authenticated', 'true');
     initDashboard();
   } else {
-    err.style.display = 'block';
+    if(err) err.style.display = 'block';
   }
 }
 
@@ -467,23 +470,36 @@ function checkAuth(){
 }
 
 function resetInactivityTimer(){
-  clearTimeout(inactivityTimer);
+  if (inactivityTimer) {
+    clearTimeout(inactivityTimer);
+  }
   inactivityTimer = setTimeout(() => {
     alert("Sesión cerrada por inactividad.");
     logout();
-  }, 15 * 60 * 1000);
+  }, 15 * 60 * 1000); // 15 minutos
 }
-window.onload = resetInactivityTimer;
+
+// Eventos de actividad
+window.onload = () => {
+  checkAuth(); // Revisa si ya estaba logueado al cargar la página
+  resetInactivityTimer();
+};
 window.onmousemove = resetInactivityTimer;
 window.onkeydown = resetInactivityTimer;
 
 function initDashboard(){
-  document.getElementById('loginPage').style.display = 'none';
-  document.getElementById('dashboardPage').style.display = 'block';
-  if(!chart){ initChart(); }
-  loadData();
+  const loginPage = document.getElementById('loginPage');
+  const dashboardPage = document.getElementById('dashboardPage');
+  
+  if(loginPage) loginPage.style.display = 'none';
+  if(dashboardPage) dashboardPage.style.display = 'block';
+  
+  // Controlamos que no se rompa si no existen estas funciones abajo
+  if(typeof chart !== 'undefined' && !chart){ 
+    if(typeof initChart === 'function') initChart(); 
+  }
+  if(typeof loadData === 'function') loadData();
 }
-
 const DATA_URL = 'data/data.json';
 const HISTORIAL_URL = 'data/historial.json';
 const REFRESH_MS = 60000;
