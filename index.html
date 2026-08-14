@@ -744,7 +744,7 @@ async function loadData(){
       if(resHist.ok) rawHistorial = await resHist.json();
     } catch(errHist) {
       console.warn("No se pudo cargar el historial de línea de tiempo:", errHist);
-    }*/
+    }*/ 
     
     document.getElementById('syncStatus').textContent = 'Actualizado: ' + new Date(rawData.actualizado).toLocaleString('es-EC');
     
