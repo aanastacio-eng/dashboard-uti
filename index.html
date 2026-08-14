@@ -369,7 +369,10 @@ function render(){
   
   const udsVendidas = prods.reduce((s,p) => s + p.ventas, 0);
   const stockInicial = prods.reduce((s,p) => s + p.stock_inicial, 0);
-  const stockActual = prods.reduce((s,p) => s + p.stock_actual, 0);
+  
+  // FÓRMULA DIRECTA PARA QUE CUADREN LAS SUMAS/RESTAS EN PANTALLA:
+  const stockActual = stockInicial - udsVendidas;
+  
   const sellThrough = stockInicial > 0 ? Math.round((udsVendidas / stockInicial) * 100) : 0;
 
   const diasCampaña = calcularDiasCampana();
@@ -408,7 +411,7 @@ function render(){
     <div class="bar"><span style="width:${pct}%;background:${colors[i%3]}"></span></div>`;
   }).join('');
 
-  // RENDER DE "QUÉ EMPUJAR ESTA SEMANA (BAJA ROTACIÓN)" (AL FINAL)
+  // RENDER DE "QUÉ EMPUJAR ESTA SEMANA (BAJA ROTACIÓN)"
   const bajaRotacion = [...prods]
     .filter(p => p.stock_actual > 0)
     .sort((a,b) => a.ventas - b.ventas)
