@@ -269,7 +269,7 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
       <div class="kpi"><p class="lbl">Ventas diarias prom.</p><p class="val" id="kpiDailyAvg">—</p><p class="tiny" id="kpiDaysCount">uds / día</p></div>
     </div>
 
-    <!-- SECCIÓN LÍNEA DE TIEMPO (HISTÓRICO DE VENTAS DIARIAS) -->
+    <!-- SECCIÓN LÍNEA DE TIEMPO (HISTÓRICO DE VENTAS DIARIAS) 
     <div class="timeline-card">
       <div class="timeline-controls">
         <h2 style="font-size:14px; font-weight:600; margin:0; flex-grow:1;">Evolución Temporal de Ventas</h2>
@@ -283,7 +283,7 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
       <div class="timeline-chart-box">
         <canvas id="timelineChart"></canvas>
       </div>
-    </div>
+    </div>-->
 
     <div class="cols">
       <!-- RECUADRO 1: TOP 10 -->
@@ -623,7 +623,7 @@ function render(){
   document.getElementById('kpiAgotar').textContent = agotados.length;
 
   // Actualizar también la gráfica temporal cuando cambia la cápsula (uti 1 / uti 2)
-  renderTimeline();
+  //renderTimeline();
 
   // TOP 10 MÁS VENDIDOS
   const allSortedByVentas = [...prods].sort((a,b) => b.ventas - a.ventas);
@@ -748,7 +748,7 @@ async function loadData(){
     
     document.getElementById('syncStatus').textContent = 'Actualizado: ' + new Date(rawData.actualizado).toLocaleString('es-EC');
     
-    initTimelineDates();
+    //initTimelineDates();
     render();
   } catch(e) {
     document.getElementById('syncStatus').textContent = '⚠️ Sin conexión a data/data.json';
