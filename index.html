@@ -512,7 +512,8 @@ function openModal(id){
   const p = rawData.productos.find(x => String(x.odoo_id) === String(id));
   if(!p) return;
 
-  document.getElementById('mImg').src = p.imagen_grande || p.imagen_thumb || '';
+  // Forzamos el uso de la imagen grande. Si n8n la guarda con otro nombre revisa tu data.json
+  document.getElementById('mImg').src = p.imagen_grande || p.imagen_url || p.imagen_thumb || '';
   document.getElementById('mTitle').textContent = p.nombre;
   document.getElementById('mMeta').textContent = `${p.coleccion} · ${p.categoria}`;
   document.getElementById('mVentas').textContent = p.ventas;
