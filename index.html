@@ -574,23 +574,22 @@ function initTimelineDates() {
 
 // RENDERIZADO EXCLUSIVO DE LA GRÁFICA DE LÍNEA DE TIEMPO
 // RENDERIZADO EXCLUSIVO DE LA GRÁFICA DE LÍNEA DE TIEMPO (GLOBAL)
+// RENDERIZADO EXCLUSIVO DE LA GRÁFICA DE LÍNEA DE TIEMPO (CORREGIDO)
 function renderTimeline() {
-  if (!rawHistorial || !rawHistorial.historial || !rawData) return;
+  if (!rawHistorial || !rawHistorial.historial_diario) return;
 
   const desde = document.getElementById('fechaDesde').value;
   const hasta = document.getElementById('fechaHasta').value;
 
-  // 1. Filtrar el historial según el rango de fechas seleccionado
-  const diasFiltrados = rawHistorial.historial.filter(h => h.fecha >= desde && h.fecha <= hasta);
-  diasFiltrados.sort((a,b) => a.fecha.localeCompare(b.fecha));
+  // 1. Obtener los días del objeto historial_diario y ordenarlos
+  const fechas de las ventas = Object.keys(rawHistorial.historial_diario).sort();
 
-  // 2. Generar las etiquetas del eje X (Mes-Día)
-  const labels = diasFiltrados.map(d => d.fecha.slice(5)); 
-  
-  // 3. Sumar de forma global todas las unidades vendidas por día
-  const datosVentas = diasFiltrados.map(d => {
-    return d.ventas_dia.reduce((sum, v) => sum + v.unidades, 0);
-  });
+  // 2. Filtrar las fechas según el rango seleccionado
+  const fechasFiltradas = fechas de las ventas.filter(f => f >= desde && f <= hasta);
+
+  // 3. Generar las etiquetas del eje X (MM-DD) y los datos de ventas correspondientes
+  const labels = fechasFiltradas.map(f => f.slice(5)); 
+  const datosVentas = fechasFiltradas.map(f => rawHistorial.historial_diario[f]);
 
   // 4. Actualizar la gráfica en pantalla
   if (timelineChart) {
