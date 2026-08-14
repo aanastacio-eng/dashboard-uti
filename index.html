@@ -592,39 +592,53 @@ function initTimelineDates() {
 // RENDERIZADO EXCLUSIVO DE LA GRÁFICA DE LÍNEA DE TIEMPO (GLOBAL)
 // RENDERIZADO EXCLUSIVO DE LA GRÁFICA DE LÍNEA DE TIEMPO (CORREGIDO)
 function renderTimeline() {
-  if (!rawHistorial || !rawHistorial.historial_diario) return;
+  if (!rawHistorial || !rawHistorial.pedidos) return;
 
-  const desdeStr = document.getElementById('fechaDesde').value; // Ej: "2026-08-12"
-  const hastaStr = document.getElementById('fechaHasta').value; // Ej: "2026-08-14"
+  const desdeStr = document.getElementById('fechaDesde').value; 
+  const hastaStr = document.getElementById('fechaHasta').value; 
 
   if (!desdeStr || !hastaStr) return;
 
+  // --- PASO 1: Agrupar y sumar los pedidos por fecha ---
+  const resumenDiario = {};
+  
+  rawHistorial.pedidos.forEach(pedido => {
+    // Extraemos solo la parte YYYY-MM-DD por si la fecha viene con hora (ej: "2026-08-12 14:30:00")
+    const fechaLimpia = pedido.fecha.split(' ')[0]; 
+    
+    if (!resumenDiario[fechaLimpia]) {
+      resumenDiario[fechaLimpia] = 0;
+    }
+    // Sumamos las unidades al día correspondiente
+    resumenDiario[fechaLimpia] += Number(pedido.unidades);
+  });
+
+  // --- PASO 2: Generar los días en el rango seleccionado ---
   const labels = [];
   const datosVentas = [];
 
   let fechaActual = new Date(desdeStr + 'T00:00:00');
   const fechaFin = new Date(hastaStr + 'T00:00:00');
 
-  // Este bucle genera CADA DÍA uno por uno entre el 'Desde' y el 'Hasta'
   while (fechaActual <= fechaFin) {
     const yyyy = fechaActual.getFullYear();
     const mm = String(fechaActual.getMonth() + 1).padStart(2, '0');
     const dd = String(fechaActual.getDate()).padStart(2, '0');
     
-    const llaveFecha = `${yyyy}-${mm}-${dd}`; // Queda en formato "2026-08-12"
+    const llaveFecha = `${yyyy}-${mm}-${dd}`; 
 
-    // Guardamos la etiqueta para el eje X (MM-DD)
+    // Guardamos la etiqueta para el eje X (Formato: MM-DD)
     labels.push(`${mm}-${dd}`);
 
-    // Si el JSON tiene datos para este día lo pone, si no, pone 0 (o el valor anterior si es acumulado)
-    const ventasDelDia = rawHistorial.historial_diario[llaveFecha] || 0;
-    datosVentas.push(ventasDelDia);
+    // Si Odoo trajo pedidos para este día, ponemos la suma exacta; si no, va 0
+    const unidadesDelDia = resumenDiario[llaveFecha] || 0;
+    datosVentas.push(unidadesDelDia);
 
-    // Avanzar al siguiente día
+    // Avanzamos al siguiente día en el calendario
     fechaActual.setDate(fechaActual.getDate() + 1);
   }
 
-  // Actualizar la gráfica con todos los días generados
+  // --- PASO 3: Dibujar los valores exactos en la gráfica ---
   if (timelineChart) {
     timelineChart.data.labels = labels;
     timelineChart.data.datasets[0].data = datosVentas;
