@@ -64,31 +64,43 @@ button[aria-pressed="true"]{background:var(--soft);font-weight:600;border-color:
 .kpi .val{font-size:26px;font-weight:600;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
 
 .cols{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:12px;margin-bottom:20px}
-.card{background:var(--card);border:.5px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:20px}
-.card h2{font-size:14px;font-weight:600;margin:0 0 12px}
+.card{background:var(--card);border:.5px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:20px;position:relative}
+
+/* ENCABEZADOS DE TARJETAS CON BOTÓN 'VER MÁS' DISCRETO EN LA ESQUINA DERECHA */
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.card-header h2{
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+.btn-ver-mas-corner{
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-3);
+  background: transparent;
+  border: none;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .15s ease;
+}
+.btn-ver-mas-corner:hover{
+  color: var(--blue);
+  background: var(--soft);
+}
+
 .chart-box{position:relative;width:100%;height:200px}
 .bar-row{display:flex;justify-content:space-between;font-size:13px;padding:6px 0 5px}
 .bar{height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
 .bar span{display:block;height:100%}
 .mini{border-top:.5px solid var(--line);margin-top:14px;padding-top:12px;font-size:13px}
 .mini div{display:flex;justify-content:space-between;padding:3px 0}
-
-.btn-ver-mas{
-  width:100%;
-  margin-top:10px;
-  padding:6px 0;
-  font-size:12px;
-  font-weight:600;
-  color:var(--blue);
-  border:1px dashed var(--line-2);
-  border-radius:var(--radius);
-  background:transparent;
-  cursor:pointer;
-  transition:all .15s ease;
-}
-.btn-ver-mas:hover{
-  background:var(--soft);
-}
 
 /* ETIQUETA PUSH FUERTE */
 .badge-push{
@@ -119,7 +131,7 @@ tfoot td{font-weight:600;border-bottom:none}
 input[type="text"]{font:inherit;font-size:13px;color:var(--ink);background:var(--card);border:.5px solid var(--line-2);border-radius:var(--radius);padding:6px 12px}
 select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);border:.5px solid var(--line-2);border-radius:var(--radius);padding:6px 10px}
 
-/* MODALES */
+/* MODALES POPUP */
 .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s ease}
 .modal-overlay.open{opacity:1;pointer-events:auto}
 .modal-card{background:var(--card);border-radius:12px;max-width:440px;width:100%;overflow:hidden;box-shadow:0 20px 25px -5px rgba(0,0,0,.3);position:relative;transform:scale(.95);transition:transform .2s ease}
@@ -193,16 +205,24 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
 
     <!-- FILA DE TOP 10 Y VENTAS POR CATEGORÍA -->
     <div class="cols">
+      <!-- RECUADRO 1: TOP 10 -->
       <div class="card" style="margin-bottom:0">
-        <h2>Top 10 más vendidos</h2>
+        <div class="card-header">
+          <h2>Top 10 más vendidos</h2>
+          <button class="btn-ver-mas-corner" onclick="openTopModal()">Ver más</button>
+        </div>
         <div class="chart-box">
           <canvas id="ventasChart"></canvas>
         </div>
       </div>
+
+      <!-- RECUADRO 2: CATEGORÍAS -->
       <div class="card" style="margin-bottom:0">
-        <h2>Ventas por categoría</h2>
+        <div class="card-header">
+          <h2>Ventas por categoría</h2>
+          <button class="btn-ver-mas-corner" onclick="openCatModal()">Ver más</button>
+        </div>
         <div id="catBars"></div>
-        <button class="btn-ver-mas" onclick="openCatModal()">Ver más categorías 🔍</button>
         <div class="mini">
           <div><span class="muted">Total productos activos</span><span id="kpiTotalProds">—</span></div>
           <div><span class="muted">Estilos por agotarse (&lt; 15 u)</span><span id="kpiAgotar">—</span></div>
@@ -210,9 +230,12 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
       </div>
     </div>
 
-    <!-- SECCIÓN: QUÉ EMPUJAR ESTA SEMANA (HASTA 10 PRODUCTOS) -->
+    <!-- RECUADRO 3: BAJA ROTACIÓN -->
     <div class="card">
-      <h2>Qué empujar esta semana (Baja rotación)</h2>
+      <div class="card-header">
+        <h2>Qué empujar esta semana (Baja rotación)</h2>
+        <button class="btn-ver-mas-corner" onclick="openPushModal()">Ver más</button>
+      </div>
       <table>
         <thead>
           <tr>
@@ -256,7 +279,7 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
 
 </div>
 
-<!-- MODAL DE IMAGEN DE PRODUCTO -->
+<!-- MODAL 1: FOTO DE PRENDA -->
 <div class="modal-overlay" id="imgModal">
   <div class="modal-card">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -272,14 +295,57 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
   </div>
 </div>
 
-<!-- MODAL POPUP PARA TODAS LAS CATEGORÍAS -->
+<!-- MODAL 2: VER MÁS CATEGORÍAS -->
 <div class="modal-overlay" id="catModal">
   <div class="modal-card" style="max-width:520px; max-height:85vh; display:flex; flex-direction:column;">
     <button class="modal-close" onclick="closeCatModal()">✕</button>
     <div class="modal-body" style="overflow-y:auto; padding:24px;">
       <h2 style="font-size:16px; margin-bottom:6px;">Ventas completas por categoría</h2>
-      <p class="tiny" style="margin-bottom:16px;">Desglose detallado de todas las categorías disponibles</p>
+      <p class="tiny" style="margin-bottom:16px;">Desglose completo de todas las categorías</p>
       <div id="allCatBars"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: VER MÁS TOP VENDIDOS -->
+<div class="modal-overlay" id="topModal">
+  <div class="modal-card" style="max-width:580px; max-height:85vh; display:flex; flex-direction:column;">
+    <button class="modal-close" onclick="closeTopModal()">✕</button>
+    <div class="modal-body" style="overflow-y:auto; padding:24px;">
+      <h2 style="font-size:16px; margin-bottom:6px;">Ranking completo de los más vendidos</h2>
+      <p class="tiny" style="margin-bottom:16px;">Todos los productos ordenados de mayor a menor ventas</p>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:60%">Producto</th>
+            <th style="width:20%">Vendidas</th>
+            <th style="width:20%">Stock</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyAllTop"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 4: VER MÁS BAJA ROTACIÓN (PUSH) -->
+<div class="modal-overlay" id="pushModal">
+  <div class="modal-card" style="max-width:580px; max-height:85vh; display:flex; flex-direction:column;">
+    <button class="modal-close" onclick="closePushModal()">✕</button>
+    <div class="modal-body" style="overflow-y:auto; padding:24px;">
+      <h2 style="font-size:16px; margin-bottom:6px;">Productos de baja rotación (Lista completa)</h2>
+      <p class="tiny" style="margin-bottom:16px;">Sugerencias prioritarias para impulsar ventas</p>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:50%">Producto</th>
+            <th style="width:15%">Vendidas</th>
+            <th style="width:15%">Stock</th>
+            <th style="width:20%; text-align:right;">Acción</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyAllPush"></tbody>
+      </table>
     </div>
   </div>
 </div>
@@ -361,6 +427,7 @@ function thumb(p, size){
     <svg width="${g}" height="${g}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span>`;
 }
 
+/* FUNCIONES DE MODALES POPUP */
 function openModal(id){
   if(!rawData || !rawData.productos) return;
   const p = rawData.productos.find(x => String(x.odoo_id) === String(id));
@@ -374,18 +441,23 @@ function openModal(id){
 
   document.getElementById('imgModal').classList.add('open');
 }
-
 function closeModal(){ document.getElementById('imgModal').classList.remove('open'); }
-document.getElementById('imgModal').onclick = e => { if(e.target.id === 'imgModal') closeModal(); };
 
-/* FUNCIONES PARA MODAL POPUP DE CATEGORÍAS */
-function openCatModal(){
-  document.getElementById('catModal').classList.add('open');
-}
-function closeCatModal(){
-  document.getElementById('catModal').classList.remove('open');
-}
-document.getElementById('catModal').onclick = e => { if(e.target.id === 'catModal') closeCatModal(); };
+function openCatModal(){ document.getElementById('catModal').classList.add('open'); }
+function closeCatModal(){ document.getElementById('catModal').classList.remove('open'); }
+
+function openTopModal(){ document.getElementById('topModal').classList.add('open'); }
+function closeTopModal(){ document.getElementById('topModal').classList.remove('open'); }
+
+function openPushModal(){ document.getElementById('pushModal').classList.add('open'); }
+function closePushModal(){ document.getElementById('pushModal').classList.remove('open'); }
+
+// Cierre al dar clic fuera
+window.onclick = e => {
+  if(e.target.classList.contains('modal-overlay')){
+    e.target.classList.remove('open');
+  }
+};
 
 function filterProducts(){
   if(!rawData || !rawData.productos) return [];
@@ -427,13 +499,24 @@ function render(){
   const agotados = prods.filter(p => p.stock_actual < 15);
   document.getElementById('kpiAgotar').textContent = agotados.length;
 
-  // TOP 10 MÁS VENDIDOS
-  const top10 = [...prods].sort((a,b) => b.ventas - a.ventas).slice(0, 10);
+  // TOP 10 MÁS VENDIDOS Y POPUP COMPLETO
+  const allSortedByVentas = [...prods].sort((a,b) => b.ventas - a.ventas);
+  const top10 = allSortedByVentas.slice(0, 10);
+  
   if(chart){
     chart.data.labels = top10.map(p => p.nombre.replace(/^LM\d+-\w+-/,'').slice(0,20));
     chart.data.datasets[0].data = top10.map(p => p.ventas);
     chart.update();
   }
+
+  // Render para el Modal Popup de Top Vendidos
+  document.getElementById('tbodyAllTop').innerHTML = allSortedByVentas.map(p => {
+    return `<tr>
+      <td><span class="prod">${thumb(p, 36)}<span>${p.nombre}<br><span class="tiny">${p.categoria}</span></span></span></td>
+      <td>${p.ventas}</td>
+      <td>${p.stock_actual}</td>
+    </tr>`;
+  }).join('');
 
   // VENTAS POR CATEGORÍA
   const cats = {};
@@ -442,7 +525,7 @@ function render(){
   const totalCatVentas = sortedCats.reduce((s,c) => s + c[1], 0) || 1;
   const colors = ['var(--blue)', 'var(--green)', 'var(--amber)', '#8e44ad', '#e67e22', '#16a085', '#e74c3c'];
   
-  // Render preliminar (Top 3 en el Dashboard)
+  // Render Top 3 en Dashboard
   const top3Cats = sortedCats.slice(0,3);
   document.getElementById('catBars').innerHTML = top3Cats.map((c, i) => {
     const pct = Math.round((c[1] / totalCatVentas) * 100);
@@ -450,7 +533,7 @@ function render(){
     <div class="bar"><span style="width:${pct}%;background:${colors[i%colors.length]}"></span></div>`;
   }).join('');
 
-  // Render completo para el Modal / Popup
+  // Render Completo en Popup
   document.getElementById('allCatBars').innerHTML = sortedCats.map((c, i) => {
     const pct = Math.round((c[1] / totalCatVentas) * 100);
     return `<div style="margin-bottom:12px;">
@@ -459,27 +542,26 @@ function render(){
     </div>`;
   }).join('');
 
-  // CAMBIO IMAGEN 2: MOSTRAR HASTA 10 PRODUCTOS EN "QUÉ EMPUJAR ESTA SEMANA"
-  const bajaRotacion = [...prods]
-    .filter(p => p.stock_actual > 0)
-    .sort((a,b) => a.ventas - b.ventas)
-    .slice(0, 10);
+  // BAJA ROTACIÓN (10 EN DASHBOARD, TODOS EN POPUP)
+  const allBajaRotacion = [...prods].filter(p => p.stock_actual > 0).sort((a,b) => a.ventas - b.ventas);
+  const bajaRotacion10 = allBajaRotacion.slice(0, 10);
 
-  document.getElementById('tbodyPush').innerHTML = bajaRotacion.map(p => {
-    return `<tr>
-      <td>
-        <span class="prod">
-          ${thumb(p, 38)}
-          <span>${p.nombre}<br><span class="tiny">${p.categoria}</span></span>
-        </span>
-      </td>
-      <td>${p.ventas}</td>
-      <td>${p.stock_actual}</td>
-      <td style="text-align:right;"><span class="badge-push">Push fuerte</span></td>
-    </tr>`;
-  }).join('');
+  const rowHTML = p => `<tr>
+    <td>
+      <span class="prod">
+        ${thumb(p, 36)}
+        <span>${p.nombre}<br><span class="tiny">${p.categoria}</span></span>
+      </span>
+    </td>
+    <td>${p.ventas}</td>
+    <td>${p.stock_actual}</td>
+    <td style="text-align:right;"><span class="badge-push">Push fuerte</span></td>
+  </tr>`;
 
-  // TABLA DETALLE (CON FILTRO IMAGEN 1: MENOS VENDIDOS)
+  document.getElementById('tbodyPush').innerHTML = bajaRotacion10.map(rowHTML).join('');
+  document.getElementById('tbodyAllPush').innerHTML = allBajaRotacion.map(rowHTML).join('');
+
+  // TABLA DETALLE DE PRENDAS
   const search = (document.getElementById('searchInput')?.value || '').toLowerCase();
 
   let filteredDetalle = prods.filter(p => {
