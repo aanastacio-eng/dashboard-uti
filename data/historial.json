@@ -1,7 +1,27 @@
 {
-  "actualizado": "2026-08-14T14:41:41.368Z",
-  "total_acumulado": 1048,
-  "historial_diario": {
-    "2026-08-14": 1048
-  }
+  "actualizado": "2026-08-14T09:50:00Z",
+  "historial": [
+    {
+      "fecha": "2026-08-12",
+      "ventas_dia": [
+        { "odoo_id": 1024, "unidades": 3 },
+        { "odoo_id": 1025, "unidades": 5 },
+        { "odoo_id": 1026, "unidades": 2 }
+      ]
+    },
+    {
+      "fecha": "2026-08-13",
+      "ventas_dia": [
+        { "odoo_id": 1024, "unidades": 4 },
+        { "odoo_id": 1025, "unidades": 2 }
+      ]
+    },
+    {
+      "fecha": "2026-08-14",
+      "ventas_dia": [
+        { "odoo_id": 1024, "unidades": 7 },
+        { "odoo_id": 1026, "unidades": 5 }
+      ]
+    }
+  ]
 }
