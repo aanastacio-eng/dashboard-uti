@@ -594,20 +594,37 @@ function initTimelineDates() {
 function renderTimeline() {
   if (!rawHistorial || !rawHistorial.historial_diario) return;
 
-  const desde = document.getElementById('fechaDesde').value;
-  const hasta = document.getElementById('fechaHasta').value;
+  const desdeStr = document.getElementById('fechaDesde').value; // Ej: "2026-08-12"
+  const hastaStr = document.getElementById('fechaHasta').value; // Ej: "2026-08-14"
 
-  // 1. Obtener los días del objeto historial_diario y ordenarlos
-  const fechasVentas = Object.keys(rawHistorial.historial_diario).sort();
+  if (!desdeStr || !hastaStr) return;
 
-  // 2. Filtrar las fechas según el rango seleccionado
-  const fechasFiltradas = fechasVentas.filter(f => f >= desde && f <= hasta);
+  const labels = [];
+  const datosVentas = [];
 
-  // 3. Generar las etiquetas del eje X (MM-DD) y los datos de ventas correspondientes
-  const labels = fechasFiltradas.map(f => f.slice(5)); 
-  const datosVentas = fechasFiltradas.map(f => rawHistorial.historial_diario[f]);
+  let fechaActual = new Date(desdeStr + 'T00:00:00');
+  const fechaFin = new Date(hastaStr + 'T00:00:00');
 
-  // 4. Actualizar la gráfica en pantalla
+  // Este bucle genera CADA DÍA uno por uno entre el 'Desde' y el 'Hasta'
+  while (fechaActual <= fechaFin) {
+    const yyyy = fechaActual.getFullYear();
+    const mm = String(fechaActual.getMonth() + 1).padStart(2, '0');
+    const dd = String(fechaActual.getDate()).padStart(2, '0');
+    
+    const llaveFecha = `${yyyy}-${mm}-${dd}`; // Queda en formato "2026-08-12"
+
+    // Guardamos la etiqueta para el eje X (MM-DD)
+    labels.push(`${mm}-${dd}`);
+
+    // Si el JSON tiene datos para este día lo pone, si no, pone 0 (o el valor anterior si es acumulado)
+    const ventasDelDia = rawHistorial.historial_diario[llaveFecha] || 0;
+    datosVentas.push(ventasDelDia);
+
+    // Avanzar al siguiente día
+    fechaActual.setDate(fechaActual.getDate() + 1);
+  }
+
+  // Actualizar la gráfica con todos los días generados
   if (timelineChart) {
     timelineChart.data.labels = labels;
     timelineChart.data.datasets[0].data = datosVentas;
