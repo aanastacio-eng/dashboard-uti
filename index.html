@@ -59,6 +59,7 @@ button[aria-pressed="true"]{background:var(--soft);font-weight:600;border-color:
 .tabs button[aria-selected="true"]{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
 
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
 .kpi{background:var(--soft);border-radius:var(--radius);padding:14px 16px}
 .kpi .lbl{font-size:13px;color:var(--ink-2)}
 .kpi .val{font-size:26px;font-weight:600;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
@@ -102,9 +103,9 @@ button[aria-pressed="true"]{background:var(--soft);font-weight:600;border-color:
 .mini{border-top:.5px solid var(--line);margin-top:14px;padding-top:12px;font-size:13px}
 .mini div{display:flex;justify-content:space-between;padding:3px 0}
 
-/* ESCALA DE BADGES PUSH CON NUEVA PALETA SEMÁNTICA DISCRETA */
+/* MEDIDOR ACTUALIZADO: SEMÁFORO DE 4 COLORES CON EXCELENTE CONTRASTE */
 .badge-push {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 6px;
@@ -112,20 +113,49 @@ button[aria-pressed="true"]{background:var(--soft);font-weight:600;border-color:
   text-align: center;
   white-space: nowrap;
 }
+/* Modo Claro */
 .badge-push.critico {
-  background: rgba(208, 59, 59, 0.15);
-  color: #ff6b6b;
-  border: 0.5px solid rgba(208, 59, 59, 0.3);
+  background: #fde8e8;
+  color: #c81e1e;
+  border: 0.5px solid #f8b4b4;
+}
+.badge-push.naranja {
+  background: #ffede0;
+  color: #e65c00;
+  border: 0.5px solid #ffccaa;
 }
 .badge-push.medio {
-  background: rgba(237, 161, 0, 0.15);
-  color: #ffbe33;
-  border: 0.5px solid rgba(237, 161, 0, 0.3);
+  background: #fef3c7;
+  color: #b45309;
+  border: 0.5px solid #fcd34d;
 }
 .badge-push.leve {
-  background: rgba(27, 175, 122, 0.15);
-  color: #4adea2;
-  border: 0.5px solid rgba(27, 175, 122, 0.3);
+  background: #def7ec;
+  color: #03543f;
+  border: 0.5px solid #bfefdb;
+}
+/* Modo Oscuro */
+@media (prefers-color-scheme: dark) {
+  .badge-push.critico {
+    background: rgba(232, 68, 68, 0.2);
+    color: #ff8585;
+    border: 0.5px solid rgba(232, 68, 68, 0.4);
+  }
+  .badge-push.naranja {
+    background: rgba(230, 92, 0, 0.2);
+    color: #ff944d;
+    border: 0.5px solid rgba(230, 92, 0, 0.4);
+  }
+  .badge-push.medio {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border: 0.5px solid rgba(245, 158, 11, 0.4);
+  }
+  .badge-push.leve {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 0.5px solid rgba(16, 185, 129, 0.4);
+  }
 }
 
 table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}
@@ -456,7 +486,6 @@ function openModal(id){
 function closeModal(){ document.getElementById('imgModal').classList.remove('open'); }
 function openCatModal(){ document.getElementById('catModal').classList.add('open'); }
 function closeCatModal(){ document.getElementById('catModal').classList.remove('open'); }
-// Modales agregados para las esquinas superiores derechas
 function openTopModal(){ document.getElementById('topModal').classList.add('open'); }
 function closeTopModal(){ document.getElementById('topModal').classList.remove('open'); }
 function openPushModal(){ document.getElementById('pushModal').classList.add('open'); }
@@ -482,14 +511,16 @@ function calcularDiasCampana(){
   return diffDays > 0 ? diffDays : 1;
 }
 
-/* LÓGICA DE ESCALA SEMÁNTICA PARA EL PUSH DE VENTAS */
-function getPushBadge(stock) {
-  if (stock >= 120) {
-    return `<span class="badge-push critico">⚡ Push Crítico</span>`;
-  } else if (stock >= 50) {
-    return `<span class="badge-push medio">🔸 Push Medio</span>`;
+/* NUEVA LOGICA DE SEMÁFORO CORREGIDA CON SUS 4 COLORES Y RANGOS DE UNIDADES VENDIDAS */
+function getPushBadge(ventas) {
+  if (ventas < 20) {
+    return `<span class="badge-push critico">⚡ Menos 20 u.</span>`;
+  } else if (ventas >= 20 && ventas <= 30) {
+    return `<span class="badge-push naranja">🔸 20 a 30 u.</span>`;
+  } else if (ventas >= 31 && ventas <= 45) {
+    return `<span class="badge-push medio">⚠️ 31 a 45 u.</span>`;
   } else {
-    return `<span class="badge-push leve">🔹 Push Leve</span>`;
+    return `<span class="badge-push leve">🔹 Más 45 u.</span>`;
   }
 }
 
@@ -559,14 +590,14 @@ function render(){
     </div>`;
   }).join('');
 
-  // BAJA ROTACIÓN: ORDENADOS DE MENOS A MÁS VENDIDOS Y LUEGO POR MÁS STOCK DISPONIBLE (ESCALA AUTOMÁTICA)
+  // BAJA ROTACIÓN: ORDENADOS DE MENOS A MÁS VENDIDOS Y LUEGO POR MÁS STOCK DISPONIBLE
   const allBajaRotacion = [...prods]
     .filter(p => p.stock_actual > 0)
     .sort((a,b) => {
       if (a.ventas !== b.ventas) return a.ventas - b.ventas;
-      return b.stock_actual - a.stock_actual; // A igualdad de pocas ventas, priorizar prendas con más stock
+      return b.stock_actual - a.stock_actual;
     });
-    
+      
   const bajaRotacion10 = allBajaRotacion.slice(0, 10);
 
   const rowHTML = p => `<tr>
@@ -578,7 +609,7 @@ function render(){
     </td>
     <td>${p.ventas}</td>
     <td>${p.stock_actual}</td>
-    <td style="text-align:right;">${getPushBadge(p.stock_actual)}</td>
+    <td style="text-align:right;">${getPushBadge(p.ventas)}</td>
   </tr>`;
 
   document.getElementById('tbodyPush').innerHTML = bajaRotacion10.map(rowHTML).join('');
@@ -685,3 +716,4 @@ setInterval(() => {
 </script>
 </body>
 </html>
+   
