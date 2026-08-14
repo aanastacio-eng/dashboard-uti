@@ -573,25 +573,26 @@ function initTimelineDates() {
 }
 
 // RENDERIZADO EXCLUSIVO DE LA GRÁFICA DE LÍNEA DE TIEMPO
+// RENDERIZADO EXCLUSIVO DE LA GRÁFICA DE LÍNEA DE TIEMPO (GLOBAL)
 function renderTimeline() {
   if (!rawHistorial || !rawHistorial.historial || !rawData) return;
 
   const desde = document.getElementById('fechaDesde').value;
   const hasta = document.getElementById('fechaHasta').value;
-  const prodsFiltrados = filterProducts();
-  const idsPermitidos = new Set(prodsFiltrados.map(p => p.odoo_id));
 
-  // Filtrar el historial según el rango de fechas
+  // 1. Filtrar el historial según el rango de fechas seleccionado
   const diasFiltrados = rawHistorial.historial.filter(h => h.fecha >= desde && h.fecha <= hasta);
   diasFiltrados.sort((a,b) => a.fecha.localeCompare(b.fecha));
 
-  const labels = diasFiltrados.map(d => d.fecha.slice(5)); // Formato "MM-DD" o "MM-DD"
+  // 2. Generar las etiquetas del eje X (Mes-Día)
+  const labels = diasFiltrados.map(d => d.fecha.slice(5)); 
+  
+  // 3. Sumar de forma global todas las unidades vendidas por día
   const datosVentas = diasFiltrados.map(d => {
-    return d.ventas_dia
-      .filter(v => idsPermitidos.has(v.odoo_id))
-      .reduce((sum, v) => sum + v.unidades, 0);
+    return d.ventas_dia.reduce((sum, v) => sum + v.unidades, 0);
   });
 
+  // 4. Actualizar la gráfica en pantalla
   if (timelineChart) {
     timelineChart.data.labels = labels;
     timelineChart.data.datasets[0].data = datosVentas;
