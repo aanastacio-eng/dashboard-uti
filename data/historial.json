@@ -1,9 +1,7 @@
 {
-  "pedidos": [
-    { "fecha": "2026-08-12", "unidades": 40 },
-    { "fecha": "2026-08-12", "unidades": 10 },
-    { "fecha": "2026-08-13", "unidades": 100 },
-    { "fecha": "2026-08-13", "unidades": 300 },
-    { "fecha": "2026-08-14", "unidades": 200 }
-  ]
+  "actualizado": "2026-08-14T15:57:32.064Z",
+  "total_acumulado": 1051,
+  "historial_diario": {
+    "2026-08-14": 1051
+  }
 }
