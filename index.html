@@ -66,7 +66,7 @@ button[aria-pressed="true"]{background:var(--soft);font-weight:600;border-color:
 .cols{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:12px;margin-bottom:20px}
 .card{background:var(--card);border:.5px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:20px;position:relative}
 
-/* ENCABEZADOS DE TARJETAS CON BOTÓN 'VER MÁS' DISCRETO EN LA ESQUINA DERECHA */
+/* ENCABEZADOS DE TARJETAS */
 .card-header{
   display: flex;
   justify-content: space-between;
@@ -102,15 +102,30 @@ button[aria-pressed="true"]{background:var(--soft);font-weight:600;border-color:
 .mini{border-top:.5px solid var(--line);margin-top:14px;padding-top:12px;font-size:13px}
 .mini div{display:flex;justify-content:space-between;padding:3px 0}
 
-/* ETIQUETA PUSH FUERTE */
-.badge-push{
-  background: #1e4620;
-  color: #5edb66;
+/* ESCALA DE BADGES PUSH CON NUEVA PALETA SEMÁNTICA DISCRETA */
+.badge-push {
   font-weight: 600;
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 6px;
   display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+.badge-push.critico {
+  background: rgba(208, 59, 59, 0.15);
+  color: #ff6b6b;
+  border: 0.5px solid rgba(208, 59, 59, 0.3);
+}
+.badge-push.medio {
+  background: rgba(237, 161, 0, 0.15);
+  color: #ffbe33;
+  border: 0.5px solid rgba(237, 161, 0, 0.3);
+}
+.badge-push.leve {
+  background: rgba(27, 175, 122, 0.15);
+  color: #4adea2;
+  border: 0.5px solid rgba(27, 175, 122, 0.3);
 }
 
 table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}
@@ -203,7 +218,6 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
       <div class="kpi"><p class="lbl">Ventas diarias prom.</p><p class="val" id="kpiDailyAvg">—</p><p class="tiny" id="kpiDaysCount">uds / día</p></div>
     </div>
 
-    <!-- FILA DE TOP 10 Y VENTAS POR CATEGORÍA -->
     <div class="cols">
       <!-- RECUADRO 1: TOP 10 -->
       <div class="card" style="margin-bottom:0">
@@ -230,7 +244,7 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
       </div>
     </div>
 
-    <!-- RECUADRO 3: BAJA ROTACIÓN -->
+    <!-- RECUADRO 3: BAJA ROTACIÓN CON ESCALA INTELIGENTE -->
     <div class="card">
       <div class="card-header">
         <h2>Qué empujar esta semana (Baja rotación)</h2>
@@ -242,7 +256,7 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
             <th style="width:50%">Producto</th>
             <th style="width:15%">Vendidas</th>
             <th style="width:15%">Stock</th>
-            <th style="width:20%; text-align:right;">Acción</th>
+            <th style="width:20%; text-align:right;">Prioridad</th>
           </tr>
         </thead>
         <tbody id="tbodyPush"></tbody>
@@ -334,14 +348,14 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
     <button class="modal-close" onclick="closePushModal()">✕</button>
     <div class="modal-body" style="overflow-y:auto; padding:24px;">
       <h2 style="font-size:16px; margin-bottom:6px;">Productos de baja rotación (Lista completa)</h2>
-      <p class="tiny" style="margin-bottom:16px;">Sugerencias prioritarias para impulsar ventas</p>
+      <p class="tiny" style="margin-bottom:16px;">Sugerencias prioritarias ordenadas por nivel de stock acumulado</p>
       <table>
         <thead>
           <tr>
             <th style="width:50%">Producto</th>
             <th style="width:15%">Vendidas</th>
             <th style="width:15%">Stock</th>
-            <th style="width:20%; text-align:right;">Acción</th>
+            <th style="width:20%; text-align:right;">Prioridad</th>
           </tr>
         </thead>
         <tbody id="tbodyAllPush"></tbody>
@@ -350,7 +364,6 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--card);borde
   </div>
 </div>
 
-<!-- LIBRERÍAS DE CHART.JS Y SHEETJS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
@@ -427,7 +440,6 @@ function thumb(p, size){
     <svg width="${g}" height="${g}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span>`;
 }
 
-/* FUNCIONES DE MODALES POPUP */
 function openModal(id){
   if(!rawData || !rawData.productos) return;
   const p = rawData.productos.find(x => String(x.odoo_id) === String(id));
@@ -442,17 +454,14 @@ function openModal(id){
   document.getElementById('imgModal').classList.add('open');
 }
 function closeModal(){ document.getElementById('imgModal').classList.remove('open'); }
-
 function openCatModal(){ document.getElementById('catModal').classList.add('open'); }
 function closeCatModal(){ document.getElementById('catModal').classList.remove('open'); }
-
+// Modales agregados para las esquinas superiores derechas
 function openTopModal(){ document.getElementById('topModal').classList.add('open'); }
 function closeTopModal(){ document.getElementById('topModal').classList.remove('open'); }
-
 function openPushModal(){ document.getElementById('pushModal').classList.add('open'); }
 function closePushModal(){ document.getElementById('pushModal').classList.remove('open'); }
 
-// Cierre al dar clic fuera
 window.onclick = e => {
   if(e.target.classList.contains('modal-overlay')){
     e.target.classList.remove('open');
@@ -471,6 +480,17 @@ function calcularDiasCampana(){
   const diffTime = Math.abs(hoy - fechaInicio);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return diffDays > 0 ? diffDays : 1;
+}
+
+/* LÓGICA DE ESCALA SEMÁNTICA PARA EL PUSH DE VENTAS */
+function getPushBadge(stock) {
+  if (stock >= 120) {
+    return `<span class="badge-push critico">⚡ Push Crítico</span>`;
+  } else if (stock >= 50) {
+    return `<span class="badge-push medio">🔸 Push Medio</span>`;
+  } else {
+    return `<span class="badge-push leve">🔹 Push Leve</span>`;
+  }
 }
 
 function render(){
@@ -499,7 +519,7 @@ function render(){
   const agotados = prods.filter(p => p.stock_actual < 15);
   document.getElementById('kpiAgotar').textContent = agotados.length;
 
-  // TOP 10 MÁS VENDIDOS Y POPUP COMPLETO
+  // TOP 10 MÁS VENDIDOS Y MODAL COMPLETO
   const allSortedByVentas = [...prods].sort((a,b) => b.ventas - a.ventas);
   const top10 = allSortedByVentas.slice(0, 10);
   
@@ -509,7 +529,6 @@ function render(){
     chart.update();
   }
 
-  // Render para el Modal Popup de Top Vendidos
   document.getElementById('tbodyAllTop').innerHTML = allSortedByVentas.map(p => {
     return `<tr>
       <td><span class="prod">${thumb(p, 36)}<span>${p.nombre}<br><span class="tiny">${p.categoria}</span></span></span></td>
@@ -525,7 +544,6 @@ function render(){
   const totalCatVentas = sortedCats.reduce((s,c) => s + c[1], 0) || 1;
   const colors = ['var(--blue)', 'var(--green)', 'var(--amber)', '#8e44ad', '#e67e22', '#16a085', '#e74c3c'];
   
-  // Render Top 3 en Dashboard
   const top3Cats = sortedCats.slice(0,3);
   document.getElementById('catBars').innerHTML = top3Cats.map((c, i) => {
     const pct = Math.round((c[1] / totalCatVentas) * 100);
@@ -533,7 +551,6 @@ function render(){
     <div class="bar"><span style="width:${pct}%;background:${colors[i%colors.length]}"></span></div>`;
   }).join('');
 
-  // Render Completo en Popup
   document.getElementById('allCatBars').innerHTML = sortedCats.map((c, i) => {
     const pct = Math.round((c[1] / totalCatVentas) * 100);
     return `<div style="margin-bottom:12px;">
@@ -542,8 +559,14 @@ function render(){
     </div>`;
   }).join('');
 
-  // BAJA ROTACIÓN (10 EN DASHBOARD, TODOS EN POPUP)
-  const allBajaRotacion = [...prods].filter(p => p.stock_actual > 0).sort((a,b) => a.ventas - b.ventas);
+  // BAJA ROTACIÓN: ORDENADOS DE MENOS A MÁS VENDIDOS Y LUEGO POR MÁS STOCK DISPONIBLE (ESCALA AUTOMÁTICA)
+  const allBajaRotacion = [...prods]
+    .filter(p => p.stock_actual > 0)
+    .sort((a,b) => {
+      if (a.ventas !== b.ventas) return a.ventas - b.ventas;
+      return b.stock_actual - a.stock_actual; // A igualdad de pocas ventas, priorizar prendas con más stock
+    });
+    
   const bajaRotacion10 = allBajaRotacion.slice(0, 10);
 
   const rowHTML = p => `<tr>
@@ -555,7 +578,7 @@ function render(){
     </td>
     <td>${p.ventas}</td>
     <td>${p.stock_actual}</td>
-    <td style="text-align:right;"><span class="badge-push">Push fuerte</span></td>
+    <td style="text-align:right;">${getPushBadge(p.stock_actual)}</td>
   </tr>`;
 
   document.getElementById('tbodyPush').innerHTML = bajaRotacion10.map(rowHTML).join('');
@@ -584,7 +607,6 @@ function render(){
   document.getElementById('detalleNota').textContent = `${filteredDetalle.length} prendas mostradas · el stock actual se marca en rojo cuando quedan menos de 15 unidades`;
 }
 
-// EXPORTACIÓN A EXCEL (.XLSX)
 function exportXLSX(){
   const prods = filterProducts();
   const excelData = prods.map(p => ({
