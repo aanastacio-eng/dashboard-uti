@@ -739,12 +739,12 @@ async function loadData(){
     rawData = await resData.json();
 
     // 2. Cargar historial temporal de forma asíncrona
-    try {
+    /*try {
       const resHist = await fetch(HISTORIAL_URL + '?t=' + Date.now(), {cache:'no-store'});
       if(resHist.ok) rawHistorial = await resHist.json();
     } catch(errHist) {
       console.warn("No se pudo cargar el historial de línea de tiempo:", errHist);
-    }
+    }*/
     
     document.getElementById('syncStatus').textContent = 'Actualizado: ' + new Date(rawData.actualizado).toLocaleString('es-EC');
     
