@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-08-13T23:56:57.443Z",
+  "actualizado": "2026-08-14T00:03:50.424Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 4205,
-    "inventario_actual": 3160,
+    "inventario_actual": 3159,
     "ventas_totales": 931,
     "ingresos_totales": 0,
     "total_productos": 48
@@ -39,7 +39,7 @@
     "Uti 1": {
       "ventas": 931,
       "stock_inicial": 4205,
-      "stock_actual": 3160,
+      "stock_actual": 3159,
       "productos": 29
     },
     "UTI 2": {
@@ -692,7 +692,7 @@
       "coleccion": "Uti 1",
       "categoria": "Producto Terminado / Pantalones",
       "stock_inicial": 182,
-      "stock_actual": 165,
+      "stock_actual": 164,
       "ventas": 16,
       "precio": 69.48,
       "imagen_thumb": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBwkIBgcJBwYGCAsICQoKCgoKBggLDAsKDAkKCgr/2wBDAQICAgICAgUDAwUKBwYHCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgr/wAARCACAADUDASIAAhEBAxEB/8QAHQAAAgMAAwEBAAAAAAAAAAAABQYABAcCAwgJAf/EAEkQAAEDAgQCBAcKCgsAAAAAAAECAwQAEQUGBxIhMQgTQVEiMoGRscHRCRQVI0JhcXKCoUNEUmJjkqKzwuEWFyQlJjM0VJOjsv/EABoBAAIDAQEAAAAAAAAAAAAAAAMGAgQFAQD/xAAvEQACAQMCAwUHBQAAAAAAAAABAgADBBEhcQUxMiRBYYHwExQiIzRR4RIVUrHB/9oADAMBAAIRAxEAPwD1drHmHEsp5PkSsGeSzLUUJYeUkEIN78jz4Ajy18uchaOQukJ0jdTMJwvpVZ7wNLePP4hiWFZchvxWWpDsx5tabuuJbdICWTdHCywPkmvpt0k0pGVWCpe1Pv4Kd+qlKjby8vLWLvYm1Bw6E+tYbDrrA8FI8Iquf4TxqnVuqlu5C94HlrmWbKzpV6ALDvM87yfcpNMMaV/fvS+1XcKvGU7h0d7z/Hn0UJn+40dGqRJVKT0ldQ5EhFgXVZchhQ52F1OX769WB6WV+C7e9wUqSLe2h8USIc56M2vaFtIUdxJtZSk2FybDlQ/3C7/lLI4dbDUZ9eU8kYx7j/pxGJXg2vecNiVAKVKgRQSCQPkkgUy+5WYflnSLVPOkbJ6c5KabmRoU93NODiKl1CJUptIaVaz10dWrfYEX2gWsT6SnF1cZxp19QC0lPdYngPvqjCxQNx1uIcUrqmVKaClk+KpQtx+rXvfrhlIc5zjywczrWFuV+Eff+sfmen0NoebD2zxhUoTlHNrOJ5fizUoJDrCF8u9INSr+RFjEWOlBLk/BMeOpe1vqZC1DvUNgHpPnrF8eUlWHYS0TwDKXOXaBYek1sXS1dTGy/He7fesn0t1imKh+bgGBym/wvVNX/X/lWTd59ufXdGnhutqvrvjmyGw4QexIIqhiD7bWOhARffEub/Mv+dWYZU6G3L8FxUKqlObU5mJtA4kxgB5VE+oUECH5Sjjcp5TLpTw2qTbz0KwZK3Qhj8uM/wAz+lX7aP4nBJStNuBkJTy7LUv5VRbEY8ZZuUpkJP8AzKrsmMlTN70dcelae4Y6Am/vNsG/eBapVbREE6ewUK47EbeJ7ialbqlSo0iXU0qEeM6el62s5fjt87xXwOHLwmqyb3itWTsBKR4sqOeX6RQrb+lTA6/CYu5Nx70lD92ayxEMHTzDX0gfF9SvzOj21k3YxXOPWka+GfSrv/s7cHYK4zaNvFEdSfKDaq8SMDm5EMNAFuJ1h487qI9VF8EirE+XGH4N91I4dm4n11Whs7tS5DCU36rCmuB7OKz66EF0zDN1YnU+wlxwJtwMr0ClHKsdYzI1YXC3HyOH55p9ahLK2lKHjSFn7qXMvwW4+NYe8EjwutIJHeqokQiaqZrei2GLTkhlISeDqwLH841KNaLREf0EjKUjxipXnJNSmKknyxtEms3zW3M59JeIHsBiqIN9klP/AFg+qskwmOqTpezs5pjXHkUDW4a9whKy2z27XnAOHe0sVk+R8O67IDUdYBHUkW8prIvFxcRq4Y3YxvOOBRQrNE1vbbctKx9pANdGDwg5qdizg5txmWgCO5AProrgsbq84rRbguM0efcm1V8ttlWoWPrI5PgeZtNRUaCHcn9RxOD7BQ0yvbbb1yvMKW4cUtPYIux8NhZ5eWnXEo2zCwq1rQ3lee9LbkbYMANj/pnP/NCdQCIWl0ma5pEz1WQoAI4lkE8alXNMY4byNhySPxdPP6BUpiUYURFc5cmEdY20vZaSof7j+BdZTpy3vyelHM2UP2jWp6oLUrLoS4bHrxw+ysVmWlSQvLZSex5fP6axb36kbRt4YOyHefsRnqs7I+eIPRQ7KBC854+5f8bV+7FGUoAzomwHCPYfPQTT/a7mLH3RxUZ7l/m8FIFRHKWT1GGsxshrCXEj5GGn76ATowT8BDbyju3/AFDTJm4JRhcsd0VKfooFiYAdwVN7WadH7BodTqEJT6TNV05H+CsO7P7Mnn9AqVx01JVkrDyVfi6fQKlMK8hEV+sy9q2uPIy82+1Y7ngUkfUXWX6Si+XnkcLh5VO+d5xey/Hjk8NylWv3NK9tI+kKgcJfSTwDi/LxrBvT2kbRw4auLQ7y0slObd5HEMnnQbTMt/C+NeD4ap6io990pNFlKAzE4vgbMqpd0yedGb8bbt8Wl5sk37S3Qw/LMsldTGLOru3CJTl+KglNCcRUDMwZKuwrHH6tXc7O2wlaSebg7PnoXiLykz8H3Hh1x4+SoufikkGhmqaWPJdyNAII4MgfdUofo7LSclMIVe6FKT5iRUphpsDTB8Ij1lK1WHiYNzHiYfwphtSgSlp5Rt37LeulvR14fBj5P5avTXKVihkYcl3d4kJ5X3Iqhou/uwt66uZUaX7xu0R1sFxawxuvi8hduAYVShpTPDucc2MhVjGlxQftMJPrpmdf6t6bIJ8VnvpF0ikOJzvm2Rc7JamXE/YBQfQKFzh9ATHbOzyTACBxu4OI+mhWMyEom4WrdykDnXbm6Up2Mjw+BWKG5ke+MgOFfivp9IqDNrieUaTSNH5ajl59gn/KmOpH66qlBtMcUEVnE4xVbZiKzz7+PrqVu0XHsl2ifcoBcPn7mKsbFC/laRJBJCMNVe3ZcgequWikoGC83vNxc8OyjcTSfHZeW3MEwvYlx+OhsrdVYJ4knh20Sy1oBh2n0F7Ep5dmPrjrUXC+qzRCSTtAIA48eVZla3qVa5PITct+I29G2CnU/mL+KTgzCxBQJKlLS2kDme2l3TSEwxHEuQklU5Dvhg8QoEKHpNO+cdLc44bBdh4Vh8if1yt6HWm7quW7eEOw3JqzkjRecjLUbD5slcGW1xQtxjdsJTYgpuL1CnRclhiErX1FSjA6HnFXGoeIS3I0VASRfisHn7KF5vcVHUwlSbFDibEG4UPbWnf1BYwGUxpuoLriArctUaAllxY7t25QSPoFdGJ9HzLD2EvtRWFtzL7m5K5C1rUq/NRJO6ue6VTkmcPFbZSAMmJOW8ZETEcSaKync824Pnu2PZUopH0dzVDlOvv9SS6hCQlL44bQRepWjRBWkA3OYl06PcMy6gz/2Q==",
