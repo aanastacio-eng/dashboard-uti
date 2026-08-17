@@ -10,7 +10,7 @@ productos en las colecciones **Uti 1** y **UTI 2** (extraído directo de Odoo).
 git init
 git add .
 git commit -m "Dashboard Uti 1 / Uti 2"
-git remote add origin https://github.com/TU_USUARIO/TU_REPO.git
+git remote add origin https://github.com/TU_USUARIO/TU_REP.git
 git branch -M main
 git push -u origin main
 ```
