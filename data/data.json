@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-03T15:20:51.610Z",
+  "actualizado": "2026-09-03T15:25:50.906Z",
   "fuente": "odoo_n8n_webhook",
   "kpis": {
     "inventario_inicial": 6740,
@@ -254,7 +254,7 @@
     }
   ],
   "ventas_por_talla": {
-    "XS": 614,
+    "XS": 615,
     "S": 821,
     "M": 784,
     "L": 370,
